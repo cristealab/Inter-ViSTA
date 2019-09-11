@@ -1,0 +1,31 @@
+as.network.tPath        Create a network object from a 'tPath' object -
+                        the results of a path search
+duration                Compute Observed Activity Durations or Event
+                        Counts for Edges or Vertices
+forward.reachable       Find the set of vertices reachable from a given
+                        set using only paths moving forward in time
+moodyContactSim         Jim Moody's example dynamic contact simulation
+                        network
+pShiftCount             Compute Counts of Gibson's Participation Shifts
+paths                   Temporally Reachable Paths in a networkDynamic
+                        Object
+plotPaths               Network Plots a Highlighting Temporal Path(s) .
+tDegree                 Report momentary degree of a networkDynamic
+                        object at multiple timepoints
+tEdgeDensity            Functions to compute temporal density-related
+                        measures on dynamic networks
+tEdgeFormation          Counts or fractions of edge transitions in a
+                        networkDynamic object
+tErgmStats              Calculate network summary statistics at
+                        multiple time points
+tReach                  computes sizes of temporally reachable sets in
+                        a dynamicNetwork
+tSnaStats               Apply the sna package's static graph- and
+                        vertex-level network descriptive statistics at
+                        multiple time points
+tiedDuration            Compute the duration of time (or count of
+                        events) that each vertex is tied/connected to
+                        others by an edge
+timeProjectedNetwork    Construct a time-projected ("multi-slice")
+                        network by binning a networkDynamic object
+tsna                    Tools for Temporal Social Network Analysis

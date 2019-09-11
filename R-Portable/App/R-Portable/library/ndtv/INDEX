@@ -1,0 +1,45 @@
+compute.animation       Compute a sequence of vertex layouts over time
+                        suitable for rendering an animation.
+effectFun               functions to manipulate graphic attributes of
+                        network for 'special effects'
+export.dot              Export a network file as Graphviz .dot
+                        formatted text file.
+export.pajek.net        Export a network file as a Pajek .net formatted
+                        text file.
+filmstrip               Create a 'small multiples' plot of a
+                        networkDynamic object.
+install.ffmpeg          Instructions for installing ffmpeg on various
+                        platforms
+install.graphviz        Instructions for installing the Graphviz
+                        libraries on various platforms
+layout.center           Functions to center and normalize the
+                        coordinates of a network plot within a window.
+layout.distance         Provides a default way to convert a network
+                        into a set of euclidian distances suitable for
+                        MDS-style layout optimization.
+msm.sim                 MSM.sim : output of a stergm simulation of
+                        basic sex contact network model
+ndtv-package            Network Dynamic Temporal Visualization (ndtv)
+ndtvAnimationWidget     htmlwidgets wrapper functions for including
+                        ndtv-d3 animations in shinyapps
+network.layout.animate.kamadakawai
+                        Sequentially-stable network layout algorithms
+                        suitable for generating network animations.
+proximity.timeline      Plot a chart of a networkDynamic object in
+                        which vertices trace out paths in time,
+                        positioned vertically so that their proximity
+                        corresponds to their relative geodesic distance
+                        at the sampled time points.
+render.animation        Render animations of 'networkDynamic' objects
+                        as movies in various formats
+render.d3movie          Render out a web-based animation of a
+                        networkDynamic object using ndtv-d3 player app
+stergm.sim.1            Very Very Basic stergm simulation output
+timePrism               Plot a networkDynamic object as sequence of
+                        snapshots in a pseudo-3D space-time prism
+timeline                Plot a timeline for the edge and vertex spells
+                        of a network
+toy_epi_sim             Toy Epidemic Simulation Output from the
+                        EpiModel package
+transmissionTimeline    plots network diffusion/transmission tree with
+                        generation time vs. clock/model time

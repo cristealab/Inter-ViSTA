@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Make BiocFileCache objects from an existing data.frame</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for makeBiocFileCacheFromDataFrame {BiocFileCache}"><tr><td>makeBiocFileCacheFromDataFrame {BiocFileCache}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Make BiocFileCache objects from an existing data.frame</h2>
+
+<h3>Description</h3>
+
+<p>If there are a lot of resources being added this could take some
+time but if a cache is saved in a permanent location this should
+only have to be run once. The original data.frame must have the
+required columns 'rtype', 'fpath', and 'rpath'; See the vignette
+for more information on the expected information contained in these
+columns. Similarly, the optional columns 'rname', 'etag',
+'last_modified_time', and 'expires' may be included. Any additional columns
+not listed as required or optional will be kept as an additional
+metadata table in the BiocFileCache database.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+makeBiocFileCacheFromDataFrame(df, cache, actionLocal = c("move", "copy",
+  "asis"), actionWeb = c("move", "copy"), metadataName, ..., ask = TRUE)
+
+## S4 method for signature 'ANY'
+makeBiocFileCacheFromDataFrame(df, cache,
+  actionLocal = c("move", "copy", "asis"), actionWeb = c("move", "copy"),
+  metadataName, ..., ask = TRUE)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>df</code></td>
+<td>
+<p>data.frame or tibble to convert</p>
+</td></tr>
+<tr valign="top"><td><code>cache</code></td>
+<td>
+<p>character(1) On-disk location (directory path) of
+cache. For default location see
+<code><a href="../../rappdirs/html/user_cache_dir.html">user_cache_dir</a></code>.</p>
+</td></tr>
+<tr valign="top"><td><code>actionLocal</code></td>
+<td>
+<p>If local copy of file should be moved, copied or
+left in original location. See 'action' param of bfcadd.</p>
+</td></tr>
+<tr valign="top"><td><code>actionWeb</code></td>
+<td>
+<p>If a local copy of a remote resource already
+exists, should the file be copied or moved to the
+cache. Locally downloaded remote resources must exist in the
+cache location.</p>
+</td></tr>
+<tr valign="top"><td><code>metadataName</code></td>
+<td>
+<p>If there are additional columns of data in the
+original data.frame besides required BiocFileCache columns,
+this data will be added as a metadata table with this name.</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>additional arguments passed to 'file.copy()'.</p>
+</td></tr>
+<tr valign="top"><td><code>ask</code></td>
+<td>
+<p>logical(1) Confirm creation of BiocFileCache.</p>
+</td></tr>
+</table>
+
+
+<h3>Value</h3>
+
+<p>A BiocFileCache object
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>BiocFileCache</em> version 1.6.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Class &quot;topGOdata&quot;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for topGOdata-class {topGO}"><tr><td>topGOdata-class {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Class &quot;topGOdata&quot;</h2>
+
+<h3>Description</h3>
+
+<p>TODO: The node attributes are environments containing the genes/probes
+annotated to the respective node
+</p>
+<p>If genes is a numeric vector than this should represent the gene's
+score. If it is factor it should discriminate the genes in
+interesting genes and the rest
+</p>
+<p>TODO: it will be a good idea to replace the allGenes and allScore with an
+ExpressionSet class. In this way we can use tests like global test, globalAncova....
+&ndash; ALL variables starting with . are just for internal class usage (private)
+</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("topGOdata", ontology, allGenes, geneSelectionFun, description, annotationFun, ...)</code>.
+~~ describe objects here ~~ 
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>description</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>ontology</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>allGenes</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>allScores</code>:</dt><dd><p>Object of class <code>"ANY"</code> ~~ </p>
+</dd>
+<dt><code>geneSelectionFun</code>:</dt><dd><p>Object of class <code>"function"</code> ~~ </p>
+</dd>
+<dt><code>feasible</code>:</dt><dd><p>Object of class <code>"logical"</code> ~~ </p>
+</dd>
+<dt><code>nodeSize</code>:</dt><dd><p>Object of class <code>"integer"</code> ~~ </p>
+</dd>
+<dt><code>graph</code>:</dt><dd><p>Object of class <code>"graphNEL"</code> ~~ </p>
+</dd>
+<dt><code>expressionMatrix</code>:</dt><dd><p>Object of class <code>"matrix"</code> ~~ </p>
+</dd>
+<dt><code>phenotype</code>:</dt><dd><p>Object of class <code>"factor"</code> ~~ </p>
+</dd>
+</dl>
+
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>allGenes</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>attrInTerm</dt><dd><p><code>signature(object = "topGOdata", attr = "character", whichGO = "character")</code>: ... </p>
+</dd>
+<dt>attrInTerm</dt><dd><p><code>signature(object = "topGOdata", attr = "character", whichGO = "missing")</code>: ... </p>
+</dd>
+<dt>countGenesInTerm</dt><dd><p><code>signature(object = "topGOdata", whichGO = "character")</code>: ... </p>
+</dd>
+<dt>countGenesInTerm</dt><dd><p><code>signature(object = "topGOdata", whichGO = "missing")</code>: ... </p>
+</dd>
+<dt>description&lt;-</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>description</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>feasible&lt;-</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>feasible</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>geneScore</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>geneSelectionFun&lt;-</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>geneSelectionFun</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>genes</dt><dd><p><code>signature(object = "topGOdata")</code>: A method for
+obtaining the list of genes, as a characther vector, which will be
+used in the further analysis.</p>
+</dd>
+<dt>numGenes</dt><dd><p><code>signature(object = "topGOdata")</code>: A method for
+obtaining the number of genes, which will be used in the further
+analysis. It has the same effect as: <code>lenght(genes(object))</code>.</p>
+</dd>
+<dt>sigGenes</dt><dd><p><code>signature(object = "topGOdata")</code>:  A method for
+obtaining the list of significant genes, as a charachter vector.</p>
+</dd>
+<dt>genesInTerm</dt><dd><p><code>signature(object = "topGOdata", whichGO = "character")</code>: ... </p>
+</dd>
+<dt>genesInTerm</dt><dd><p><code>signature(object = "topGOdata", whichGO = "missing")</code>: ... </p>
+</dd>
+<dt>getSigGroups</dt><dd><p><code>signature(object = "topGOdata", test.stat = "classicCount")</code>: ... </p>
+</dd>
+<dt>getSigGroups</dt><dd><p><code>signature(object = "topGOdata", test.stat = "classicScore")</code>: ... </p>
+</dd>
+<dt>graph&lt;-</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>graph</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>initialize</dt><dd><p><code>signature(.Object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>ontology&lt;-</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>ontology</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+<dt>termStat</dt><dd><p><code>signature(object = "topGOdata", whichGO = "character")</code>: ... </p>
+</dd>
+<dt>termStat</dt><dd><p><code>signature(object = "topGOdata", whichGO = "missing")</code>: ... </p>
+</dd>
+<dt>updateGenes</dt><dd><p><code>signature(object = "topGOdata", geneList = "numeric", geneSelFun = "function")</code>: ... </p>
+</dd>
+<dt>updateGenes</dt><dd><p><code>signature(object = "topGOdata", geneList = "factor", geneSelFun = "missing")</code>: ... </p>
+</dd>
+<dt>updateTerm&lt;-</dt><dd><p><code>signature(object = "topGOdata", attr = "character")</code>: ... </p>
+</dd>
+<dt>usedGO</dt><dd><p><code>signature(object = "topGOdata")</code>: ... </p>
+</dd>
+</dl>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="dagFunctions.html">buildLevels</a></code>,
+<code><a href="annFUN.html">annFUN</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## load the dataset 
+data(geneList)
+library(package = affyLib, character.only = TRUE)
+
+## the distribution of the adjusted p-values
+hist(geneList, 100)
+
+## how many differentially expressed genes are:
+sum(topDiffGenes(geneList))
+
+## build the topGOdata class 
+GOdata &lt;- new("topGOdata",
+              ontology = "BP",
+              allGenes = geneList,
+              geneSel = topDiffGenes,
+              description = "GO analysis of ALL data: Differential Expression between B-cell and T-cell",
+              annot = annFUN.db,
+              affyLib = affyLib)
+
+## display the GOdata object
+GOdata
+
+##########################################################
+## Examples on how to use the methods
+##########################################################
+
+## description of the experiment
+description(GOdata)
+
+## obtain the genes that will be used in the analysis
+a &lt;- genes(GOdata)
+str(a)
+numGenes(GOdata)
+
+## obtain the score (p-value) of the genes
+selGenes &lt;- names(geneList)[sample(1:length(geneList), 10)]
+gs &lt;- geneScore(GOdata, whichGenes = selGenes)
+print(gs)
+
+## if we want an unnamed vector containing all the feasible genes
+gs &lt;- geneScore(GOdata, use.names = FALSE)
+str(gs)
+
+## the list of significant genes
+sg &lt;- sigGenes(GOdata)
+str(sg)
+numSigGenes(GOdata)
+
+## to update the gene list 
+.geneList &lt;- geneScore(GOdata, use.names = TRUE)
+GOdata ## more available genes
+GOdata &lt;- updateGenes(GOdata, .geneList, topDiffGenes)
+GOdata ## the available genes are now the feasible genes
+
+## the available GO terms (all the nodes in the graph)
+go &lt;- usedGO(GOdata)
+length(go)
+
+## to list the genes annotated to a set of specified GO terms
+sel.terms &lt;- sample(go, 10)
+ann.genes &lt;- genesInTerm(GOdata, sel.terms)
+str(ann.genes)
+
+## the score for these genes
+ann.score &lt;- scoresInTerm(GOdata, sel.terms)
+str(ann.score)
+
+## to see the number of annotated genes
+num.ann.genes &lt;- countGenesInTerm(GOdata)
+str(num.ann.genes)
+
+## to summarise the statistics
+termStat(GOdata, sel.terms)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

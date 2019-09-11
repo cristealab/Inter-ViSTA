@@ -1,0 +1,40 @@
+#useDynLib(tsna)
+importFrom(stats,aggregate,runif)
+importFrom(stats,aggregate.data.frame)
+importFrom(grDevices,rainbow)
+importFrom(stats, rexp)
+importFrom(stats, ts)
+importFrom(stats,as.formula)
+importFrom(graphics, plot)
+import(statnet.common,network,networkDynamic) 
+export(
+  tPath,
+  is.tPath,
+  plot.tPath,
+  as.network.tPath,
+  tEdgeDensity,
+  edgeDuration,
+  vertexDuration,
+  plotPaths,
+  forward.reachable,
+  tReach,
+  tDegree,
+  tErgmStats,
+  tSnaStats,
+  tEdgeDissolution,
+  tEdgeFormation,
+  #edgeFormationAt,
+  #edgeDissolutionAt,
+  tiedDuration,
+  #meanTimeToChange,
+  #reachableRate,
+  #meanReachTimes,
+  #timeToReach
+  #edgeAgeSummaryAt,
+  pShiftCount,
+  timeProjectedNetwork
+  #concurDur
+  )
+
+S3method(as.network,tPath)
+S3method(plot,tPath)

@@ -1,0 +1,66 @@
+Newcomb                 Newcomb's Fraternity Networks
+activate                Dynamic Activation and Inactivation of Edges
+                        and Vertices
+activity.attribute      Activity Attributes for Dynamically Extended
+                        Networks
+add.edges.networkDynamic
+                        PID-aware versions of functions for adding
+                        edges and vertices to networkDynamic objects
+add.vertices.active     add.verticies.active, add.edges.active
+adjust.activity         Adjust the activity ranges in all of the spells
+                        of a networkDynamic object
+as.data.frame.networkDynamic
+                        Extracts the edge timing information from a
+                        networkDynamic object and represent as a
+                        data.frame.
+as.network.networkDynamic
+                        Remove 'networkDynamic' class name from
+                        networkDynamic object.
+as.networkDynamic       as.networkDynamic
+attribute.activity.functions
+                        Functions to activate and query dynamic
+                        attributes on vertices, edges, and networks
+cls33_10_16_96          Daniel McFarland's Streaming Classroom
+                        Interactions Dataset
+delete.edge.activity    Remove Timing Information in a Dynamically
+                        Extended Network Object
+duration.matrix         Construct a edge spells list from base network
+                        and toggle list.
+edges.age.at            Age of active edges or vertices at a query time
+                        point
+get.change.times        Retrieve the timing information present in a
+                        networkDynamic.
+get.dyads.active        Return the set of vertex ids of edges active at
+                        a given time
+get.networks            Obtain a list of collapsed networks sampled
+                        periodically from a networkDynamic object
+is.active               Determine Activation State of Edges and
+                        Vertices
+nd_test_nets            networkDynamic testing networks
+net.obs.period          Network attribute describing the observation
+                        properties of a networkDynamic object
+network.collapse        Convert a time range of a networkDynamic object
+                        into a static network object.
+network.dynamic.check   Verify a Dynamically Extended Network Object
+network.extensions      Dynamically Extended Core Network Functions
+network.extract         Temporal Extracts/Cross-sections of Dynamically
+                        Extended Network Objects
+networkDynamic          Convert various forms of network timing
+                        information into networkDynamic objects.
+networkDynamic-package
+                        Dynamic Extensions for Network Objects
+persistent.ids          Use and manipulate persistent ids of network
+                        elements
+print.networkDynamic    Provide a view of a networkDynamic object
+                        including timing information
+read.son                Read .son-formatted (SoNIA) input files
+                        containing longitudinal network data and create
+                        a corresponding networkDynamic object
+reconcile.activity      Modify the activity spells of vertices to match
+                        incident edges or the other way around
+spells.overlap          Functions to compare and search spell intervals
+when.vertex.attrs.match
+                        return the times at which the TEA attributes of
+                        elements of a network match a value
+windsurfers             Lin Freeman's Dynamic Network of Windsurfer
+                        Social Interactions

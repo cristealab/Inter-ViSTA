@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Diagnostic functions for topGOdata and topGOresult objects.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for dignostic-methods {topGO}"><tr><td>dignostic-methods {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Diagnostic functions for topGOdata and topGOresult objects.</h2>
+
+<h3>Description</h3>
+
+<p>The <code>GenTable</code> function generates a summary of the
+results of the enrichment analysis.
+</p>
+<p>The <code>showGroupDensity</code> function plots the distributions of the
+gene' scores/ranks inside a GO term.
+</p>
+<p>The <code>printGenes</code> function shows a short summary of the top genes annotated
+to the specified GO terms.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+GenTable(object, ...)
+
+showGroupDensity(object, whichGO, ranks = FALSE, rm.one = TRUE) 
+
+printGenes(object, whichTerms, file, ...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+<p>an object of class <code>topGOdata</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>whichGO</code></td>
+<td>
+<p>the GO terms for which the plot should be generated.</p>
+</td></tr>
+<tr valign="top"><td><code>ranks</code></td>
+<td>
+<p>if ranks should be used instead of scores.</p>
+</td></tr>
+<tr valign="top"><td><code>rm.one</code></td>
+<td>
+<p>the p-values which are 1 are removed. </p>
+</td></tr>  
+<tr valign="top"><td><code>whichTerms</code></td>
+<td>
+
+<p>character vector listing the GO terms for which
+the summary should be printed.
+</p>
+</td></tr>
+<tr valign="top"><td><code>file</code></td>
+<td>
+
+<p>character string specifying the file in which the results should
+be printed.
+</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+
+
+<p>Extra arguments for <code>GenTable</code> can be:
+</p>
+
+<dl>
+<dt>...</dt><dd>
+<p>one or more objects of class <code>topGOresult</code>.
+</p>
+</dd>
+<dt><code>orderBy</code></dt><dd>
+<p>if more than one <code>topGOresult</code> object is given then
+<code>orderBy</code> gives the index of which scores will be
+used to order the resulting table. Can be an integer index
+or a character vector given the name of the <code>topGOresult</code>
+object.
+</p>
+</dd>
+<dt><code>ranksOf</code></dt><dd>
+<p>same as <code>orderBy</code> argument except that this parameter shows
+the relative ranks of the specified result.
+</p>
+</dd>
+<dt><code>topNodes</code></dt><dd>
+<p>the number of top GO terms to be included in the table.
+</p>
+</dd>
+<dt><code>numChar</code></dt><dd>
+<p>the GO term definition will be truncated such that only
+the first <code>numChar</code> characters are shown.
+</p>
+</dd>
+</dl>
+
+
+
+<p>Extra arguments for <code>printGenes</code> can be:
+</p>
+
+<dl>
+<dt><code>chip</code></dt><dd>
+<p>character string containing the name of the Bioconductor
+annotation package for a microarray chip.
+</p>
+</dd>
+<dt><code>numChar</code></dt><dd>
+<p>the gene description is trimmed such that it has
+<code>numChar</code> characters.
+</p>
+</dd>
+<dt><code>simplify</code></dt><dd>
+<p>logical variable affecting how the results are returned.
+</p>
+</dd>
+<dt><code>geneCutOff</code></dt><dd>
+<p>the maximal number of genes shown for each term.
+</p>
+</dd>
+<dt><code>pvalCutOff</code></dt><dd>
+<p>only the genes with a p-value less than <code>pvalCutOff</code> are shown.
+</p>
+</dd>
+<dt><code>oneFile</code></dt><dd>
+<p>if <code>TRUE</code> then a file for each GO term is generated.
+</p>
+</dd>
+</dl>
+
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p><code>GenTable</code> is an easy to use function for summarising the most
+significant GO terms and the corresponding p-values. The function
+dispatches for <code>topGOdata</code> and <code>topGOresult</code> objects, and
+it can take an arbitrary number of the later, making comparison
+between various results easier.
+</p>
+<p>Note: One needs to type the complete attribute names (the exact name)
+of this function, like: <code>topNodes = 5</code>, <code>rankOf = "resultFis"</code>, etc. 
+This being the price paid for flexibility of specifying different
+number of <code>topGOdata</code> objects.
+</p>
+<p>The <code>showGroupDensity</code> function analyse the distribution of the
+gene-wise scores for a specified GO term.
+The function will show the distribution of the genes in a GO term
+compared with the complementary set, using a lattice plot.
+</p>
+<p><code>printGenes</code> 
+The function will generate a table with all the probes annotated to
+the specified GO term. Various type of identifiers, the gene name and
+the gene-wise statistics are provided in the table. 
+</p>
+<p>One or more GO identifiers can be given to the function using the
+<code>whichTerms</code> argument. When more than one GO is specified, the
+function returns a list of <code>data.frames</code>, otherwise only one
+<code>data.frame</code> is returned.
+</p>
+<p>The function has a argument <code>file</code> which, when specified, will
+save the results into a file using the CSV format.
+</p>
+<p>For the moment the function will work only when the chip used has an
+annotation package available in Bioconductor. It will not work with
+other type of custom annotations.
+</p>
+
+
+<h3>Value</h3>
+
+<p>A data.frame or a list of data.fames.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="getSigGroups.html">getSigGroups-methods</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+data(GOdata)
+
+
+########################################
+## GenTable
+########################################
+
+## load two topGOresult sample objects: resultFisher and resultKS
+data(results.tGO)
+
+## generate the result of Fisher's exact test
+sig.tab &lt;- GenTable(GOdata, Fis = resultFisher, topNodes = 20)
+
+## results of both test
+sig.tab &lt;- GenTable(GOdata, resultFisher, resultKS, topNodes = 20)
+
+## results of both test with specified names
+sig.tab &lt;- GenTable(GOdata, Fis = resultFisher, KS = resultKS, topNodes = 20)
+
+## results of both test with specified names and specified ordering
+sig.tab &lt;- GenTable(GOdata, Fis = resultFisher, KS = resultKS, orderBy = "KS", ranksOf = "Fis", topNodes = 20)
+
+
+########################################
+## showGroupDensity
+########################################
+
+goID &lt;- "GO:0006091"
+print(showGroupDensity(GOdata, goID, ranks = TRUE))
+print(showGroupDensity(GOdata, goID, ranks = FALSE, rm.one = FALSE))
+
+
+
+########################################
+## printGenes
+########################################
+
+## Not run: 
+library(hgu95av2.db)
+goID &lt;- "GO:0006629"
+
+gt &lt;- printGenes(GOdata, whichTerms = goID, chip = "hgu95av2.db", numChar = 40)
+
+goIDs &lt;- c("GO:0006629", "GO:0007076")
+gt &lt;- printGenes(GOdata, whichTerms = goIDs, chip = "hgu95av2.db", pvalCutOff = 0.01)
+
+gt[goIDs[1]]
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

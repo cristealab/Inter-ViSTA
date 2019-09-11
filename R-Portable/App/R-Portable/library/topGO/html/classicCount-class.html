@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Class &quot;classicCount&quot;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for classicCount-class {topGO}"><tr><td>classicCount-class {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Class &quot;classicCount&quot;</h2>
+
+<h3>Description</h3>
+
+<p>This class that extends the virtual class &quot;groupStats&quot; by adding 
+a slot representing the significant members.</p>
+
+
+<h3>Details</h3>
+
+<p>This class is used for test statistic based on counts, like Fisher's
+exact test
+</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form
+<code>new("classicCount",
+    testStatistic = "function",
+    name = "character",
+    allMembers = "character",
+    groupMembers = "character",
+    sigMembers = "character")</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>significant</code>:</dt><dd><p>Object of class <code>"integer"</code> ~~ </p>
+</dd>
+<dt><code>name</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>allMembers</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>members</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>testStatistic</code>:</dt><dd><p>Object of class <code>"function"</code> ~~ </p>
+</dd>
+</dl>
+
+
+
+<h3>Extends</h3>
+
+<p>Class <code>"groupStats"</code>, directly.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>contTable</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+<dt>initialize</dt><dd><p><code>signature(.Object = "classicCount")</code>: ... </p>
+</dd>
+<dt>numSigAll</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+<dt>numSigMembers</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+<dt>sigAllMembers</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+<dt>sigMembers&lt;-</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+<dt>sigMembers</dt><dd><p><code>signature(object = "classicCount")</code>: ... </p>
+</dd>
+</dl>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="classicScore-class.html">classicScore-class</a></code>,
+<code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="getSigGroups.html">getSigGroups-methods</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+##---- Should be DIRECTLY executable !! ----
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

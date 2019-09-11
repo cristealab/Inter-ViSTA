@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Class &quot;classicScore&quot;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for classicScore-class {topGO}"><tr><td>classicScore-class {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Class &quot;classicScore&quot;</h2>
+
+<h3>Description</h3>
+
+<p>A class that extends the virtual class &quot;groupStats&quot; by adding 
+a slot representing the score of each gene. It is used for tests like
+Kolmogorov-Smirnov test.
+</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("classicScore", testStatistic, name, allMembers, groupMembers, score, decreasing)</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>score</code>:</dt><dd><p>Object of class <code>"numeric"</code> ~~ </p>
+</dd>
+<dt><code>name</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>allMembers</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>members</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>testStatistic</code>:</dt><dd><p>Object of class <code>"function"</code> ~~ </p>
+</dd>
+<dt><code>scoreOrder</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>testStatPar</code>:</dt><dd><p>Object of class <code>"ANY"</code> ~~ </p>
+</dd>
+</dl>
+
+
+
+<h3>Extends</h3>
+
+<p>Class <code>"groupStats"</code>, directly.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>allScore</dt><dd><p>Method to obtain the score of all members.</p>
+</dd>
+<dt>scoreOrder</dt><dd><p>Returns TRUE if the score should be ordered
+increasing, FALSE otherwise.</p>
+</dd>
+<dt>membersScore</dt><dd><p><code>signature(object = "classicScore")</code>: ... </p>
+</dd>
+<dt>rankMembers</dt><dd><p><code>signature(object = "classicScore")</code>: ... </p>
+</dd>
+<dt>score&lt;-</dt><dd><p><code>signature(object = "classicScore")</code>: ... </p>
+</dd>
+</dl>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="classicCount-class.html">classicCount-class</a></code>,
+<code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="getSigGroups.html">getSigGroups-methods</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## define the type of test you want to use
+test.stat &lt;- new("classicScore", testStatistic = GOKSTest, name = "KS tests")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

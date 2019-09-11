@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Gene set tests statistics</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for Gene set tests statistics {topGO}"><tr><td>Gene set tests statistics {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Gene set tests statistics</h2>
+
+<h3>Description</h3>
+
+<p>Methods which implement and run a group test statistic for
+a class inheriting from <code>groupStats</code> class. See Details section
+for a description of each method.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+GOFisherTest(object)
+GOKSTest(object)
+GOtTest(object)
+GOglobalTest(object)
+GOSumTest(object)
+GOKSTiesTest(object)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+<p>An object of class <code>groupStats</code> or decedent class.</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>GOFisherTest: implements Fischer's exact test (based on contingency
+table) for <code>groupStats</code> objects dealing with &quot;counts&quot;.
+</p>
+<p>GOKSTest: implements the Kolmogorov-Smirnov test for <code>groupStats</code>
+objects dealing with gene &quot;scores&quot;. This test uses the <code>ks.test</code>
+function and does not implement the running-sum-statistic test based
+on permutations. 
+</p>
+<p>GOtTest: implements the t-test for <code>groupStats</code> objects dealing
+with gene &quot;scores&quot;. It should be used when the gene scores are
+t-statistics or any other score following a normal distribution.
+</p>
+<p>GOglobalTest: implement Goeman's globaltest.
+</p>
+
+
+<h3>Value</h3>
+
+<p>All these methods return the p-value computed by the respective test statistic.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="getSigGroups.html">getSigGroups-methods</a></code>
+</p>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

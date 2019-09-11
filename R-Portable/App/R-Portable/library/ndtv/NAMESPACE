@@ -1,0 +1,37 @@
+importFrom(sna,geodist)
+import(statnet.common, network, networkDynamic, animation)
+import(jsonlite)
+import(base64)
+importFrom("grDevices", "col2rgb", "dev.cur", "dev.off", "rgb","dev.new")
+importFrom("graphics", "lines", "par", "plot", "rect", "text",
+             "xspline","points","polygon")
+importFrom("stats", "cmdscale", "runif")
+importFrom("utils", "browseURL", "download.file", "packageDescription",
+             "write.table")
+
+
+export(
+render.animation,
+compute.animation,
+export.dot,
+export.pajek.net,
+render.d3movie,
+network.layout.animate.kamadakawai,
+network.layout.animate.MDSJ,
+network.layout.animate.useAttribute,
+network.layout.animate.Graphviz,
+layout.distance,
+layout.center,
+layout.normalize,
+timeline,
+proximity.timeline,
+filmstrip,
+timePrism,
+transmissionTimeline,
+effectFun,
+effect.edgeAgeColor,
+effect.vertexAgeColor,
+ndtvAnimationWidgetOutput,
+renderNdtvAnimationWidget,
+ndtvAnimationWidget
+)

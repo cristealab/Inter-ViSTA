@@ -1,0 +1,217 @@
+gene_name	accession	species	localizations	complexes	GO_terms	shared_baits_24	shared_baits_48	shared_baits_72	shared_baits_96	shared_baits_120
+UL89	P16732	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host			UL37		UL37
+UL75	P12824	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host			UL37	UL37	UL37
+RL12	P16810	Human cytomegalovirus (strain AD169) (HHV-5)	Viral							UL37; UL13
+UL15A	P16844	Human cytomegalovirus (strain AD169) (HHV-5)	Viral					UL37	UL37	UL37
+UL50	P16791	Human cytomegalovirus (strain AD169) (HHV-5)	Viral				UL37			
+UL77	P16726	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host				UL37	
+UL56	P16724	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host			UL37	UL37	UL37
+UL105	P16736	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication				UL37	
+UL93	P16799	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host				UL37	
+US14	P09719	Human cytomegalovirus (strain AD169) (HHV-5)	Viral					UL37	UL37	UL37
+UL51	P16792	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host					UL37
+UL122	P19893	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication; interaction with host	UL37				
+UL69	P16749	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host				UL37	
+US11	P09727	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host		UL37	UL37	UL37	UL37
+UL13	P16755	Human cytomegalovirus (strain AD169) (HHV-5)	Viral			UL13; UL37	UL13; UL37	UL13; UL37	UL13; UL37	UL13; UL37
+UL128	P16837	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host				UL13; UL37	UL13; UL37
+UL123	P13202	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication; interaction with host	UL37	UL37	UL37	UL37	UL37
+UL37	P16778	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host	UL37	UL37	UL37	UL37	UL13; UL37
+UL32	P08318	Human cytomegalovirus (strain AD169) (HHV-5)	Viral						UL37	
+UL35	P16766	Human cytomegalovirus (strain AD169) (HHV-5)	Viral						UL37	
+UL25	P16761	Human cytomegalovirus (strain AD169) (HHV-5)	Viral						UL37	UL13
+US9	P09729	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host			UL37	UL37	UL37
+US23	F5HAZ3	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral					UL13; UL37	UL13; UL37	UL13; UL37
+UL36	F5HAY6	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		interaction with host	UL13	UL13; UL37	UL13; UL37	UL13; UL37	UL13; UL37
+UL71	F5HEA3	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral					UL13; UL37	UL37	UL37
+UL57	F5HDQ6	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication			UL37	UL37	UL37
+UL132	F5HGU6	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral					UL37	UL13; UL37	UL37
+US27	F5HDK1	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral						UL37	UL37
+US8	F5HB52	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		interaction with host			UL37	UL37	UL37
+US24	F5H8S6	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral					UL37; UL13	UL37; UL13	UL37; UL13
+UL26	F5HGG3	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral					UL37	UL37	
+UL115	F5HCH8	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		interaction with host				UL37; UL13	UL37; UL13
+UL88	F5H9F9	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral						UL37	UL37
+UL86	F5HGT1	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral						UL37	UL13
+UL46	F5HA93	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral						UL37	
+UL70	B9VXM8	Human cytomegalovirus (strain Towne) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication				UL13	UL13; UL37
+TMEM11	P17152	Homo sapiens (Human)	Mitochondria; Peroxisome		mitochondrion organization; mitochondrial membrane organization				UL37	UL37
+MAVS	Q7Z434	Homo sapiens (Human)	Mitochondria; Peroxisome						UL37	
+MUL1	Q969V5	Homo sapiens (Human)	Mitochondria; Peroxisome		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion				UL37	UL37
+MGST1	P10620	Homo sapiens (Human)	Mitochondria; Peroxisome					UL37	UL37	UL37
+ACSL3	O95573	Homo sapiens (Human)	Mitochondria; Peroxisome					UL37		
+MFF	Q9GZY8	Homo sapiens (Human)	Mitochondria; Peroxisome		mitochondrial transport; mitochondrion organization; mitochondrial fusion				UL37	
+ABCD1	P33897	Homo sapiens (Human)	Mitochondria; Peroxisome		oxidative phosphorylation			UL37		
+FNDC3B	Q53EP0	Homo sapiens (Human)	Peroxisome					UL37		
+ATAD1	Q8NBU5	Homo sapiens (Human)	Peroxisome				UL37	UL37	UL37	UL37
+ABCD3	P28288	Homo sapiens (Human)	Peroxisome			UL37	UL37	UL37	UL37	UL37
+RPL18	Q07020	Homo sapiens (Human)	Peroxisome					UL13	UL13; UL37	UL13
+FAR1	Q8WVX9	Homo sapiens (Human)	Peroxisome						UL37	
+PEX11B	O96011	Homo sapiens (Human)	Peroxisome						UL37	UL37
+IFIT3	O14879	Homo sapiens (Human)	Mitochondria				UL37	UL13; UL37	UL13; UL37	UL13
+GPD2	P43304	Homo sapiens (Human)	Mitochondria				UL37	UL37	UL37	UL37
+NDUFS1	P28331	Homo sapiens (Human)	Mitochondria	G alpha-13-Hax-1-cortactin-Rac complex	mitochondrion organization; oxidative phosphorylation				UL37	UL37
+SQOR	Q9Y6N5	Homo sapiens (Human)	Mitochondria					UL13	UL37; UL13	UL13
+RMDN3	Q96TC7	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL37	UL37	UL37
+MFN1	Q8IWA4	Homo sapiens (Human)	Mitochondria		mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion				UL37	
+DNAJA3	Q96EY1	Homo sapiens (Human)	Mitochondria		mitochondrion organization	UL13		UL37; UL13	UL13	
+OPA1	O60313	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion; mitochondrial calcium ion transmembrane ...	UL37			UL37	UL37
+HK2	P52789	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization				UL37	
+COX2	P00403	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation	UL37			UL37	UL13
+FKBP8	Q14318	Homo sapiens (Human)	Mitochondria				UL37	UL37	UL13; UL37	UL13; UL37
+RPS18	P62269	Homo sapiens (Human)	Mitochondria					UL13	UL13; UL37	
+GLUD1	P00367	Homo sapiens (Human)	Mitochondria						UL37	
+TIMM17A	Q99595	Homo sapiens (Human)	Mitochondria	APC-IQGAP1-Cdc42 complex	mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization				UL37	UL37
+NDUFV1	P49821	Homo sapiens (Human)	Mitochondria	G alpha-13-Hax-1-cortactin-Rac complex	mitochondrion organization; oxidative phosphorylation			UL37	UL37	UL37
+RHOT2	Q8IXI1	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization			UL37	UL37	UL37
+PHB2	Q99623	Homo sapiens (Human)	Mitochondria	TIM (TIM17A, TIM17B, TIM23, TIM44) complex, mitochondrial	mitochondrion organization; mitochondrial calcium ion transmembrane ...			UL37	UL37	
+VDAC2	P45880	Homo sapiens (Human)	Mitochondria	TIM (TIM17A, TIM17B, TIM23, TIM44) complex, mitochondrial		UL37		UL37	UL37	UL37
+OAS1	P00973	Homo sapiens (Human)	Mitochondria				UL37			
+MTOR	P42345	Homo sapiens (Human)	Mitochondria					UL37	UL37	UL37
+COX5A	P20674	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation				UL37	UL37
+ATP5H	O75947	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial membrane organization; oxidative phosphorylation				UL37	UL37
+SLC25A12	O75746	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport			UL13	UL13	UL37; UL13
+TIMM17B	O60830	Homo sapiens (Human)	Mitochondria	APC-IQGAP1-Cdc42 complex	mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization				UL37	UL37
+LRPPRC	P42704	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL37; UL13	UL37; UL13	UL37; UL13
+NDUFS2	O75306	Homo sapiens (Human)	Mitochondria	Respiratory chain complex I (intermediate I/200kD and III/250kD), mitochondrial; MIB complex; G alpha-13-Hax-1-cortactin-Rac complex; mitochondrial calcium uniporter complex	mitochondrion organization; oxidative phosphorylation			UL37		UL37
+EXOC5	O00471	Homo sapiens (Human)	Mitochondria					UL37	UL37	UL37
+HAX1	O00165	Homo sapiens (Human)	Mitochondria	TIM (TIM17A, TIM17B, TIM23, TIM44) complex, mitochondrial; DLL1-CTNNB1-CDH2 complex	mitochondrial transport; mitochondrion organization	UL13		UL13	UL13	UL13; UL37
+SAMM50	Q9Y512	Homo sapiens (Human)	Mitochondria	prohibitin 2 complex, mitochondrial	mitochondrial transport; mitochondrion organization; mitochondrial membrane organization		UL37	UL37	UL37	UL37
+MTCH1	Q9NZJ7	Homo sapiens (Human)	Mitochondria				UL37	UL37	UL37	UL37
+MCU	Q8NE86	Homo sapiens (Human)	Mitochondria	Respiratory chain complex I (incomplete intermediate), mitochondrial	mitochondrial transport; mitochondrial transmembrane transport; mitochondrial calcium ion transmembrane ...				UL37	UL37
+PHB	P35232	Homo sapiens (Human)	Mitochondria	TIM (TIM17A, TIM17B, TIM23, TIM44) complex, mitochondrial	mitochondrion organization; mitochondrial calcium ion transmembrane ...			UL13; UL37	UL13; UL37	UL37
+SDHA	P31040	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation			UL37	UL37; UL13	UL37
+ARMCX3	Q9UH62	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL37	UL37	UL37
+TIMM23B	Q5SRD1	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization			UL37; UL13	UL37	UL37; UL13
+TIMM21	Q9BVV7	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization					UL37
+HADHA	P40939	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL13; UL37	UL13; UL37	UL37
+MTX2	O75431	Homo sapiens (Human)	Mitochondria	prohibitin 2 complex, mitochondrial	mitochondrial transport		UL37	UL37	UL37	UL37
+TMEM173	Q86WV6	Homo sapiens (Human)	Mitochondria					UL37	UL37	UL37
+SLC25A24	Q6NUK1	Homo sapiens (Human)	Mitochondria		mitochondrial transport			UL13; UL37	UL13; UL37	
+MSTO1	Q9BUK6	Homo sapiens (Human)	Mitochondria		mitochondrion organization				UL37	
+UQCRH	P07919	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation			UL37	UL37	UL37
+C1QBP	Q07021	Homo sapiens (Human)	Mitochondria					UL37	UL37; UL13	UL37; UL13
+MICU1	Q9BPX6	Homo sapiens (Human)	Mitochondria	Respiratory chain complex I (incomplete intermediate), mitochondrial	mitochondrial transport; mitochondrial transmembrane transport; mitochondrial calcium ion transmembrane ...			UL37	UL37	UL37
+SLC25A10	Q9UBX3	Homo sapiens (Human)	Mitochondria		mitochondrial transport			UL13; UL37	UL13; UL37	UL13; UL37
+PPP6C	O00743	Homo sapiens (Human)	Mitochondria					UL13; UL37	UL13; UL37	UL13
+GOLPH3	Q9H4A6	Homo sapiens (Human)	Mitochondria		mitochondrion organization			UL37	UL37	UL37
+BAK1	Q16611	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion			UL37	UL37	UL37
+DNAJA1	P31689	Homo sapiens (Human)	Mitochondria						UL37	
+SLC25A13	Q9UJS0	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport	UL13		UL13	UL13	UL37
+ATAD3B	Q5T9A4	Homo sapiens (Human)	Mitochondria		mitochondrion organization	UL37		UL37	UL37	UL37
+CYB5B	O43169	Homo sapiens (Human)	Mitochondria					UL37	UL37	UL37
+OXA1L	Q15070	Homo sapiens (Human)	Mitochondria		mitochondrion organization; mitochondrial membrane organization				UL37	
+MTCH2	Q9Y6C9	Homo sapiens (Human)	Mitochondria			UL37		UL37	UL37	UL37
+ATP5C1	P36542	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial membrane organization; oxidative phosphorylation			UL37; UL13	UL37; UL13	UL13
+CHCHD3	Q9NX63	Homo sapiens (Human)	Mitochondria	prohibitin 2 complex, mitochondrial	mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion	UL37	UL37	UL37	UL13; UL37	UL13; UL37
+TIMM50	Q3ZCQ8	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial membrane organization					UL37
+HADHB	P55084	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL37; UL13	UL37; UL13	UL37
+TMEM126A	Q9H061	Homo sapiens (Human)	Mitochondria						UL37	UL37
+UQCR10	Q9UDW1	Homo sapiens (Human)	Mitochondria		mitochondrion organization; oxidative phosphorylation			UL37	UL37	UL37
+VDAC3	Q9Y277	Homo sapiens (Human)	Mitochondria			UL37	UL37	UL13; UL37	UL13; UL37	UL37
+MICU2	Q8IYU8	Homo sapiens (Human)	Mitochondria	Respiratory chain complex I (incomplete intermediate), mitochondrial	mitochondrial transport; mitochondrial transmembrane transport; mitochondrial calcium ion transmembrane ...			UL37	UL37	UL37
+UQCRC1	P31930	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation			UL37	UL37	
+PTRH2	Q9Y3E5	Homo sapiens (Human)	Mitochondria						UL37	UL37
+ACAD9	Q9H845	Homo sapiens (Human)	Mitochondria		mitochondrion organization					UL37
+SLIRP	Q9GZT3	Homo sapiens (Human)	Mitochondria		mitochondrion organization		UL37	UL37	UL37	UL37
+PGAM5	Q96HS1	Homo sapiens (Human)	Mitochondria				UL37	UL37	UL37	UL37
+CYC1	P08574	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; oxidative phosphorylation	UL37	UL37	UL37	UL37	UL37
+TRIO	O75962	Homo sapiens (Human)	Mitochondria				UL37			
+SLC25A11	Q02978	Homo sapiens (Human)	Mitochondria						UL37	UL37
+NDUFA9	Q16795	Homo sapiens (Human)	Mitochondria	Respiratory chain complex I (intermediate I/200kD and III/250kD), mitochondrial; MIB complex; G alpha-13-Hax-1-cortactin-Rac complex; mitochondrial calcium uniporter complex	mitochondrion organization; oxidative phosphorylation				UL37	UL37
+DYNLL1	P63167	Homo sapiens (Human)	Mitochondria				UL37	UL37	UL37	
+DNAJC11	Q9NVH1	Homo sapiens (Human)	Mitochondria	prohibitin 2 complex, mitochondrial	mitochondrion organization; mitochondrial membrane organization				UL37	UL37
+CPT1A	P50416	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport		UL37		UL37	UL37
+CAVIN1	Q6NZI2	Homo sapiens (Human)	Mitochondria						UL13; UL37	UL13
+ATP5D	P30049	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial membrane organization; oxidative phosphorylation				UL37	UL37
+RHOT1	Q8IXI2	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization			UL37	UL37	
+ATAD3A	Q9NVI7	Homo sapiens (Human)	Mitochondria		mitochondrion organization	UL13; UL37	UL13; UL37	UL13; UL37	UL13; UL37	UL13; UL37
+NDUFV2	P19404	Homo sapiens (Human)	Mitochondria	G alpha-13-Hax-1-cortactin-Rac complex	mitochondrion organization; oxidative phosphorylation			UL37	UL37	
+STOML2	Q9UJZ1	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization; mitochondrial fusion; mitochondrial calcium ion transmembrane ...; oxidative phosphorylation		UL37	UL37	UL13; UL37	UL13; UL37
+TOMM40	O96008	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport; mitochondrion organization	UL37	UL37	UL13; UL37	UL13; UL37	UL13; UL37
+IMMT	Q16891	Homo sapiens (Human)	Mitochondria	prohibitin 2 complex, mitochondrial	mitochondrion organization; mitochondrial membrane organization	UL37; UL13	UL37; UL13	UL37; UL13	UL37; UL13	UL37; UL13
+RARS2	Q5T160	Homo sapiens (Human)	Mitochondria					UL37; UL13	UL37	UL37; UL13
+YME1L1	Q96TA2	Homo sapiens (Human)	Mitochondria		mitochondrion organization; mitochondrial calcium ion transmembrane ...			UL37	UL37	UL37
+GK	P32189	Homo sapiens (Human)	Mitochondria					UL37		UL37
+BAX	Q07812	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrion organization; mitochondrial membrane organization; mitochondrial fusion	UL37	UL37	UL37	UL37	UL37
+CKAP4	Q07065	Homo sapiens (Human)	Membrane; ER/Golgi					UL13	UL13	UL13
+SQSTM1	Q13501	Homo sapiens (Human)	Membrane; ER/Golgi		mitochondrion organization	UL13	UL13	UL13	UL13	UL13
+RAB3B	P20337	Homo sapiens (Human)	Membrane; ER/Golgi					UL13		
+RTN4	Q9NQC3	Homo sapiens (Human)	Membrane; ER/Golgi							UL13
+CNST	Q6PJW8	Homo sapiens (Human)	Membrane; ER/Golgi				UL13	UL13	UL13	UL13
+SDF4	Q9BRK5	Homo sapiens (Human)	Membrane; ER/Golgi			UL13		UL13	UL13	UL13
+ATP2A2	P16615	Homo sapiens (Human)	Membrane; ER/Golgi					UL13		UL13
+RAB5C	P51148	Homo sapiens (Human)	Membrane; ER/Golgi							UL13
+SEC22B	O75396	Homo sapiens (Human)	Membrane; ER/Golgi					UL13	UL13	
+HSPA5	P11021	Homo sapiens (Human)	ER/Golgi						UL13	
+RCN2	Q14257	Homo sapiens (Human)	ER/Golgi			UL13	UL13	UL13	UL13	UL13
+RCN3	Q96D15	Homo sapiens (Human)	ER/Golgi				UL13	UL13	UL13	
+MX1	P20591	Homo sapiens (Human)	ER/Golgi		mitochondrion organization			UL13	UL13	UL13
+DNAJB11	Q9UBS4	Homo sapiens (Human)	ER/Golgi					UL13	UL13	
+HSP90B1	P14625	Homo sapiens (Human)	ER/Golgi					UL13	UL13	UL13
+VCP	P55072	Homo sapiens (Human)	ER/Golgi		oxidative phosphorylation			UL13	UL13	UL13
+BAG2	O95816	Homo sapiens (Human)	ER/Golgi			UL13	UL13	UL13	UL13	UL13
+RPLP0	P05388	Homo sapiens (Human)	ER/Golgi							UL13
+DKK3	Q9UBP4	Homo sapiens (Human)	ER/Golgi				UL13	UL13	UL13	UL13
+MYH14	Q7Z406	Homo sapiens (Human)	ER/Golgi		mitochondrion organization				UL13	UL13
+DDOST	P39656	Homo sapiens (Human)	ER/Golgi						UL13	
+PRMT5	O14744	Homo sapiens (Human)	ER/Golgi			UL13	UL13	UL13	UL13	UL13
+CALR	P27797	Homo sapiens (Human)	ER/Golgi						UL13	UL13
+TMEM33	P57088	Homo sapiens (Human)	ER/Golgi					UL13	UL13	
+SPTLC1	O15269	Homo sapiens (Human)	ER/Golgi					UL13		UL13
+FAF2	Q96CS3	Homo sapiens (Human)	ER/Golgi	AUP1-OS9-SEL1L-UBC6e-UBXD8 complex					UL13	UL13
+RAB34	Q9BZG1	Homo sapiens (Human)	ER/Golgi						UL13	
+NUCB1	Q02818	Homo sapiens (Human)	ER/Golgi					UL13	UL13	UL13
+ERGIC1	Q969X5	Homo sapiens (Human)	ER/Golgi						UL13	UL13
+P4HA1	P13674	Homo sapiens (Human)	ER/Golgi					UL13	UL13	UL13
+PLOD1	Q02809	Homo sapiens (Human)	ER/Golgi					UL13	UL13	UL13
+STT3A	P46977	Homo sapiens (Human)	ER/Golgi					UL13		
+RPL9	P32969	Homo sapiens (Human)	ER/Golgi						UL13	UL13
+DNAJB9	Q9UBS3	Homo sapiens (Human)	ER/Golgi						UL13	
+SDF2L1	Q9HCN8	Homo sapiens (Human)	ER/Golgi						UL13	
+ARL1	P40616	Homo sapiens (Human)	ER/Golgi							UL13
+KDELR1	P24390	Homo sapiens (Human)	ER/Golgi					UL13		UL13
+PLOD3	O60568	Homo sapiens (Human)	ER/Golgi						UL13	
+LPCAT1	Q8NF37	Homo sapiens (Human)	ER/Golgi						UL13	
+SEL1L	Q9UBV2	Homo sapiens (Human)	ER/Golgi	AUP1-OS9-SEL1L-UBC6e-UBXD8 complex						UL13
+APOE	P02649	Homo sapiens (Human)	ER/Golgi							UL13
+TOR4A	Q9NXH8	Homo sapiens (Human)	ER/Golgi					UL13		
+NUCB2	P80303	Homo sapiens (Human)	ER/Golgi							UL13
+KANK2	Q63ZY3	Homo sapiens (Human)	Mitochondria; Membrane			UL13	UL13	UL13	UL13	UL13
+PPP1CC	P36873	Homo sapiens (Human)	Mitochondria			UL13	UL13	UL13	UL13	UL13
+SFXN3	Q9BWM7	Homo sapiens (Human)	Mitochondria		mitochondrial transport; mitochondrial transmembrane transport			UL13	UL13	
+HSPA9	P38646	Homo sapiens (Human)	Mitochondria						UL13	
+GSTP1	P09211	Homo sapiens (Human)	Mitochondria					UL13		UL13
+UQCRFS1	P47985	Homo sapiens (Human)	Mitochondria		oxidative phosphorylation				UL13	
+UBA1	P22314	Homo sapiens (Human)	Mitochondria						UL13	
+PRDX5	P30044	Homo sapiens (Human)	Mitochondria							UL13
+PFDN2	Q9UHV9	Homo sapiens (Human)	Mitochondria			UL13		UL13	UL13	UL13
+ERBB2IP	Q96RT1	Homo sapiens (Human)	Membrane			UL13	UL13	UL13	UL13	UL13
+MYO1C	O00159	Homo sapiens (Human)	Membrane			UL13		UL13	UL13	UL13
+CTNND1	O60716	Homo sapiens (Human)	Membrane		interaction with host	UL13	UL13	UL13	UL13	UL13
+SCRIB	Q14160	Homo sapiens (Human)	Membrane		interaction with host	UL13	UL13	UL13	UL13	UL13
+CTNNA1	P35221	Homo sapiens (Human)	Membrane			UL13	UL13		UL13	UL13
+CTNNB1	P35222	Homo sapiens (Human)	Membrane	Respiratory chain complex I (intermediate V/380kD and VI/480kD), mitochondrial	interaction with host	UL13	UL13		UL13	UL13
+LMO7	Q8WWI1	Homo sapiens (Human)	Membrane					UL13	UL13	
+FLNB	O75369	Homo sapiens (Human)	Membrane						UL13	
+IQGAP1	P46940	Homo sapiens (Human)	Membrane	Respiratory chain complex I (intermediate IV/310kD), mitochondrial				UL13	UL13	UL13
+VCL	P18206	Homo sapiens (Human)	Membrane							UL13
+TFRC	P02786	Homo sapiens (Human)	Membrane			UL13			UL13	UL13
+MYO1B	O43795	Homo sapiens (Human)	Membrane			UL13	UL13	UL13	UL13	UL13
+CAPN1	P07384	Homo sapiens (Human)	Membrane							UL13
+CDH2	P19022	Homo sapiens (Human)	Membrane	Respiratory chain complex I (intermediate V/380kD and VI/480kD), mitochondrial		UL13	UL13		UL13	UL13
+RAB18	Q9NP72	Homo sapiens (Human)	Membrane					UL13	UL13	
+CAPN2	P17655	Homo sapiens (Human)	Membrane					UL13	UL13	UL13
+CTTN	Q14247	Homo sapiens (Human)	Membrane	DLL1-CTNNB1-CDH2 complex	mitochondrion organization				UL13	UL13
+PPP2R1A	P30153	Homo sapiens (Human)	Membrane						UL13	UL13
+CAMK2D	Q13557	Homo sapiens (Human)	Membrane					UL13	UL13	UL13
+RAP1B	P61224	Homo sapiens (Human)	Membrane					UL13		UL13
+CAP1	Q01518	Homo sapiens (Human)	Membrane					UL13		UL13
+CDC42	P60953	Homo sapiens (Human)	Membrane	Respiratory chain complex I (intermediate IV/310kD), mitochondrial			UL13	UL13		UL13
+DNAJB4	Q9UDY4	Homo sapiens (Human)	Membrane			UL13				
+IFITM3	Q01628	Homo sapiens (Human)	Membrane		interaction with host			UL13	UL13	UL13
+CEACAM6	P40199	Homo sapiens (Human)	Membrane				UL13			UL13
+ORFL147C	ORFL147C	Human cytomegalovirus (strain AD169) (HHV-5)	Viral					UL13		
+UL97	P16788	Human cytomegalovirus (strain AD169) (HHV-5)	Viral		interaction with host					UL13
+UL102	F5HIG1	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication					UL13
+UL105	F5HEN8	Human cytomegalovirus (strain Merlin) (HHV-5)	Viral		bidirectional double-stranded viral DNA ...; viral DNA genome replication				UL13	

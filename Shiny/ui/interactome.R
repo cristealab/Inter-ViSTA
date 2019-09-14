@@ -7,7 +7,7 @@ tabPanel(title = "Interactome Network", value = "interactome", fluid = TRUE,
            sidebarPanel(
              
              # Checkbox to display labels ----
-             checkboxInput(inputId = "labels", "Display node labels", value=F),
+             checkboxInput(inputId = "labels", "Display node labels", value=T),
              
              # Slider for STRING confidence ----
              sliderInput(inputId = "confidence", label="STRING edges confidence threshold:",

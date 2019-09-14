@@ -40,6 +40,10 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
                                   "text/comma-separated-values,text/plain",
                                   ".csv")),
              
+             # Timepoint Input: textbox for timepoints / conditions ----
+             textInput("timepoints", "Enter Timepoints / Conditions as integers separated by ',':",
+                       value = "Ex: 24, 48, 72, 96, 120"),
+             
              # Specificity filter ----
              sliderInput("specificity", label="Select interaction specificity threshold:",
                          min=0, max=1, value=0.7),
@@ -86,8 +90,35 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
                        interaction bait abundances to proteome abundances 
                        at each timepoint / condition", 
                        placement = "bottom", trigger = "hover",
-                       options = NULL)
+                       options = NULL),
              
+             # Horizontal line ----
+             tags$hr(),
+             
+             # Previous Datasets Input ----
+             
+             h4("Load Datasets Previously Calculated by Inter-ViSTA"),
+             
+             # Previous Nodes Input: Select nodes file ----
+             fileInput("prev_nodes", "Upload Previously Calculated Nodes File",
+                       multiple = FALSE,
+                       accept = c("text/csv",
+                                  "text/comma-separated-values,text/plain",
+                                  ".txt")),
+             
+             # Previous Edges Input: Select edges file ----
+             fileInput("prev_edges", "Upload Previously Calculated Edges File",
+                       multiple = FALSE,
+                       accept = c("text/csv",
+                                  "text/comma-separated-values,text/plain",
+                                  ".txt")),
+             
+             # Previous UniProt Input: Select edges file ----
+             fileInput("prev_uniprot", "Upload Previously Calculated UniProt Annotations File",
+                       multiple = FALSE,
+                       accept = c("text/csv",
+                                  "text/comma-separated-values,text/plain",
+                                  ".csv"))
            ),
            
            # Main panel: Tables output ----

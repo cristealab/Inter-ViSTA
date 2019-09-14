@@ -5,7 +5,7 @@ library(zip)
 
 ##### GET AND CLEAN DATA ####
 
-cleanData <- function(nodes_in, edges_in, spec_threshold) {
+cleanData <- function(nodes_in, edges_in, timepoints, spec_threshold) {
   
   nodes_out <- nodes_in
   edges_out <- edges_in
@@ -22,11 +22,7 @@ cleanData <- function(nodes_in, edges_in, spec_threshold) {
     WEIGHT_THRESHOLD <- spec_threshold - 0.1
   } 
   
-  # get timepoint information from column names
-  num_link_attr <- ncol(edges_out)
-  timepoints <- unique(as.numeric(unlist(regmatches(colnames(edges_out)[3:num_link_attr],
-                                                    gregexpr("[[:digit:]]+\\.*[[:digit:]]*", 
-                                                             colnames(edges_out)[3:num_link_attr])))))
+  # get timepoint information 
   NUM_TPS <- length(timepoints)
   
   # set interval length to smallest interval between timepoints
@@ -48,6 +44,7 @@ cleanData <- function(nodes_in, edges_in, spec_threshold) {
   # rename link columns 
   colnames(edges_out)[c(1,2)] <- c("bait_accession", "prey_accession")
   ABUND_PROV <- F
+  num_link_attr <- ncol(edges_out)
   if (num_link_attr == NUM_TPS+2) {
     colnames(edges_out)[3:num_link_attr] <- paste("w", timepoints, sep="")
   } else { 
@@ -135,6 +132,131 @@ cleanData <- function(nodes_in, edges_in, spec_threshold) {
   return (cleaned_data)
 }
 
+cleanDataPREV <- function(nodes_in, edges_in) {
+  
+  nodes_out <- nodes_in
+  edges_out <- edges_in
+  
+  # rename edge columns
+  colnames(edges_out)[1:4] <- c("bait_gene_name", "prey_gene_name", 
+                                "bait_accession", "prey_accession")
+  
+  # get number of edges (provided, no repeats) for building interactome network
+  provided_edges <- edges_out[edges_out$type == "Provided", c("bait_accession", "prey_accession")]
+  NUM_EDGES <- dim(unique(provided_edges))[1]
+  
+  # get timepoints
+  # get column names that will have timepoints
+  timepoints <- colnames(edges_out)[grep("^confidence", colnames(edges_out))]
+  timepoints <- regmatches(timepoints, gregexpr('[0-9]+',timepoints))
+  timepoints <- as.numeric(unlist(timepoints))
+  
+  # rename edge columns
+  colnames(edges_out)[grep("^confidence", colnames(edges_out))] <- paste("w", timepoints, sep="")
+  
+  # set interval length to smallest interval between timepoints
+  interval <- {}
+  NUM_TPS <- length(timepoints)
+  for (i in 1:(NUM_TPS-1)) {
+    interval[i] <- timepoints[i+1] - timepoints[i]
+  }
+  INTERVAL <- min(interval)
+  
+  # check if abundances were provided
+  ABUND_PROV <- F
+  if ( sum(grepl("^abundance", colnames(edges_out))) != 0 ) { ABUND_PROV <- T }
+  
+  if (ABUND_PROV) {
+    # rename edge columns
+    colnames(edges_out)[grep("^abundance", colnames(edges_out))] <- paste("a", timepoints, sep="")
+    
+  }
+  
+  # check if abundances were normalized
+  NORM_PROT <- F
+  if ( sum(grepl("^normalized", colnames(edges_out))) != 0 ) { NORM_PROT <- T }
+  
+  if (NORM_PROT) {
+    # rename edge columns
+    colnames(edges_out)[grep("^normalized", colnames(edges_out))] <- paste("norm_a", 
+                                                                           timepoints, sep="")
+    
+  }
+  
+  # assign unique ids to nodes
+  NUM_NODES <- nrow(nodes_out)
+  nodes_out$id <- c(1:NUM_NODES)
+  rownames(nodes_out) <- nodes_out$id
+  
+  # get shared nodes (if they exist)
+  if ( sum(grepl("^shared", colnames(nodes_out))) != 0 ) {
+    colnames(nodes_out)[grep("^shared", colnames(nodes_out))] <- paste("shared_", timepoints, sep="")
+    for (tp in timepoints) {
+      col <- which(colnames(nodes_out) == paste("shared_", tp, sep=""))
+      nodes_out[col] <- lengths(strsplit(nodes_out[, paste("shared_", tp, sep="")], 
+                                         ";"))
+    }
+  }
+  
+  # get list of localizations
+  LOCS <- unique(unlist(strsplit(nodes_out$localizations, "; ")))
+  
+  # assign localization string (replace multiple localizations with string "Multiple")
+  nodes_out$localization_string <- nodes_out$localizations
+  nodes_out[grep(";", nodes_out$localization_string), "localization_string"] <- "Multiple"
+  nodes_out[nodes_out$localization_string == "", "localization_string"] <- "Unspecified"
+  
+  # create loc_ columns with T/F for each localization
+  for (loc in LOCS) {
+    check <- vector(mode="logical", length=NUM_NODES)
+    check <- grepl(loc, nodes_out$localizations, ignore.case=T)
+    nodes_out <- cbind(nodes_out, check)
+    colnames(nodes_out)[ncol(nodes_out)] <- paste("loc_", loc, sep="")
+  }
+  
+  # get top GO terms
+  topGOterms <- unique(unlist(strsplit(nodes_out$GO_terms, "; ")))
+  
+  # create topGO columns with T/F for each GOterm
+  for (got in topGOterms) {
+    check <- vector(mode="logical", length=NUM_NODES)
+    check <- grepl(got, nodes_out$GO_terms, ignore.case=T)
+    nodes_out <- cbind(nodes_out, check)
+    colnames(nodes_out)[ncol(nodes_out)] <- paste("got_", got, sep="")
+  }
+  
+  # get organism names
+  colnames(nodes_out)[which(colnames(nodes_out) == "species")] <- "organism"
+  ORGANISMS <- unique(unlist(strsplit(nodes_out$organism, "; ")))
+  
+  # attach ids and gene names to links
+  edges_out <- merge(edges_out, nodes_out[, c("accession", "id")], 
+                     by.x="bait_accession", 
+                     by.y="accession")
+  colnames(edges_out)[ncol(edges_out)] <- "bait_id"
+  edges_out <- merge(edges_out, nodes_out[, c("accession", "id")], 
+                     by.x="prey_accession", 
+                     by.y="accession")
+  colnames(edges_out)[ncol(edges_out)] <- "prey_id"
+  
+  # get provided bait ids
+  BAIT_IDS <- unique(edges_out[edges_out$type == "Provided", "bait_id"])
+  
+  # returns list of: nodes, edges, num_edges, timepoints, localizations, topGOterms,
+  # organisms, interval, abund_prov, norm_prot, bait_ids
+  return (list("nodes" = nodes_out, 
+               "edges" = edges_out,
+               "num_edges" = NUM_EDGES,
+               "localizations" = LOCS,
+               "topGOterms" = topGOterms,
+               "organisms" = ORGANISMS,
+               "timepoints" = timepoints,
+               "interval" = INTERVAL,
+               "abund_prov" = ABUND_PROV,
+               "norm_prot" = NORM_PROT,
+               "bait_ids" = BAIT_IDS))
+}
+
 ##### CORUM COMPLEX INFORMATION ####  
 
 calculateComplexes <- function(nodes_in) {
@@ -203,6 +325,63 @@ calculateComplexes <- function(nodes_in) {
   
   return (list("nodes" = nodes_out,
                "complexes" = detected_complexes))
+}
+
+calculateComplexesPREV <- function(nodes_in) {
+  
+  NUM_NODES <- dim(nodes_in)[1]
+  
+  corum_complexes <- read.table("AppFiles/coreComplexes.txt", header = T, sep = "\t", quote = "", 
+                                fill = T, stringsAsFactors = F)
+  corum_complexes <- corum_complexes[, c("ComplexName", "subunits.UniProt.IDs.")]
+  
+  list_complexes <- strsplit(corum_complexes[, "subunits.UniProt.IDs."], ";")
+  names(list_complexes) <- corum_complexes$ComplexName
+  
+  # only keep complexes with at least 3 members (no duplexes)
+  list_complexes <- Filter(function(x) length(x) > 2, list_complexes)
+  
+  # only keep complexes with at least 40% of its members in the provided dataset
+  keep_function <- function(x) {
+    if (sum(x %in% nodes_in$accession) / length(x) >= 0.4 ) { 
+      return (TRUE) 
+    } else { return (FALSE) }
+  }
+  list_complexes <- Filter(keep_function, list_complexes)
+  
+  chr2string <- function(x) {
+    gene_names <- nodes_in[nodes_in$accession %in% x, "gene_name"]
+    return (paste0(gene_names, collapse="; "))
+  }
+  
+  percent_detected <- function(x) {
+    return ( sum(x %in% nodes_in$accession) / length(x) )
+  }
+  
+  # output complexes table (for download)
+  
+  if (length(list_complexes) != 0) {
+    
+    detected_complexes <- cbind.data.frame(names(list_complexes), 
+                                           sapply(list_complexes, percent_detected),
+                                           sapply(list_complexes, chr2string))
+    colnames(detected_complexes) <- c("Complex Name", "Fraction of Complex Detected",
+                                      "Detected Complex Members")
+    detected_complexes <- detected_complexes[order(-detected_complexes$`Fraction of Complex Detected`), ]
+    rownames(detected_complexes) <- 1:nrow(detected_complexes)
+    
+  } else {
+    
+    # no complexes found in CORUM
+    
+    detected_complexes <- NULL
+    
+  }
+  
+  # function returns: detected complexes
+  
+  return (detected_complexes)
+  
 }
 
 ##### QUANTITATIVE FUNCTIONS ####
@@ -284,6 +463,30 @@ clusterProteins <- function(nodes_in, edges_in, bait_ids, timepoints) {
                "abundances" = relative_abundances))
 }
 
+clusterProteinsPREV <- function(edges_in, timepoints) {
+  
+  library(ggplot2)
+  theme_set(theme_bw())
+  
+  edges_in <- edges_in[edges_in$type == "Provided", ]
+  abundances <- edges_in[!duplicated(edges_in[3:4]), 
+                         c("bait_gene_name", "prey_gene_name", "cluster", 
+                           paste("a", timepoints, sep=""))]
+  
+  # scale values to max 1
+  maxOne <- function(x) {
+    return ( x / max(x) )
+  }
+  
+  to_scale <- abundances[, c(4:ncol(abundances))]
+  abundances[, c(4:ncol(abundances))] <- t(apply(to_scale, 1, maxOne))
+  
+  abundances <- abundances[!is.na(abundances$cluster), ]
+  
+  # return relative abundances file
+  return (abundances)
+}
+
 # function to plot individual protein profiles split by cluster
 
 clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints) {
@@ -355,6 +558,11 @@ normalizeByProteomeAbund <- function(proteome_abundance, nodes_in, edges_in, tim
       as.numeric(heatmap_abundance[, paste("norm_a", tp, sep="")])
   }
   
+  # scale values from 0 to 1
+  zero2one <- function(x) {
+    return ((x - min(x)) / (max(x) - min(x)) )
+  }
+  
   scaled_reg <- t(apply(heatmap_abundance[, c(paste("a", timepoints, sep=""))], 1, 
                         zero2one))
   scaled_norm <- t(apply(heatmap_abundance[, c(paste("norm_a", timepoints, sep=""))], 1, 
@@ -372,6 +580,37 @@ normalizeByProteomeAbund <- function(proteome_abundance, nodes_in, edges_in, tim
   # this should return edges and heatmap dataframe
   return (list("edges" = edges_out,
                "normalized_abundances" = heatmap_abundance_scaled))
+}
+
+normalizeByProteomeAbundPREV <- function(edges_in, timepoints) {
+  
+  library(ggplot2)
+  theme_set(theme_bw())
+  library(gridExtra)
+  
+  edges_in <- edges_in[edges_in$type == "Provided", ]
+  
+  abundances <- edges_in[!duplicated(edges_in[3:4]), 
+                         c("bait_gene_name", "prey_gene_name", "cluster", 
+                           paste("a", timepoints, sep=""),
+                           paste("norm_a", timepoints, sep=""))]
+  
+  # scale values from 0 to 1
+  zero2one <- function(x) {
+    return ((x - min(x)) / (max(x) - min(x)) )
+  }
+  
+  scaled_reg <- t(apply(abundances[, c(paste("a", timepoints, sep=""))], 1, 
+                        zero2one))
+  scaled_norm <- t(apply(abundances[, c(paste("norm_a", timepoints, sep=""))], 1, 
+                         zero2one))
+  
+  abundances <- cbind.data.frame(abundances[, c("bait_gene_name", "prey_gene_name",
+                                                "cluster")],
+                                 scaled_reg, scaled_norm, stringsAsFactors = F)
+  
+  # this should return heatmap dataframe
+  return ("normalized_abundances" = abundances)
 }
 
 # function to plot heatmaps of abundances normalized to proteome and not-normalized
@@ -402,7 +641,7 @@ plotHeatmaps <- function(bait_id, nodes_in, normalized_abundances, timepoints) {
       geom_tile(aes(fill = values), colour = "white") + 
       scale_fill_gradient(low = "navyblue", high = "yellow3", 
                           name = "Scaled Abund.") + 
-      facet_wrap(aes(type)) +
+      facet_wrap(vars(type)) +
       xlab("Condition") + 
       ylab("Prey Gene Name") +
       scale_x_continuous(breaks = timepoints, labels = timepoints) +
@@ -450,6 +689,39 @@ sizeByAbund <- function(nodes_in, edges_in, bait_ids, timepoints) {
   return (nodes_out)
 }
 
+sizeByAbundPREV <- function(nodes_in, edges_in, bait_ids, timepoints) {
+  
+  nodes_out <- nodes_in
+  edges_in <- edges_in[edges_in$type == "Provided", ]
+  
+  NUM_TPS <- length(timepoints)
+  
+  # convert abundance to size and size by quartile
+  
+  overall_avg <- vector(mode='numeric', length=NUM_TPS)
+  for (i in 1:NUM_TPS) {
+    overall_avg[i] <- mean(edges_in[, c(paste("a", timepoints[i], sep=""))])
+  }
+  
+  # set 2.5 as the average node size
+  mult_factor <- 2.5 / mean(overall_avg)
+  
+  returnSize <- function(x) {
+    y <- max(1, mult_factor*x) # prevent nodes from being too small
+    y <- min(4, y) # prevent nodes from being too big
+    return (y)
+  }
+  
+  for (i in 1:NUM_TPS) {
+    size <- lapply(edges_in[, c(paste("a", timepoints[i], sep=""))], returnSize)
+    size <- cbind(edges_in$prey_id, unlist(size))
+    size <- rbind(size, c(bait_ids, 2.5))
+    colnames(size) <- c("id", paste("size_", timepoints[i], sep=""))
+    nodes_out <- merge(nodes_out, size, by="id")
+  }
+  
+  return (nodes_out)
+}
 
 ##### GET NODE ANNOTATIONS FROM UNIPROT ####
 
@@ -463,9 +735,10 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
   nodes_out <- nodes_in
   
   if (ncol(background_list) > 1) {
+    
     # if the provided list already has Uniprot information, skip the extraction step for 
-    # the background genes, but perform the extraction for nodes being visualized by Inter-ViSTA
-    uniprot_list <- nodes_out$accession
+    # all genes that already have the information provided
+    uniprot_list <- nodes_out[!(nodes_out$accession %in% background_list$accession), "accession"]
     
   } else {
     # otherwise add any nodes whose accessions do not appear in the background list
@@ -473,33 +746,98 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
     uniprot_list <- unlist(unique(uniprot_list))
   }
   
-  source_python("AppFiles/UniprotQuery.py")
-  source_python("AppFiles/ruq.py")
-  
-  # break into chunks of 2000 if larger than 2000 
-  CHUNK_SIZE <- 2000
-
-  NUM_CHUNKS <- (length(uniprot_list) %/% CHUNK_SIZE)+1
-  
-  uniprot_data <- list()
-  
-  for (i in 1:NUM_CHUNKS) {
+  # if there is more data to be collected, collect the data
+  if (length(uniprot_list) > 0) {
     
-    n_start <- CHUNK_SIZE*(i-1) + 1
-    n_end <- min(CHUNK_SIZE*i, length(uniprot_list))
+    source_python("AppFiles/UniprotQuery.py")
+    source_python("AppFiles/ruq.py")
     
-    uniprot_chunk <- uniprot_list[n_start:n_end]
+    updateUniprot <- function(uniprot_chunk) {
+      
+      tryCatch({
+        run_uniprot_query(uniprot_chunk)
+      }, error = function (err) {
+        return (list())
+      })
+      
+    }
     
-    uniprot_data <- append(uniprot_data, run_uniprot_query(uniprot_chunk))
+    # break into chunks of 2000 if larger than 2000 
+    CHUNK_SIZE <- 2000
+    
+    NUM_CHUNKS <- (length(uniprot_list) %/% CHUNK_SIZE)+1
+    
+    uniprot_data <- list()
+    
+    for (i in 1:NUM_CHUNKS) {
+      
+      n_start <- CHUNK_SIZE*(i-1) + 1
+      n_end <- min(CHUNK_SIZE*i, length(uniprot_list))
+      
+      uniprot_chunk <- uniprot_list[n_start:n_end]
+      
+      uniprot_data <- append(uniprot_data, updateUniprot(uniprot_chunk))
+      
+    }
+    
+    if (length(uniprot_data) > 0) {
+      # if new uniprot data has been collected
+      # create dataframe of newly acquired uniprot data
+      up_accession <- names(uniprot_data)
+      up_genename <- sapply(names(uniprot_data), function(nm) { 
+        paste(uniprot_data[[nm]][["genename"]], collapse = "; " ) } )
+      up_GOIDs <- sapply(names(uniprot_data), function(nm) { 
+        paste(uniprot_data[[nm]][["GO IDs"]], collapse = "; " ) } )
+      up_localizations <- sapply(names(uniprot_data), function(nm) { 
+        paste(uniprot_data[[nm]][["localizations"]], collapse = "; " ) } )
+      up_organism <- sapply(names(uniprot_data), function(nm) { 
+        paste(uniprot_data[[nm]][["organism"]], collapse = "; " ) } )
+      
+      uniprot_df <- cbind(up_accession, up_genename, up_GOIDs, up_localizations, 
+                          up_organism)
+      colnames(uniprot_df) <- c("accession", "genename", "GOIDs", "localizations", "organism")
+      rownames(uniprot_df) <- 1:nrow(uniprot_df)
+      
+      uniprot_df <- as.data.frame(uniprot_df, stringsAsFactors = F)
+      
+      # add a column that specifies whether the protein is a node in the dataset,
+      # part of the background, or both
+      
+      uniprot_df$type <- "Background Only"
+      uniprot_df[uniprot_df$accession %in% nodes_out$accession, "type"] <- "In NodeList Only"
+      if (ncol(background_list) > 1) {
+        bg_terms <- background_list[background_list$type != "In NodeList Only", "accession"]
+      } else {
+        bg_terms <- background_list[,1]
+      }
+      uniprot_df[uniprot_df$accession %in% bg_terms, "type"] <- "Both"
+      
+      # combine newly collected uniprot data with previously collected
+      if (ncol(background_list) > 1) {
+        
+        uniprot_df <- rbind.data.frame(background_list, uniprot_df)
+        
+      }
+      
+    } else {
+      
+      # no new uniprot data collected
+      
+      uniprot_df <- background_list
+      
+    }
+    
+    
+  } else {
+    
+    # otherwise simply retain the background list
+    
+    uniprot_df <- background_list
     
   }
   
   # merge organism name into nodes file
-  given_uniprot <- uniprot_data[nodes_out$accession]
-  
-  nodes_out$organism <- lapply(names(given_uniprot), 
-                               function(nm) { given_uniprot[[nm]][["organism"]] } )
-  nodes_out[which(nodes_out$organism == "NULL"), "organism"] = NA
+  nodes_out <- merge(nodes_out, uniprot_df[, c("accession", "organism")], by="accession", all.x=T)
   
   # create mapping from taxid to organism
   txidToOrg <- list()
@@ -515,50 +853,13 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
   }
   ORGANISMS <- unique(nodes_out$organism)
   
-  # create node Uniprot annotations
-  na_accession <- names(given_uniprot)
-  na_genename <- sapply(names(given_uniprot), function(nm) { 
-    paste(given_uniprot[[nm]][["genename"]], collapse = "; " ) } )
-  na_GOIDs <- sapply(names(given_uniprot), function(nm) { 
-    paste(given_uniprot[[nm]][["GO IDs"]], collapse = "; " ) } )
-  na_localizations <- sapply(names(given_uniprot), function(nm) { 
-    paste(given_uniprot[[nm]][["localizations"]], collapse = "; " ) } )
-  na_organism <- sapply(names(given_uniprot), function(nm) { 
-    paste(given_uniprot[[nm]][["organism"]], collapse = "; " ) } )
   
-  node_annotations <- cbind(na_accession, na_genename, na_GOIDs, na_localizations, na_organism)
-  colnames(node_annotations) <- c("accession", "genename", "GOIDs", "localizations", "organism")
-  node_annotations <- as.data.frame(node_annotations, stringsAsFactors = F)
+  # create nodes Uniprot annotations
+  node_annotations <- uniprot_df[uniprot_df$type != "Background Only", ]
   
-  # if this is the first time program was run on this background list, save the background
-  # gene list with all Uniprot annotations
-  if (ncol(background_list) == 1) {
-    background_uniprot <- uniprot_data[background_list[, 1]]
-    
-    up_accession <- names(background_uniprot)
-    up_genename <- sapply(names(background_uniprot), function(nm) { 
-      paste(background_uniprot[[nm]][["genename"]], collapse = "; " ) } )
-    up_GOIDs <- sapply(names(background_uniprot), function(nm) { 
-      paste(background_uniprot[[nm]][["GO IDs"]], collapse = "; " ) } )
-    up_localizations <- sapply(names(background_uniprot), function(nm) { 
-      paste(background_uniprot[[nm]][["localizations"]], collapse = "; " ) } )
-    up_organism <- sapply(names(background_uniprot), function(nm) { 
-      paste(background_uniprot[[nm]][["organism"]], collapse = "; " ) } )
-    
-    uniprot_df <- cbind(up_accession, up_genename, up_GOIDs, up_localizations, 
-                        up_organism)
-    colnames(uniprot_df) <- c("accession", "genename", "GOIDs", "localizations", "organism")
-    
-    uniprot_df <- as.data.frame(uniprot_df, stringsAsFactors = F)
-    
-    # new bg list has all the annotations included
-    background_list <- uniprot_df 
-  }
-  
-  all_annotations <- rbind(node_annotations, background_list)
   # create functional GO annotations list to later pipe into topGO
-  accessionToGO <- strsplit(all_annotations$GOIDs, "; ")
-  names(accessionToGO) <- all_annotations$accession
+  accessionToGO <- strsplit(uniprot_df$GOIDs, "; ")
+  names(accessionToGO) <- uniprot_df$accession
   
   ## ASSIGN LOCALIZATIONS
   
@@ -614,17 +915,14 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
   nodes_out$localization_string <- localization_string
   nodes_out$localization_string_output <- localization_string_output
   
-  # if node lacks localization information replace with organism name
-  unspecified <- which(nodes_out$localization_string == "")
-  for (u in unspecified) {
-    nodes_out[u, "localization_string"] <- txidToOrg[toString(nodes_out[u, "taxid"])]
-  }
+  # if node lacks localization information, say "Unspecified"
+  nodes_out[nodes_out$localization_string == "", "localization_string"] <- "Unspecified"
   
-  # function returns: nodes, organisms, localizations, background_list (out), GOList
+  # function returns: nodes, organisms, localizations, uniprot, GOList
   return (list("nodes" = nodes_out,
                "organisms" = ORGANISMS,
                "localizations" = locs,
-               "background" = background_list,
+               "uniprot" = uniprot_df,
                "GOList" = accessionToGO))
 }
 
@@ -728,6 +1026,87 @@ performGOEnrichment <- function(GOList, nodes_in) {
   return (list("nodes" = nodes_out,
                "GOTable" = GOTable,
                "topGOterms" = TOP_GO_TERMS))
+  
+}
+
+performGOEnrichmentPREV <- function(background_list, nodes_in) {
+  
+  library(topGO)
+  
+  # create functional GO annotations list to later pipe into topGO
+  accessionToGO <- strsplit(background_list$GOIDs, "; ")
+  names(accessionToGO) <- background_list$accession
+  
+  gene_universe <- background_list$accession
+  interesting_genes <- nodes_in$accession
+  
+  # assign whether a gene is "interesting" - in the provided data
+  gene_list <- factor(as.integer(gene_universe %in% interesting_genes))
+  names(gene_list) <- gene_universe
+  
+  # create topGO object
+  # Biological Process (BP) ontology
+  GOdata <- new("topGOdata", ontology = "BP", allGenes = gene_list, 
+                annot = annFUN.gene2GO, gene2GO = accessionToGO)
+  
+  # use Fisher's test to determine enrichment
+  test <- new("classicCount", testStatistic = GOFisherTest, name = "Fisher test")
+  resultFisher <- getSigGroups(GOdata, test)
+  
+  # perform multiple test correction using fdr (BH) method
+  fisher_p_values <- score(resultFisher)
+  corr_p_values <- p.adjust(fisher_p_values, method = "BH")
+  corrected_p_values <- as.data.frame(corr_p_values)
+  corrected_p_values$GO.ID <- rownames(corrected_p_values)
+  
+  # generate results table
+  allRes <- GenTable(GOdata, Fisher_p_value = resultFisher,
+                     topNodes = dim(corrected_p_values)[1])
+  allRes <- merge(allRes, corrected_p_values, by="GO.ID")
+  # only keep terms with p-value < 0.05 
+  # (if not more than 5 from multiple correction, then just Fisher)
+  if (length(which(allRes$corr_p_values < 0.05)) > 5) {
+    allRes <- allRes[which(allRes$corr_p_values < 0.05), ]
+    # sort by corrected p_values
+    allRes <- allRes[order(allRes$corr_p_values), ]
+  } else {
+    allRes <- allRes[which(allRes$Fisher_p_value < 0.05), ]
+    # sort by Fisher p_values
+    allRes <- allRes[order(allRes$Fisher_p_value), ]
+  }
+  
+  colnames(allRes)[ncol(allRes)] <- "Corrected p-value"
+  
+  # if significant GO terms are found
+  if (dim(allRes)[1] > 0) {
+    
+    # list the genes for each of the significant GO terms
+    annotated_genes <- lapply(allRes$GO.ID,
+                              function(x) as.character(
+                                unlist(genesInTerm(object = GOdata, whichGO = x))))
+    names(annotated_genes) <- allRes$Term
+    # get GO terms for the original genes in the provided list
+    significant_genes <- lapply(annotated_genes, function(x) intersect(x, interesting_genes))
+    
+    # output GO Table (for download)
+    GOTable <- allRes
+    NUM_GO_TERMS <- dim(GOTable)[1]
+    GOTable$Proteins <- vector(mode = "character", length = NUM_GO_TERMS)
+    
+    for (i in 1:NUM_GO_TERMS) {
+      GOTable$Proteins[i] <- paste0(nodes_in$gene_name[which(nodes_in$accession %in%
+                                                               unlist(significant_genes[GOTable$Term[i]]))],
+                                    collapse = "; ")
+    }
+    
+  } else {
+    
+    # no significant GO terms found
+    GOTable <- NULL
+  }
+  
+  # function returns: GO terms table
+  return (GOTable)
   
 }
 
@@ -898,16 +1277,125 @@ calculateActivitySpells <- function(nodes_in, edges_in, timepoints, interval, we
   return (list("nodes" = nodes_out,
                "edges" = edges_out,
                "bait_ids" = bait_ids))
-} 
+}
 
-
-
-
-
-
-
-
-
+calculateActivitySpellsPREV <- function(nodes_in, edges_in, timepoints, interval, 
+                                        bait_ids) {
+  
+  ## ASSIGN NODE SPELLS
+  
+  # assign unique node onset and terminus times from edge info such that node activity encompasses 
+  # incident edge activity - examples:
+  # 1. edge tps=(1-2, 2-5) -> node tps=(1-5)
+  # 2. edge tps=(1-5, 2-4) -> node tps=(1-5)
+  # repeat until as condense as possible, then remove any remaining duplicates (on-off periods of edges) by
+  # extending node activity for entire edge spell
+  
+  nodes_out <- nodes_in
+  edges_out <- edges_in
+  
+  nodes_out <- nodes_out[!duplicated(nodes_out$id), ]
+  nodes_out <- nodes_out[order(nodes_out$id), ]
+  rownames(nodes_out) <- nodes_out$id
+  
+  # get the number of times to repeat each node (if it appears in multiple baits)
+  edges_temp <- edges_out[edges_out$type == "Provided", ]
+  freq <- as.data.frame(table(edges_temp$prey_id), stringsAsFactors = F)
+  keep_nodes <- nodes_out[rep(freq$Var1, freq$Freq), ]
+  keep_nodes$onset <- edges_temp$onset
+  keep_nodes$terminus <- edges_temp$terminus
+  
+  current_dim <- dim(keep_nodes)[1]
+  row.names(keep_nodes) <- 1:current_dim
+  new_dim <- 0
+  
+  count <- 1
+  while (new_dim < current_dim) {
+    count <- count+1
+    remove_ids <- numeric()
+    i <- 1
+    while (i < dim(keep_nodes)[1]) {
+      currentNode <- keep_nodes[i,"id"]
+      while (i < dim(keep_nodes)[1] & keep_nodes[i+1, "id"] == currentNode) {
+        # case 1
+        if (keep_nodes[i, "onset"] == keep_nodes[i+1, "terminus"] | 
+            keep_nodes[i, "terminus"] == keep_nodes[i+1, "onset"]) {
+          keep_nodes[i, "onset"] <- min(keep_nodes[i, "onset"], keep_nodes[i+1, "onset"])
+          keep_nodes[i, "terminus"] <- max(keep_nodes[i, "terminus"], 
+                                           keep_nodes[i+1, "terminus"])
+          remove_ids <- append(remove_ids, i+1)
+        }
+        # case 2
+        else if ((keep_nodes[i, "onset"] <= keep_nodes[i+1, "onset"] & 
+                  keep_nodes[i, "terminus"] >= keep_nodes[i+1, "terminus"]) |
+                 (keep_nodes[i, "onset"] >= keep_nodes[i+1, "onset"] & 
+                  keep_nodes[i, "terminus"] <= keep_nodes[i+1, "terminus"])) {
+          keep_nodes[i, "onset"] <- min(keep_nodes[i, "onset"], keep_nodes[i+1, "onset"])
+          keep_nodes[i, "terminus"] <- max(keep_nodes[i, "terminus"], 
+                                           keep_nodes[i+1, "terminus"])
+          remove_ids <- append(remove_ids, i+1)
+        }
+        i <- i+1
+      }
+      i <- i+1
+    }
+    current_dim <- dim(keep_nodes)[1]
+    if (length(remove_ids) == 0) { break }
+    keep_nodes <- keep_nodes[-remove_ids, ]
+    new_dim <- dim(keep_nodes)[1]
+    rownames(keep_nodes) <- 1:new_dim
+  }
+  
+  # remove remaining duplicates by extending them for max possible time when edges active
+  remove_ids <- numeric()
+  duplicates <- names(which(table(keep_nodes$id) > 1))
+  if (length(duplicates) > 0) {
+    for (i in 1:length(duplicates)) {
+      check <- which(keep_nodes$id == duplicates[i])
+      onset <- min(keep_nodes[check, "onset"])
+      terminus <- max(keep_nodes[check, "terminus"])
+      keep_nodes[check[1], "onset"] <- onset
+      keep_nodes[check[1], "terminus"] <- terminus
+      remove_ids <- append(remove_ids, check[2:length(check)])
+    }
+    keep_nodes <- keep_nodes[-remove_ids, ]
+  }
+  
+  # ensure that bait nodes are always present
+  NUM_TPS <- length(timepoints)
+  missing_baits <- bait_ids[!(bait_ids %in% keep_nodes$id)]
+  if (length(missing_baits) > 0) {
+    add_baits <- nodes_out[missing_baits, ]
+    add_baits$onset <- timepoints[1]
+    add_baits$terminus <- timepoints[NUM_TPS]
+    
+    keep_nodes <- rbind(keep_nodes, add_baits)
+  }
+  
+  nodes_out <- keep_nodes 
+  nodes_out$onset[which(nodes_out$id %in% bait_ids)] <- timepoints[1]
+  nodes_out$terminus[which(nodes_out$id %in% bait_ids)] <- timepoints[NUM_TPS] + interval
+  
+  nodes_out$duration <- nodes_out$terminus - nodes_out$onset
+  nodes_out <- nodes_out[order(nodes_out$id), ]
+  nodes_out <- na.omit(nodes_out)
+  
+  NUM_NODES <- dim(nodes_out)[1]
+  
+  # convert old node ids to new ids
+  old_to_new <- setNames(as.list(1:NUM_NODES), as.character(nodes_out$id))
+  nodes_out$id <- 1:NUM_NODES
+  
+  edges_out$bait_id <- unlist(old_to_new[as.character(edges_out$bait_id)])
+  edges_out$prey_id <- unlist(old_to_new[as.character(edges_out$prey_id)])
+  
+  bait_ids <- unlist(old_to_new[as.character(bait_ids)])
+  
+  # function returns: nodes, edges, bait_ids
+  return (list("nodes" = nodes_out,
+               "edges" = edges_out,
+               "bait_ids" = bait_ids))
+}
 
 
 ##### GET STRING-DB INFORMATION ####
@@ -997,7 +1485,7 @@ getSTRINGData <- function(nodes_in, edges_in, taxids, timepoints) {
 ##### BUILD NETWORK ####
 
 # only do this if there are fewer than 500 nodes in the data
-buildNetwork <- function(nodes_in, edges_in, num_edges, abund_prov, timepoints, interval,
+buildNetwork <- function(nodes_in, edges_in, num_edges, abund_prov, norm_prot, timepoints, interval,
                          bait_ids) {
   
   library(networkDynamic)
@@ -1009,12 +1497,20 @@ buildNetwork <- function(nodes_in, edges_in, num_edges, abund_prov, timepoints, 
   nodes_out <- nodes_in
   
   # rearrange link dataframes to network
-  if (abund_prov) {
+  if (abund_prov && norm_prot) {
+    edges_out <- edges_out[, c("bait_id", "prey_id", "bait_accession", "prey_accession", 
+                               "bait_gene_name", "prey_gene_name", "cluster", "onset", 
+                               "terminus", "type", 
+                               paste("w", timepoints, sep=""),
+                               paste("a", timepoints, sep=""),
+                               paste("norm_a", timepoints, sep=""))]
+  } else if (abund_prov && !norm_prot) {
     edges_out <- edges_out[, c("bait_id", "prey_id", "bait_accession", "prey_accession", 
                                "bait_gene_name", "prey_gene_name", "cluster", "onset", 
                                "terminus", "type", 
                                paste("w", timepoints, sep=""),
                                paste("a", timepoints, sep=""))]
+    
   } else {
     edges_out <- edges_out[, c("bait_id", "prey_id", "bait_accession", "prey_accession", 
                                "bait_gene_name", "prey_gene_name", "onset", "terminus", "type", 
@@ -1096,9 +1592,9 @@ saveNodeAttributes <- function(nodes_in, bait_ids, timepoints, filename) {
   output_nodes$organism <- unlist(output_nodes$organism)
   colnames(output_nodes) <- c("gene_name", "accession", "species", "localizations",
                               "complexes", "GO_terms")
-
+  
   NUM_BAITS <- length(bait_ids)
-
+  
   if (NUM_BAITS > 1) {
     output_nodes <- cbind(output_nodes,
                           nodes_in[, paste("shared_baits_", timepoints, sep="")])
@@ -1156,18 +1652,21 @@ deactivateNE <- function(min_shared, st, locns, species, go_terms, net3.dyn, nod
   # calculate shared nodes
   plot_net <- net3.dyn
   # deactivate nodes based on number of baits they share
-  for (tp in timepoints) {
-    keep_nodes <- nodes_in[nodes_in[, paste("shared_", tp, sep="")] >= min_shared, "id"]
-    keep_nodes <- c(keep_nodes, bait_ids)
-    keep_nodes <- unique(keep_nodes)
-    deactivate_nodes <- nodes_in[!(nodes_in$id %in% keep_nodes), "id"]
-    deactivate.vertices(plot_net, onset=tp, terminus=tp+interval, v=deactivate_nodes, 
-                        deactivate.edges=T)
+  if (length(bait_ids) > 1) {
+    
+    for (tp in timepoints) {
+      keep_nodes <- nodes_in[nodes_in[, paste("shared_", tp, sep="")] >= min_shared, "id"]
+      keep_nodes <- c(keep_nodes, bait_ids)
+      keep_nodes <- unique(keep_nodes)
+      deactivate_nodes <- nodes_in[!(nodes_in$id %in% keep_nodes), "id"]
+      deactivate.vertices(plot_net, onset=tp, terminus=tp+interval, v=deactivate_nodes, 
+                          deactivate.edges=T)
+    }
+    
   }
   
-  
   # deactivate edges (based on STRING confidence threshold)
-  deactivate_link_ids <- which((edges_in$type == "STRING") &
+  deactivate_link_ids <- which((edges_in$type != "Provided") &
                                  (edges_in[, paste("w", timepoints[1], sep="")] <= st))
   
   if (!is.null(deactivate_link_ids)) {
@@ -1244,7 +1743,7 @@ plotCompNet <- function(net3_network, lab, bait_ids, abund_prov) {
     render.d3movie(net3_network,
                    render.par=list(tween.frames = 10, show.time = F),
                    plot.par=list(bg='white'),
-                   d3.options = list(animationDuration=6000,enterExitAnimationFactor=0.3),
+                   d3.options = list(animationDuration=4500,enterExitAnimationFactor=0.3),
                    usearrows = F,
                    displaylabels = lab, label=function(slice){slice%v%'gene_name'},
                    vertex.border=function(slice){slice%v%'dur_color'},
@@ -1270,7 +1769,7 @@ plotCompNet <- function(net3_network, lab, bait_ids, abund_prov) {
     render.d3movie(net3_network,
                    render.par=list(tween.frames = 10, show.time = F),
                    plot.par=list(bg='white'),
-                   d3.options = list(animationDuration=6000,enterExitAnimationFactor=0.3),
+                   d3.options = list(animationDuration=4500,enterExitAnimationFactor=0.3),
                    usearrows = F,
                    displaylabels = lab, label=function(slice){slice%v%'gene_name'},
                    vertex.border=function(slice){slice%v%'dur_color'},
@@ -1408,7 +1907,7 @@ calcNeighbors <- function(confidence, locns, species, go_terms,
   keep_links <- edges_in[which(edges_in$bait_accession %in% keep_nodes &
                                  edges_in$prey_accession %in% keep_nodes &
                                  edges_in[, paste('w', timepoints[1], sep="")] >= confidence &
-                                 edges_in$type == "STRING"), ]
+                                 edges_in$type != "Provided"), ]
   neighbors <- list()
   NUM_NODES <- dim(nodes_in)[1]
   

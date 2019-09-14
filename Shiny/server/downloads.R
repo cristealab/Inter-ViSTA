@@ -24,7 +24,7 @@ output$downloads <- renderUI({
     },
     
     verbatimTextOutput("downloadUniprotInfo"),
-    downloadButton("downloadUniprot", "UniProt Annotated Background Gene List")
+    downloadButton("downloadUniprot", "UniProt Annotated Gene List")
     
   )
   
@@ -41,6 +41,7 @@ output$downloadNetworkInfo <- renderPrint(
 
 # output nodes ----
 output$downloadNodes <- downloadHandler(
+  
   filename= function() { 
     "interactome_node_attributes.txt"}
   ,
@@ -91,10 +92,10 @@ output$downloadReport <- downloadHandler(
   }
 ) 
 
-# download background gene list information ----
+# download gene list information ----
 output$downloadUniprotInfo <- renderPrint(
-  cat("Download annotated background gene list that contains UniProt-derived information,
-      such as gene ontology terms for background genes. Using this list will 
+  cat("Download annotated gene list that contains UniProt-derived information,
+      such as gene ontology terms for background and provided node genes. Using this list will 
       significantly reduce Inter-ViSTA computation time in the future.")
 )
 
@@ -102,10 +103,10 @@ output$downloadUniprotInfo <- renderPrint(
 # download table
 output$downloadUniprot <- downloadHandler(
   filename = function() {
-    "annotated_background_gene_list.csv"}
+    "uniprot_annotated_gene_list.csv"}
   ,
   content = function(file) {
-    write.table(computed_values()$background, file = file, sep = ",", 
+    write.table(computed_values()$uniprot, file = file, sep = ",", 
                 quote = F, row.names = F)
   }
 )

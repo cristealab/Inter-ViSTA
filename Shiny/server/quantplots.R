@@ -51,55 +51,58 @@ output$quantplotsMain <- renderUI({
 
 # server logic to build quantitative plots ----
 
-# on button click, find neighbors for given proteins ----
+# on button click, find neighbors for given proteins and plot ----
 confNeighbors <- eventReactive(input$abundGo, {
   
   v <- computed_values()
-  calcNeighbors(input$confidence, input$checkLocalizations, 
+  nhbrs <- calcNeighbors(input$confidence, input$checkLocalizations, 
                 input$checkSpecies, input$checkGOTerms,
                 v$nodes, v$edges, v$timepoints, v$localizations)
+  abundPlot(input$genesym, input$neighbors, nhbrs,
+            v$nodes, v$plotabundances, v$timepoints)
+  
 })
 
-observeEvent(input$abundGo, {
-
-  v <- computed_values()
-
-  # render abundances plot ----
-  output$abundPlot <- renderPlot({
-
-    abundPlot(input$genesym, input$neighbors, confNeighbors(),
-              v$nodes, v$plotabundances, v$timepoints)
-
-  })
+# render abundances plot ----
+output$abundPlot <- renderPlot({
   
-  addTooltip(session, id = "abundPlot", title = "Interactors are determined using parameters selected
+  confNeighbors()
+  
+})
+
+addTooltip(session, id = "abundPlot", title = "Interactors are determined using parameters selected
                        in 'Interactome' tab, such as STRING confidence threshold, localizations, 
-            GO terms, etc. Modify parameters to change displayed interactors", 
-             placement = "bottom", trigger = "hover",
-             options = NULL)
+           GO terms, etc. Modify parameters to change displayed interactors", 
+           placement = "bottom", trigger = "hover",
+           options = NULL)
 
-  # download abundances plot ----
-  output$dAbund <- downloadHandler(
+# download abundances plot ----
+output$dAbund <- downloadHandler(
+  
+  filename= function() {
+    "abundance_plot.pdf"}
+  ,
+  content = function(file) {
+    pdf(file)
+    confNeighbors()
+    dev.off()
+  }
+)
 
-    filename= function() {
-      "abundance_plot.pdf"}
-    ,
-    content = function(file) {
-      pdf(file)
-      abundPlot(input$genesym, input$neighbors, confNeighbors(),
-                v$nodes, v$plotabundances, v$timepoints)
-      dev.off()
-    }
-  )
+# on button click, calculate cluster number for selected proteins ----
 
-  # output cluster number for selected protein ----
-  output$clusterNumber <- renderPrint({
+clusterNumOutput <- eventReactive(input$abundGo, {
+  
+  v <- computed_values()
+  
+  printClusterNumber(input$genesym,
+                     v$nodes, v$edges, v$bait_ids)
+  
+})
 
-    printClusterNumber(input$genesym,
-                       v$nodes, v$edges, v$bait_ids)
-
-  })
-
+# output cluster number for selected protein ----
+output$clusterNumber <- renderPrint({
+  clusterNumOutput()
 })
 
 ## FOR EACH BAIT, PLOT CLUSTERING RESULTS ----
@@ -174,7 +177,7 @@ get_heatmapplot_output_list <- function(NUM_BAITS) {
     
   })
   
-  do.call(tagList, plot_output_list) # needed to display properly.
+  do.call(tagList, plot_output_list) # needed to display properly
   
   return(plot_output_list)
   
@@ -190,7 +193,7 @@ output$heatmapPlots <- renderUI({
 
 
 # download heatmap plots ----
-output$dHeatmap <- downloadHandler(
+output$dHeatmaps <- downloadHandler(
   
   filename= function() {
     "heatmap_plots.pdf"}
@@ -204,6 +207,3 @@ output$dHeatmap <- downloadHandler(
     dev.off()
   }
 )
-
-
-

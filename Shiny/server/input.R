@@ -13,10 +13,15 @@ observeEvent(input$loadsamples, {
   bg_name <- ""
   
   if (sample_ds != "none") {
-    user_input$nodes <- read.csv(paste("Sample Datasets/", sample_ds, "_nodes.csv", 
+    user_input$nodes <- read.table(paste("Sample Datasets/", sample_ds, "_nodes.txt", 
+                                       sep=""), sep="\t", stringsAsFactors = F, header = T)
+    user_input$edges <- read.table(paste("Sample Datasets/", sample_ds, "_edges.txt", 
+                                       sep=""), sep="\t", comment.char="?", stringsAsFactors = F,
+                                   header = T)
+    user_input$background <- read.csv(paste("Sample Datasets/", sample_ds, "_uniprot.csv", 
                                        sep=""), stringsAsFactors = F)
-    user_input$edges <- read.csv(paste("Sample Datasets/", sample_ds, "_edges.csv", 
-                                       sep=""), stringsAsFactors = F)
+    user_input$GOTable <- read.table(paste("Sample Datasets/", sample_ds, "_GOTable.txt", 
+                                           sep=""), sep="\t", stringsAsFactors = F, header = T)
     
     # change the background gene list and specificity threshold to be used based on 
     # which sample dataset is selected 
@@ -24,19 +29,22 @@ observeEvent(input$loadsamples, {
     
     if (sample_ds == "cyclins") {
       user_input$spec_threshold <- 0.05
+      user_input$timepoints <- c(1, 2, 3, 4)
       bg_name <- "hum_hela"
+      
     } else if (sample_ds == "ul13_ul37") {
       user_input$spec_threshold <- 0.9
+      user_input$timepoints <- c(24, 48, 72, 96, 120)
       bg_name <- "hum_fib"
     } else if (sample_ds == "us9") {
       user_input$spec_threshold <- 1
+      user_input$timepoints <- c(3, 8, 12, 18, 24)
       bg_name <- "rat_neuron"
     }
     
-    # read background file
-    user_input$background <- read.csv(paste("Sample Datasets/Background Gene Lists/",
-                                            bg_name, ".csv", sep = ""),
-                                      header = T, sep = ",", stringsAsFactors = F)
+
+    # update timepoints textbox
+    updateTextInput(session, "timepoints", value = paste(user_input$timepoints, collapse=", "))
     
     # update specificity filter slider
     updateSliderInput(session, "specificity", value = user_input$spec_threshold)
@@ -75,9 +83,32 @@ observeEvent(input$specificity, {
   user_input$spec_threshold <- input$specificity
 })
 
+observeEvent(input$timepoints, {
+  user_input$timepoints <- as.numeric(unlist(strsplit(input$timepoints, ",")))
+})
+
 observeEvent(input$proteome_abundance, {
   user_input$proteome_abundance <- read.csv(input$proteome_abundance$datapath, header = TRUE,
                                             sep = ",", stringsAsFactors = F)
+})
+
+
+# User Uploads Previously Calculated Datasets ----
+
+# when user uploads previously calculated files (this rewrites whatever sample files were loaded)
+observeEvent(input$prev_nodes, {
+  user_input$nodes <- read.table(input$prev_nodes$datapath, header = TRUE, sep = "\t",
+                               stringsAsFactors = F)
+})
+
+observeEvent(input$prev_edges, {
+  user_input$edges <- read.table(input$prev_edges$datapath, header = TRUE, sep = "\t",
+                               stringsAsFactors = F, comment.char = "?")
+})
+
+observeEvent(input$prev_uniprot, {
+  user_input$background <- read.csv(input$prev_uniprot$datapath, header = TRUE, sep = ",",
+                                    stringsAsFactors = F)
 })
 
 # Print Loaded Data ----

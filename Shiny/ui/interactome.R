@@ -9,6 +9,9 @@ tabPanel(title = "Interactome Network", value = "interactome", fluid = TRUE,
              # Checkbox to display labels ----
              checkboxInput(inputId = "labels", "Display node labels", value=T),
              
+             # checkbox to display timepoints ----
+             checkboxInput(inputId = "display_timepoints", "Display timepoints below network", value=T),
+             
              # Slider for STRING confidence ----
              sliderInput(inputId = "confidence", label="STRING edges confidence threshold:",
                          min=0, max=1, value=0.5),

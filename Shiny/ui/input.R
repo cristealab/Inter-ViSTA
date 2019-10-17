@@ -13,6 +13,7 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
              
              selectInput("samples", "Choose Sample Dataset",
                          c("None" = "none",
+                           "APEX (Lobingier et al. 2017)" = "apex",
                            "Cyclins (Pagliuca et al. 2011)" = "cyclins",
                            "HCMV pUL13 and pUL37" = "ul13_ul37",
                            "PRV pUS9 (Kramer et al. 2012)" = "us9")
@@ -30,18 +31,18 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
              fileInput("nodes", "Upload Nodes CSV File",
                        multiple = FALSE,
                        accept = c("text/csv",
-                                  "text/comma-separated-values,text/plain",
+                                  "text/comma-separated-values",
                                   ".csv")),
              
              # Edges Input: Select edges file ----
              fileInput("edges", "Upload Edges CSV File",
                        multiple = FALSE,
                        accept = c("text/csv",
-                                  "text/comma-separated-values,text/plain",
+                                  "text/comma-separated-values",
                                   ".csv")),
              
              # Timepoint Input: textbox for timepoints / conditions ----
-             textInput("timepoints", "Enter Timepoints / Conditions as integers separated by ',':",
+             textInput("timepoints", "Enter Timepoints / Conditions separated by ',':",
                        value = "Ex: 24, 48, 72, 96, 120"),
              
              # Specificity filter ----
@@ -103,8 +104,7 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
              fileInput("prev_nodes", "Upload Previously Calculated Nodes File",
                        multiple = FALSE,
                        accept = c("text/csv",
-                                  "text/comma-separated-values,text/plain",
-                                  ".txt")),
+                                  "text/comma-separated-values")),
              
              # Previous Edges Input: Select edges file ----
              fileInput("prev_edges", "Upload Previously Calculated Edges File",
@@ -118,16 +118,21 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
                        multiple = FALSE,
                        accept = c("text/csv",
                                   "text/comma-separated-values,text/plain",
+                                  ".csv")),
+             
+             # Previous GO enrichment table input: select GO Entrichment file ----
+             fileInput("prev_GOTable", "Upload Previously Calculated Gene Ontology Enrichment Analysis",
+                       multiple = FALSE,
+                       accept = c("text/csv",
+                                  "text/comma-separated-values,text/plain",
                                   ".csv"))
            ),
            
            # Main panel: Tables output ----
            mainPanel(
-             fluidRow(
-               column(2, offset = 10,
-                      actionButton("run", "Run Inter-ViSTA", class = "btn-primary"))
-             ),
-            
+             div(style = "position:absolute;right:1em;", 
+                 actionButton("run", "Run Inter-ViSTA", class = "btn-primary")),
+    
              # Output: Nodes file ----
              h4("Nodes File"),
              dataTableOutput("nodescontents"),
@@ -142,7 +147,12 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
              
              # Output: (Optional) Proteome Abundance File ----
              h4("(Optional) Proteome Abundance File"),
-             dataTableOutput("proteomecontents")
+             dataTableOutput("proteomecontents"),
+             
+             # Output: (Optional) Gene Ontology Enrichment Analysis ----
+             h4("(Optional) Gene Ontology Enrichment Analysis Table"),
+             dataTableOutput("GOTablecontents")
+
            )
          )
 )

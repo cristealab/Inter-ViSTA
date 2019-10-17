@@ -15,7 +15,7 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
                          c("None" = "none",
                            "APEX (Lobingier et al. 2017)" = "apex",
                            "Cyclins (Pagliuca et al. 2011)" = "cyclins",
-                           "HCMV pUL13 and pUL37" = "ul13_ul37",
+                           #"HCMV pUL13 and pUL37" = "ul13_ul37",
                            "PRV pUS9 (Kramer et al. 2012)" = "us9")
              ),
              

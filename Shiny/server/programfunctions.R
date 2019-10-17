@@ -1,18 +1,62 @@
 # Run Inter-ViSTA ----
 
-# switch to interactome tab and disable file inputs
-
 observeEvent(input$run, {
   
-  # disable run button to prevent multiple clicks
-  shinyjs::disable("run")
+  # make sure all of the necessary information has been uploaded
+  errors <- c()
   
-  # disable inputs
-  shinyjs::disable("input_sidebar")
+  # check that a nodes file has been uploaded
+  if (is.null(user_input$nodes)){
+    errors <- append(errors, c("Please upload a nodes file or choose a sample dataset"))
+  }
+  # check that an edges file has been uploaded
+  if (is.null(user_input$edges)){
+    errors <- append(errors, c("Please upload an edges file or choose a sample dataset"))
+  }
+  # check that a background gene list has been uploaded
+  if (is.null(user_input$background)){
+    errors <- append(errors, c("Please upload a background gene set or choose one from the defaults"))
+  }
+  # check that timepoints/conditions have been entered
+  if (input$timepoints == "Ex: 24, 48, 72, 96, 120"){
+    if (is.null(input$prev_edges)&&is.null(input$prev_nodes)&&is.null(input$prev_uniprot)){
+      errors <- append(errors, c("Please enter your timepoints/conditions"))
+    }
+  }
   
-  # switch to viewing interactome tab
-  updateTabsetPanel(session, "navbar",
-                    selected = "interactome")
+  # switch to interactome tab and disable file inputs
+  if (length(errors) == 0){
+    # disable run button to prevent multiple clicks
+    shinyjs::disable("run")
+    
+    # disable inputs
+    shinyjs::disable("input_sidebar")
+    
+    # switch to viewing interactome tab
+    updateTabsetPanel(session, "navbar",
+                      selected = "interactome")
+  } else {
+    
+    if (is.null(errors)){ # this should never happen
+      errs <- 'errors'
+      n_errs <- 0
+      
+    } else if (length(errors) == 1) {
+      errs <- 'error'
+      n_errs <- 1
+      
+    } else {
+      errs <- 'errors'
+      n_errs <- length(errors)
+      
+    }
+    
+    main_message <- paste0('Your request encountered ', n_errs, ' ' , errs, '. Please fix them and try again.')
+    err_msgs <- paste(errors, collapse = '<br/>')
+    
+    showNotification(HTML(paste(err_msgs, '', main_message, sep = '<br/>')), type = 'error', duration = NULL)
+    
+  }
   
 })
 
@@ -63,6 +107,11 @@ computed_values <- eventReactive(input$run, {
         computed_values$edges <- cluster_data$edges
         computed_values$abundances <- cluster_data$abundances
         
+        # render an initial quantitative plot
+        sample <- as.list(computed_values$nodes$gene_name[1:3])  # first three nodes in nodes file
+        updateTextInput(session, "genesym", value = paste(sample, collapse ='; '))
+        observe(click("abundGo"))
+          
         # Normalize by proteome abundance ----
         # If there is a proteome abundance file provided, normalize by proteome abundance
         if (!is.null(user_input$proteome_abundance)) {
@@ -96,7 +145,7 @@ computed_values <- eventReactive(input$run, {
                  value = 0.6, {
                    
                    uniprot_data <- getUniprotData(user_input$background, computed_values$nodes,
-                                                    computed_values$taxids, computed_values$loc_prov)
+                                                  computed_values$taxids, computed_values$loc_prov)
                    
                    # returns: nodes, organisms, uniprot, GOList
                    computed_values$nodes <- uniprot_data$nodes
@@ -125,7 +174,8 @@ computed_values <- eventReactive(input$run, {
     withProgress(message = "Calculating activity spells", value = 0.7, {
       
       activity_data <- calculateActivitySpells(computed_values$nodes, computed_values$edges,
-                                               computed_values$timepoints, computed_values$interval,
+                                               computed_values$timepoints,
+                                               computed_values$named_timepoints,
                                                computed_values$weight_threshold,
                                                computed_values$bait_ids)
       # returns: nodes, edges, bait_ids
@@ -189,6 +239,11 @@ computed_values <- eventReactive(input$run, {
         # returns: abundances
         computed_values$abundances <- cluster_data
         
+        # render an initial quantitative plot
+        sample <- as.list(computed_values$nodes$gene_name[1:3])  # first three nodes in nodes file
+        updateTextInput(session, "genesym", value = paste(sample, collapse ='; '))
+        observe(click("abundGo"))
+        
         # Normalize by proteome abundance ----
         # If there is a proteome abundance file provided, normalize by proteome abundance
         if ( computed_values$norm_prot ) {
@@ -227,19 +282,6 @@ computed_values <- eventReactive(input$run, {
                    })
       
     }
-    
-    # Calculate activity spells ----
-    withProgress(message = "Calculating activity spells", value = 0.7, {
-      
-      activity_data <- calculateActivitySpellsPREV(computed_values$nodes, computed_values$edges,
-                                               computed_values$timepoints, computed_values$interval,
-                                               computed_values$bait_ids)
-      # returns: nodes, edges, bait_ids
-      computed_values$nodes <- activity_data$nodes
-      computed_values$edges <- activity_data$edges
-      computed_values$bait_ids <- activity_data$bait_ids
-      
-    })
   }
   
   # Build interactome ----
@@ -249,7 +291,7 @@ computed_values <- eventReactive(input$run, {
       network_data <- buildNetwork(computed_values$nodes, computed_values$edges,
                                    computed_values$num_edges, computed_values$abund_prov,
                                    computed_values$norm_prot, computed_values$timepoints, 
-                                   computed_values$interval, computed_values$bait_ids)
+                                   computed_values$bait_ids)
       
       # returns: nodes, edges, net3
       computed_values$nodes <- network_data$nodes
@@ -258,6 +300,8 @@ computed_values <- eventReactive(input$run, {
       
     })
   }
+  
+  observe(click("renderNetwork"))
   
   # Tidy data for abundance plots ----
   if (computed_values$abund_prov) {
@@ -273,4 +317,7 @@ computed_values <- eventReactive(input$run, {
   
   computed_values
   
-})
+}
+
+
+)

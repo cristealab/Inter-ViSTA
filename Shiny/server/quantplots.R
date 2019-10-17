@@ -56,8 +56,8 @@ confNeighbors <- eventReactive(input$abundGo, {
   
   v <- computed_values()
   nhbrs <- calcNeighbors(input$confidence, input$checkLocalizations, 
-                input$checkSpecies, input$checkGOTerms,
-                v$nodes, v$edges, v$timepoints, v$localizations)
+                         input$checkSpecies, input$checkGOTerms,
+                         v$nodes, v$edges, v$timepoints, v$localizations)
   abundPlot(input$genesym, input$neighbors, nhbrs,
             v$nodes, v$plotabundances, v$timepoints)
   
@@ -71,7 +71,7 @@ output$abundPlot <- renderPlot({
 })
 
 addTooltip(session, id = "abundPlot", title = "Interactors are determined using parameters selected
-                       in 'Interactome' tab, such as STRING confidence threshold, localizations, 
+           in 'Interactome' tab, such as STRING confidence threshold, localizations, 
            GO terms, etc. Modify parameters to change displayed interactors", 
            placement = "bottom", trigger = "hover",
            options = NULL)
@@ -117,10 +117,10 @@ get_clusterplot_output_list <- function(NUM_BAITS) {
     plotname <- paste("plot", i, sep="")
     plot_output_object <- plotOutput(plotname)
     plot_output_object <- renderPlot({
-    
+      
       v <- computed_values()
       clusterPlot(v$bait_ids[i], v$nodes, v$abundances, v$timepoints)
-        
+      
     })
     
   })
@@ -142,7 +142,7 @@ output$clusterPlots <- renderUI({
 
 # download cluster plots ----
 output$dCluster <- downloadHandler(
-
+  
   filename= function() {
     "cluster_plots.pdf"}
   ,
@@ -202,7 +202,7 @@ output$dHeatmaps <- downloadHandler(
     pdf(file)
     for (bait in computed_values()$bait_ids) {
       plotHeatmaps(bait, computed_values()$nodes, computed_values()$normalized_abundances,
-                  computed_values()$timepoints)
+                   computed_values()$timepoints)
     }
     dev.off()
   }

@@ -24,7 +24,13 @@ output$downloads <- renderUI({
     },
     
     verbatimTextOutput("downloadUniprotInfo"),
-    downloadButton("downloadUniprot", "UniProt Annotated Gene List")
+    downloadButton("downloadUniprot", "UniProt Annotated Gene List"),
+    
+    br(),
+    br(),
+    
+    verbatimTextOutput("downloadGOinfo"),
+    downloadButton("downloadGOTable", "Gene Ontology Enrichment Analysis")
     
   )
   
@@ -41,7 +47,6 @@ output$downloadNetworkInfo <- renderPrint(
 
 # output nodes ----
 output$downloadNodes <- downloadHandler(
-  
   filename= function() { 
     "interactome_node_attributes.txt"}
   ,
@@ -49,6 +54,7 @@ output$downloadNodes <- downloadHandler(
     saveNodeAttributes(computed_values()$nodes, 
                        computed_values()$bait_ids,
                        computed_values()$timepoints,
+                       computed_values()$named_timepoints,
                        file)
   }
 )
@@ -61,6 +67,7 @@ output$downloadEdges <- downloadHandler(
   content = function(file) {
     saveEdgeAttributes(computed_values()$edges,
                        computed_values()$timepoints,
+                       computed_values()$named_timepoints,
                        computed_values()$abund_prov,
                        computed_values()$norm_prot,
                        file)
@@ -100,13 +107,31 @@ output$downloadUniprotInfo <- renderPrint(
 )
 
 
-# download table
+# download Uniprot table
 output$downloadUniprot <- downloadHandler(
   filename = function() {
     "uniprot_annotated_gene_list.csv"}
   ,
   content = function(file) {
     write.table(computed_values()$uniprot, file = file, sep = ",", 
+                quote = F, row.names = F)
+  }
+)
+
+# download gene ontology enrichment ----
+output$downloadGOinfo <- renderPrint(
+  cat("Download annotated gene list that contains UniProt-derived information,
+      such as gene ontology terms for background and provided node genes. Using this list will 
+      significantly reduce Inter-ViSTA computation time in the future.")
+)
+  
+# download table
+output$downloadGOTable <- downloadHandler(
+  filename = function() {
+    "gene_ontology_enrichment_analysis.txt"}
+  ,
+  content = function(file) {
+    write.table(computed_values()$GOTable, file = file, sep = "\t", 
                 quote = F, row.names = F)
   }
 )

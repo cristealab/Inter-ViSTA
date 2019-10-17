@@ -19,7 +19,7 @@ output$interactomeToggles <- renderUI({
     
     # Checkboxes for which localizations to include ----
     checkboxGroupInput("checkLocalizations", label="Show proteins localized to:",
-                       choices=LOCS, selected=LOCS),
+                       choices=c(LOCS, "All"), selected="All"),
     
     # Checkboxes for which GO terms to include ----
     if (!is.null(TOP_GO_TERMS)) {
@@ -51,7 +51,11 @@ output$interactomeMain <- renderUI({
       
       # animation widget for interactome
       ndtv:::ndtvAnimationWidgetOutput("netPlot", 
-                                       width="100%", height="800px")
+                                       width="100%", height="800px"),
+      
+      # legend for localization node color
+      plotOutput("localizationLegend")
+      
     )
     
   } else {
@@ -64,7 +68,7 @@ output$interactomeMain <- renderUI({
 
 
 ## server elements for network ----
- 
+
 # calculate inside a reactive to prevent multiple computations
 inputNet <- eventReactive(input$renderNetwork, {
   
@@ -73,7 +77,7 @@ inputNet <- eventReactive(input$renderNetwork, {
   if (dim(v$nodes)[1] < 500) {
     deactivateNE(input$shared, input$confidence, input$checkLocalizations, 
                  input$checkSpecies, input$checkGOTerms, v$net3.dyn,
-                 v$nodes, v$edges, v$timepoints, v$interval, v$bait_ids)
+                 v$nodes, v$edges, v$timepoints, v$bait_ids)
   }
   
 })
@@ -85,7 +89,63 @@ output$netPlot <- ndtv:::renderNdtvAnimationWidget({
   
   withProgress(message="Updating network parameters", detail="This may take a while...", 
                value=0.7, {
-                 plotCompNet(inputNet(), lab=input$labels, v$bait_ids, v$abund_prov)
+                 plotCompNet(inputNet(), lab=input$labels, disp_tps = input$display_timepoints, v$bait_ids, v$abund_prov, v$named_timepoints)
                })
+  
+})
+
+# output a legend for the interactome network
+makeLegend <- eventReactive(input$renderNetwork, {
+  
+  v <- computed_values()
+  
+  locs <- as.list(get.vertex.attribute(v$net3.dyn, "localization_string_output"))
+  colors <- as.list(get.vertex.attribute(v$net3.dyn, "loc_color"))
+  
+  node_colors <- colors
+  names(node_colors) <- as.list(get.vertex.attribute(v$net3.dyn, "localization_string"))
+  
+  names(locs) <- colors
+  legend_mapping <- locs[!duplicated(locs)]
+  
+  keep <- c()
+  
+  if (!grepl('All', input$checkLocalizations)){
+    for (loc in input$checkLocalizations){
+      for (l in legend_mapping){
+        if (grepl(loc, l)){
+          if (grepl(';', l)){
+            keep <- append(keep, 'Multiple localizations')
+            
+          } else {
+            keep <- append(keep, l)
+          }
+        }
+      }
+    }
+  } else {
+    
+    keep <- names(node_colors)
+  }
+  
+  node_colors <- unlist(node_colors[unique(keep)])
+  
+  labels <- names(node_colors)
+  labels[labels == ''] <- 'Unspecified'
+  
+  names(node_colors) <- NULL
+  
+  plot(NULL ,xaxt='n',yaxt='n',bty='n',ylab='',xlab='', xlim=0:1, ylim=0:1)
+  legend("topleft", legend = labels, col = node_colors, pch=16, pt.cex=3, cex=1.5, bty='n', border = '#000000', ncol = 1)
+  mtext("Uniprot annotated localization", cex=2)
+  
+})
+
+
+
+# render lecalization legend ----
+output$localizationLegend <- renderPlot({
+  
+  makeLegend()
   
 })

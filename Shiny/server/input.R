@@ -37,10 +37,6 @@ observeEvent(input$loadsamples, {
       user_input$timepoints <- c(1, 2, 3, 4)
       bg_name <- "hum_hela"
       
-    } else if (sample_ds == "ul13_ul37") {
-      user_input$spec_threshold <- 0.9
-      user_input$timepoints <- c(24, 48, 72, 96, 120)
-      bg_name <- "hum_fib"
     } else if (sample_ds == "us9") {
       user_input$spec_threshold <- 1
       user_input$timepoints <- c(3, 8, 12, 18, 24)

@@ -32,7 +32,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       
                       br(),
  
-                      # strong('If you want to be able to access the capabilities of Inter-ViSTA offline, you can download a portable-version of intervista on github by clicking', a('this link', href = 'https://github.com/cristealab/Inter-ViSTA'), style = 'color: #525252', align = 'justify'),
+                      strong('If you want to be able to access the capabilities of Inter-ViSTA offline, you can download a portable-version of intervista on github by clicking', a('this link', href = 'https://github.com/cristealab/Inter-ViSTA'), style = 'color: #525252', align = 'justify'),
                  
                       
                       br(),
@@ -70,10 +70,10 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                     verticalLayout(
                       
                       h1('Inter-ViSTA tutorial video'),
-                      p('The video below demonstrates how to format and upload your own data for visualization and analysis in Inter-ViSTA'),
+                      p('The video below demonstrates how to upload your own data for visualization and analysis in Inter-ViSTA'),
                     
-                      # video only loads and plays in browser for some reason (but not in Joel's browser??)
-                      tags$video(src = "tutorial.mp4", type = "video/mp4", controls = "controls", width = "100%")
+                      # embedded video from youtube
+                      HTML('<iframe width="840" height="473" src="https://www.youtube.com/embed/9d80gxNqKTw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                       
                     )),
            
@@ -91,8 +91,8 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       fluidRow(align = 'justify',
                         column(width = 12, 
                                br(),
-                          
-                               img(src = 'nodes_edges_upload.png', width = '65%', style = 'padding: 5px 15px; float: right;', align = 'right'),
+                               
+                               img(src = 'nodes_edges_upload.png', width = '50%', style = 'padding: 5px 15px; float: right;', align = 'right'),
                                
                                p('Inter-ViSTA requires two standard inputs: a nodes file and an edges file. Both of these must be saved as "comma-separated value" or ".csv" files.'),
                                
@@ -116,8 +116,8 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       
                       fluidRow(align = 'justify',
                         column(width = 12,
-                                      
-                               img(src = 'conditions_confidence.png', style = 'padding: 5px 15px; float: right;', width = '65%'),
+                               
+                               img(src = 'conditions_confidence.png', style = 'padding: 5px 15px; float: right;', width = '50%'),
                                             
                                p('One of the main utilities of Inter-ViSTA is visualizating interaction dynamics across different conditions. If your dataset includes more than one condition and/or timepoint, you must label the column headers of your edges file accordingly. For each condition, there should be a corresponding edges file column named "abundances_" and "confidence_score_", where the condition name is appended after the "_" symbol. You may name your conditions as you wish, but please ensure that the conditions entered into Inter-ViSTA match those in your edges file and that they are ordered as you desire.'),
                               
@@ -136,18 +136,16 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       # or use our data formatting tool (', a('Inter-ViSTA formatting GUI', href = 'https://github.com/cristealab/Inter-ViSTA'), ')
                       p('See the example tables below to properly format your files to work with Inter-ViSTA.', align = 'justify'),
                       
-                      br(),
-                      
                       fluidRow(column(width = 5, style="text-align: center;",
-                                      strong('example nodes table'),
+                                      h4(em('Example nodes table'), align = 'left'),
                                       br(),
-                                      img(src = 'nodes_example.png', width = '100%')
-                                      ), 
+                                      dataTableOutput('nodesTable')
+                                      ),
                                
-                               column(width = 7, style="text-align: center;",
-                                      strong('example edges table'),
+                               column(width = 7, style="text-align: center; padding: 0px 35px 0px 60px;",
+                                      h4(em('Example edges table'), align = 'left'),
                                       br(),
-                                      img(src = 'edges_example.png', width = '100%')
+                                      dataTableOutput('edgesTable')
                                       )
                                ),
                   
@@ -160,6 +158,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       br(),
                       
                       fluidRow(column(width = 12, align = 'justify',
+                                      
                                       img(src = 'background_upload.png', style = 'padding: 5px 15px; float: right;', width = '50%'),
                                       
                                       p('The final piece of required user-provided information is a background gene list to perform gene ontology (GO) enrichment. This is a list of UniProt accessions and taxonomic IDs for all proteins you wish to include as background. We have already pre-loaded several potentially-useful background datasets including those for human fibroblast tissue, Hela cells, and rat primary neurons.'),
@@ -180,16 +179,22 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       
                       fluidRow(column(width = 5, align = 'justify',
                                       p('Changes in interactions may be driven by either functional or proteomic abundance changes. To account for the latter, Inter-ViSTA can normalize the provided interaction abundances to proteome abundances and produce heatmaps of interaction abundances prior to and after normalization to the proteome. To perform this scaling, you may upload a file that contains UniProt accession numbers, gene names, and protein abundance at each timepoint or condition. The abundance columns should be labeled similarly to the edges file, i.e. "abundance_condition" for each condition in your dataset (see example below)'),
-                                      br()
+                                      br(),
+                                      p(strong('Note:'), em('Inter-ViSTA will not automatically use the normalized interaction abundances across the platform. If you wish to use the normalized abundances for further analysis, download these values from the nodes and edges files output by VISTA and replace the provided abundances with the new normalized abundances before running VISTA again.'))
                                       ), 
                                
                                column(width = 7, style="text-align: center;",
+                                      
                                       img(src = 'abundances_upload.png', width = '100%'), br(),
+                                      
                                       br(),
-                                      img(src = 'abundance_example.png', width = '100%')
-                                      )
+                                      
+                                      h4(em('Example abundances table'), align = 'left'),
+                                      br(),
+                                      dataTableOutput('abundancesTable')
+                               )
                       ),
-                      p(strong('Note:'), em('Inter-ViSTA will not automatically use the normalized interaction abundances across the platform. If you wish to use the normalized abundances for further analysis, download these values from the nodes and edges files output by VISTA and replace the provided abundances with the new normalized abundances before running VISTA again.')),
+                      
                       br(), br(), br()
                       
                       )
@@ -201,7 +206,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                     verticalLayout(
                       
                       h1('The anatomy of an Inter-ViSTA analysis'),
-                    
+                      
                       img(src = 'anatomy_network.png', align = 'center'),
                       
                       br(),
@@ -273,6 +278,9 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       p('The last tab is ', strong('"Downloads"'), ', which provides links to download the annotated nodes and edges files produced by Inter-ViSTA. These annotated files contain information on protein and interaction durations, localization, GO terms, cluster membership, etc. and can be directly exported to Cytoscape. Finally, an interactome "report" that provides exploratory analysis on the duration of activity for various proteins in the network, separated by their localizations and functional annotations, as well as plots of interaction onsets and durations that can be downloaded as a pdf.', align = 'justify'),
                       br(),
                       br(),
+                      br(),
+                      br(),
+                      br(),
                       br()
                     )
             ),
@@ -293,12 +301,14 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                                p("The next time you want to analyze the same data, simply upload these files in the appropriate fields, and Inter-ViSTA will render your analysis in less than 30 seconds!")
                             ),
                         
-                        column(width = 5, style="text-align: center;", 
-                               style = "background: #ffffff; border-style: solid; border-color: #6E84AD; border-width: 5px; border-radius: 5px; margin: 10px;",
+                        column(width = 1),
+                        
+                        column(width = 4, style="text-align: center;", 
+                               style = "background: #ffffff; border-style: solid; border-color: #6E84AD; border-width: 4px; border-radius: 5px; margin: 10px;",
+                                 img(src = 'to_download_edited.png', width = '100%', style = 'padding: 5px 15px; float: right;'), br(),
+                                 img(src = 'arrow.png', width = '25%'), br(),
+                                 img(src = 'load_prev.png', width = '100%', style = 'padding: 5px 15px; float: right;'), br()
                                
-                               img(src = 'to_download_edited.png', width = '100%', style = 'padding: 5px 15px; float: right;'), br(),
-                               img(src = 'arrow.png', width = '25%'), br(),
-                               img(src = 'load_prev.png', width = '100%', style = 'padding: 5px 15px; float: right;'), br()
 
                              )
                       ),

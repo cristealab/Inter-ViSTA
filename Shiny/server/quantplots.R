@@ -59,7 +59,7 @@ confNeighbors <- eventReactive(input$abundGo, {
                          input$checkSpecies, input$checkGOTerms,
                          v$nodes, v$edges, v$timepoints, v$localizations)
   abundPlot(input$genesym, input$neighbors, nhbrs,
-            v$nodes, v$plotabundances, v$timepoints)
+            v$nodes, v$plotabundances, v$timepoints, v$named_timepoints)
   
 })
 
@@ -119,7 +119,7 @@ get_clusterplot_output_list <- function(NUM_BAITS) {
     plot_output_object <- renderPlot({
       
       v <- computed_values()
-      clusterPlot(v$bait_ids[i], v$nodes, v$abundances, v$timepoints)
+      clusterPlot(v$bait_ids[i], v$nodes, v$abundances, v$timepoints, v$named_timepoints)
       
     })
     

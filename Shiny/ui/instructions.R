@@ -214,7 +214,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       fluidRow(
                         column(width = 12,
                                br(),
-                               img(src = 'network_ul1337.png', width = '60%', style = 'padding: 5px 15px; float: right;'),
+                               img(src = 'network.png', width = '60%', style = 'padding: 5px 15px; float: right;'),
                                p(em('A major hurdle in analyzing an interactions study is visualizating the results in a meaningful way.'), align = 'justify'),
                                p(strong('Inter-ViSTA makes this EASY!'), align = 'justify'),
                                p('The first analysis tab is titled', strong('"Interactome Network"'), '. Use the sidebar on the left to select various properties of the network-STRING edge confidence threshold, shared protein attributes, localization (provided or UniProt), functional annotation, etc. Then click "Render Network Plot" to build the interactome, which will appear in the main panel. Each node represents a protein, while each edge is an interaction. Nodes are colored by protein localization, with outline colors indicating the duration for which the protein is associated with a bait. Edges are colored by type - user-provided or STRING-inferred, and edge thickness indicates interaction confidence. Click the play and pause buttons to view dynamic changes to PPIs; click nodes or edges to view their properties (localization, duration of activity, confidence, etc.); double-click a node to highlight all its neighbors. To modify the network, choose different parameters from the sidebar and click "Render Network Plot" again.', align = 'justify')
@@ -233,27 +233,27 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       fluidRow(
                         column(width = 6, style="text-align: center;",
                                br(),
-                               em('Inter-ViSTA query for interactions of the catenin complex with viral protein pUL13'),
-                               p('(from HCMV pUL13 and pUL37 sample dataset)'),
+                               em('Inter-ViSTA query for interactions of the SNARE complex with opioid receptor OPRD1'),
+                               p('(from APEX (Lobingier et al. 2017) sample dataset)'),
                                br(),
-                               img(src = 'query_CTN.png', width = '100%'), br()
+                               img(src = 'query.png', width = '100%'), br()
                                
                         ), 
                         
                         column(width = 6, style="text-align: center;",
                                br(),
-                               em('Inter-ViSTA clustering of HCMV pUL13 and pUL37 sample dataset'), br(),
+                               em('Inter-ViSTA clustering of APEX (Lobingier et al. 2017) sample dataset'), br(),
                                br(),
-                               img(src = 'clusters_ul1337.png', width = '100%'), br()
-                        ), 
+                               img(src = 'clusters.png', width = '100%'), br()
+                        )
                         
-                        column(width = 12, style="text-align: center;",
-                               br(),
-                               em('Interactions with viral protein pUL37 normalized by protein abundance'),
-                               br(),
-                               img(src = 'heatmaps.png', width = '100%'), br()
-                               
-                               )
+                        # column(width = 12, style="text-align: center;",
+                        #        br(),
+                        #        em('Interactions with viral protein pUL37 normalized by protein abundance'),
+                        #        br(),
+                        #        img(src = 'heatmaps.png', width = '100%'), br()
+                        #        
+                        #        )
                       ),
   
                       br(),

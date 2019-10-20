@@ -65,9 +65,9 @@ observeEvent(input$run, {
 computed_values <- eventReactive(input$run, {
   
   # NEW DATA ----
-  # set of functions to run if input files are new data
-  
-  if (ncol(user_input$nodes) <= 4) {
+  # set of functions to run if either nodes or edges files are new data
+  #|(ncol(user_input$edges) != 7+(2*length(user_input$timepoints)))
+  if ((ncol(user_input$nodes) <= 4)) {
     
     # Clean data ----
     

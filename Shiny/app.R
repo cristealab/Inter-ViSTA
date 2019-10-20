@@ -503,7 +503,7 @@ clusterProteinsPREV <- function(edges_in, timepoints) {
 
 # function to plot individual protein profiles split by cluster
 
-clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints) {
+clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints, named_timepoints) {
   
   # plot profiles of proteins split by cluster
   melt_abund <- {}
@@ -525,7 +525,7 @@ clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints) {
   print(ggplot(data=melt_abund, aes(x=time, y=abundance, group=prey_gene_name)) +
           geom_line(aes(color=as.factor(cluster))) +
           geom_point(aes(color=as.factor(cluster))) +
-          scale_x_continuous(breaks = timepoints) +
+          scale_x_continuous(breaks = timepoints, labels=named_timepoints) +
           labs(title=paste("Bait", bait_gene_name), x="Time", y="Scaled Relative Abundance", 
                color="Cluster") +
           facet_wrap(~as.factor(cluster))+ 
@@ -825,19 +825,28 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
       
       uniprot_df$type <- "Background Only"
       uniprot_df[uniprot_df$accession %in% nodes_out$accession, "type"] <- "In NodeList Only"
+      
       if (ncol(background_list) > 1) {
         bg_terms <- background_list[background_list$type != "In NodeList Only", "accession"]
+        all_accessions <- c(background_list$accession, uniprot_df$accession)
+        
       } else {
         bg_terms <- background_list[,1]
+        all_accessions <- c(bg_terms, uniprot_df$accession)
+        
       }
-      uniprot_df[uniprot_df$accession %in% bg_terms & uniprot_df$accession %in% 
-                   nodes_out$accession, "type"] <- "Both"
+      
+      # determine which proteins are in both the background and nodes files
+      both_accessions <- all_accessions[(all_accessions %in% bg_terms) & (all_accessions %in% nodes_out$accession)]
       
       # combine newly collected uniprot data with previously collected
       if (ncol(background_list) > 1) {
         
         uniprot_df <- rbind.data.frame(uniprot_df, background_list)
         uniprot_df <- uniprot_df[!duplicated(uniprot_df[, "accession"]), ]
+        
+      # assign proteins in background and nodes as type "both"
+      uniprot_df[uniprot_df$accession %in% both_accessions, "type"] <- "Both"
         
       }
       
@@ -1855,7 +1864,7 @@ calcNeighbors <- function(confidence, locns, species, go_terms,
 
 # plot abundances
 abundPlot <- function(genesyms, nhbr=F, neighborList,
-                      nodes_in, plotabundances, timepoints) {
+                      nodes_in, plotabundances, timepoints, named_timepoints) {
   
   # decimal places to show in label
   scalefunction <- function(x) sprintf("%.2f", x)
@@ -1900,7 +1909,7 @@ abundPlot <- function(genesyms, nhbr=F, neighborList,
           geom_line(mapping = aes(x=time, y=abundance, color=prey_gene_name, 
                                   linetype=bait_gene_name), size=1.5) +
           scale_y_continuous(trans='log', labels=scalefunction) +
-          scale_x_continuous(breaks = timepoints) + 
+          scale_x_continuous(breaks = timepoints, labels=named_timepoints) + 
           labs(x="Time", y="Abundance", color="Search Genes", 
                linetype="Bait") + 
           theme(text = element_text(size=20))
@@ -1931,6 +1940,10 @@ options(shiny.sanitize.errors = TRUE)
 
 ui = fluidPage(
   
+  list(tags$head(HTML('<link rel="icon", href="intervista_icon.png", type="image/png" />'))),
+  
+  titlePanel(title=div(img(src="logo_horizontal_2.png", width = 800)), windowTitle = 'Inter-ViSTA'),
+  
   # Enable shinyjs
   shinyjs::useShinyjs(),
   
@@ -1946,9 +1959,7 @@ ui = fluidPage(
                     left: calc(33.33333%);;
                     }
                     "))
-    ),
-  
-  titlePanel(title=div(img(src="logo_horizontal_2.png", width = 800))),
+  ),
   
   # Create tabs ----
   tabsetPanel(
@@ -1972,6 +1983,7 @@ ui = fluidPage(
 server <- function(input, output, session) {
   
   # source each tab server from separate file
+  source(file.path("server", "instructions.R"), local = TRUE)$value
   source(file.path("server", "input.R"), local = TRUE)$value
   source(file.path("server", "programfunctions.R"), local = TRUE)$value
   source(file.path("server", "interactome.R"), local = TRUE)$value

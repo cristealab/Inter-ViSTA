@@ -2,7 +2,7 @@
 
 Inter-ViSTA (**Inter**action **Vi**sualization in **S**pace and **T**ime **A**nalysis) is a computational platform designed by the Cristea Lab at Princeton University to integrate spatial and temporal proteome and protein interaction information from user derived experiments with the wealth of knowledge in existing databases. 
 
-Inter-ViSTA is available as both a web-based platform ([Inter-ViSTA online](https://intervista.princeton.edu:3838/intervista)) or as a portable program when downloaded from the [Inter-ViSTA github page](https://github.com/cristealab/Inter-ViSTA).
+Inter-ViSTA is available as both a web-based platform ([Inter-ViSTA online](http://intervista.princeton.edu:3838/intervista)) or as a portable program when downloaded from the [Inter-ViSTA github page](https://github.com/cristealab/Inter-ViSTA).
 
 ## Why use Inter-ViSTA?
 Inter-ViSTA utilizes cutting-edge graph visualization algorithms and automatic programmatic access to protein databases to deliver an intuitive and user-friendly data visualization platform. The platform enables users to discover underlying patterns in multiple interaction networks across conditions using an interactive interface with dynamic network visuals and exploratory quantitative analysis. Users can integrate interaction networks of one or many baits, include subcellular localization information and functional annotations to modify networks, analyze dynamic quantitative properties of the network, and identify properties of proteins shared between multiple baits - all with their own data, with few manual steps.
@@ -15,7 +15,7 @@ Additionally, we have provided an instructional video illustrating the capabilit
 [![Alt text](https://img.youtube.com/vi/9d80gxNqKTw/0.jpg)](https://www.youtube.com/watch?v=9d80gxNqKTw)
 
 ## System requirements and dependencies
-*Note: The following dependencies apply only to the portable version of Inter-ViSTA. [Inter-ViSTA online](https://intervista.princeton.edu:3838/intervista) only requires access to a web browser and the internet.*
+*Note: The following dependencies apply only to the portable version of Inter-ViSTA. [Inter-ViSTA online](http://intervista.princeton.edu:3838/intervista) only requires access to a web browser and the internet.*
 
 Inter-ViSTA combines the stunning network vizualization capacities of R with the API querying abilities of Python and therefore requires both for full functionality. Conveniently, we have packaged Inter-ViSTA with a portable version of R and an accompanying web browser so that the application can be run locally with as few software dependencies as possible. Therefore, the only additional software required to run Inter-ViSTA is Anaconda Python 3.7 and several underlying Python packages.
 

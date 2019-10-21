@@ -20,7 +20,7 @@ Additionally, we have provided an instructional video illustrating the capabilit
 Inter-ViSTA combines the stunning network vizualization capacities of R with the API querying abilities of Python and therefore requires both for full functionality. Conveniently, we have packaged Inter-ViSTA with a portable version of R and an accompanying web browser so that the application can be run locally with as few software dependencies as possible. Therefore, the only additional software required to run Inter-ViSTA is Anaconda Python 3.7 and several underlying Python packages.
 
 ### What if I don't have Python on my computer?
-If you do not have Python installed on your system, we reccommend downloading it via [Anaconda](https://www.anaconda.com). After installation, run the following command within an Anaconda prompt to set up a conda environment with the packages required to run Inter-ViSTA.
+If you do not have Python installed on your system, we recommend downloading it via [Anaconda](https://www.anaconda.com). After installation, run the following command within an Anaconda prompt to set up a conda environment with the packages required to run Inter-ViSTA.
 ```
 conda create -n intervista biopython requests pandas
 ```

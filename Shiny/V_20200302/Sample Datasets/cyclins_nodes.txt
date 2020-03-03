@@ -1,0 +1,180 @@
+gene_name	accession	species	localizations	complexes	GO_terms	onset_condition	terminus_condition	onset	terminus	shared_baits_G1	shared_baits_S	shared_baits_G2	shared_baits_M
+RPL8	P62917	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	3	2	3		CCNA2		
+TRIP13	Q15645-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNB1	
+SH3GLB2	Q9NR46-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNB1	
+XPO1	O14980	Homo sapiens (Human)	Cytoplasm; Nucleus		mRNA catabolic process; RNA catabolic process	1	4	1	4	CCNE1	CCNE1	CCNA2	
+SMAD1	Q99717	Homo sapiens (Human)	Cytoplasm; Nucleus			3	4	3	4			CCNB1	
+CNOT1	A5YKK6-1	Homo sapiens (Human)	Unspecified			1	4	1	4	CCNE1	CCNE1	CCNA2	
+DDX3X	O00571	Homo sapiens (Human)	Cytoplasm; Mitochondrion; Nucleus		translational initiation	1	3	1	3	CCNE1	CCNE1		
+RBX1	P62877	Homo sapiens (Human)	Cytoplasm; Nucleus	"Mitotic checkpoint complex (MCC); Cell cycle kinase complex CDK5; Ubiquitin E3 ligase (DDB1, CUL4A, RBX1); CAK-ERCC2 complex; snRNP-free U1A (SF-A) complex; Neddylin ligase (FBXO11, SKP1, CUL1, RBX1); pRb2/p130-multimolecular complex (RB2, E2F5, HDAC1, SUV39H1, P300); p27-cyclinE-CDK2 complex; Ubiquitin E3 ligase (CDT1, DDB1, CUL4A, RBX1); Ubiquitin E3 ligase (CDC34, NEDD8, BTRC, CUL1, SKP1A, RBX1); Ubiquitin E3 ligase (FBXO18, SKP1A, CUL1, RBX1); Ubiquitin E3 ligase (NIPA, SKP1A, CUL1, RBX1); Ubiquitin E3 ligase (BTRC, CUL1, RBX1, SKP1); Ku antigen-YY1-alphaMyHC promoter complex; Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, CKS1B, RBX1); MGC1-DNA-PKcs-Ku complex; NCOA6-DNA-PK-Ku-PARP1 complex; DNA-PK-Ku-eIF2-NF90-NF45 complex; RPA complex; 53BP1-containing complex; DNTTIP1-ZNF541-HDAC1-HDAC2 complex; CRBN-DDB1-CUL4A-RBX1 E3 ubiquitin ligase; Ubiquitin E3 ligase (CUL1, FBXO17, RBX1, SKP1); Ubiquitin E3 ligase (CUL1, FBXO27, RBX1, SKP1)"		2	4	2	4		CCNA2	CCNA2	
+HDAC1	Q13547	Homo sapiens (Human)	Nucleus	"CAND1-CUL1-RBX1 complex; XRCC6-XRCC5-WRN complex; Ubiquitin E3 ligase (CUL1, FBXO6, RBX1, SKP1); Ubiquitin E3 ligase (CUL1, FBXO44, RBX1, SKP1)"		2	4	2	4		CCNA2	CCNA2	
+RBBP4	Q09028	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (CUL1, FBXO44, RBX1, SKP1)"		1	4	1	4	CCNE1		CCNA2	
+RPL27	P61353	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	3	4	3	4			CCNA2	
+PPP2R1A	P30153	Homo sapiens (Human)	Cell Membrane; Cytoplasm; Nucleus		nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process	2	4	2	4		CCNA2	CCNA2	
+YWHAQ	P27348	Homo sapiens (Human)	Cytoplasm			2	4	2	4		CCNA2	CCNA2	
+MSH2	P43246	Homo sapiens (Human)	Nucleus			3	4	3	4			CCNB1	
+RUVBL1	Q9Y265-1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+NUP155	O75694-1	Homo sapiens (Human)	Unspecified			1	3	1	3	CCNE1	CCNE1		
+RPL35A	P18077	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+CLTC	Q00610-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNA2	
+DDX39	Q13838-2	Homo sapiens (Human)	Unspecified			2	3	2	3		CCNA2		
+XRCC6	P12956	Homo sapiens (Human)	Nucleus	"Cell cycle kinase complex CDK2; DNA-PK-Ku complex; Ubiquitin E3 ligase (FBXO31, SKP1A, CUL1, RBX1); CAK complex (Cdk-activating kinase complex); Ubiquitin E3 ligase (FBXW11, SKP1A, CUL1, RBX1); PCNA-KU antigen complex; Ubiquitin E3 ligase (DDB1, DDB2, CUL4A, CUL4B, RBX1); TRF2-Ku complex; Vigilin-DNA-PK-Ku antigen complex; ESR1-CDK7-CCNH-MNAT1-MTA1-HDAC2 complex; mSin3A complex; DHX9-ADAR-vigilin-DNA-PK-Ku antigen complex; GammaH2AFX-NDHII-Ku70-DNA complex; Ubiquitin E3 ligase (CUL1, RBX1, SKP1); WRN-Ku70-Ku80-PARP1 complex; Dysbindin 1-A-DNA-PK-complex"		3	4	3	4			CCNA2	
+DDB1	Q16531	Homo sapiens (Human)	Cytoplasm; Nucleus	"Mitotic checkpoint complex (MCC); Ubiquitin E3 ligase (DDB1, CUL4A, RBX1); MGC1-DNA-PKcs-Ku complex; DNTTIP1-ZNF541-HDAC1-HDAC2 complex; CRBN-DDB1-CUL4A-RBX1 E3 ubiquitin ligase"		3	4	3	4			CCNA2	
+CKAP5	Q14008-1	Homo sapiens (Human)	Unspecified			1	4	1	4	CCNE1		CCNA2	
+PRKDC	P78527-1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+ANKHD1	Q8IWZ2	Homo sapiens (Human)	Unspecified			2	3	2	3		CCNA2		
+MSH6	P52701-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNB1	
+ANKRD17	O75179-1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+YWHAG	P61981	Homo sapiens (Human)	Cytoplasm			2	4	2	4		CCNA2	CCNA2	
+TARDBP	Q13148	Homo sapiens (Human)	Cytoplasm; Nucleus		mRNA catabolic process; RNA catabolic process	1	2	1	2	CCNE1			
+MAGEA1	P43355	Homo sapiens (Human)	Cytoplasm; Nucleus			2		2	5		CCNA2		CCNB1
+RPLP0	P05388	Homo sapiens (Human)	Cytoplasm; Nucleus		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+BAG2	O95816	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNB1; CCNA2	CCNB1
+RPL13A	P40429	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+EIF3B	P55884-2	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+HIST1H4A	P62805	Homo sapiens (Human)	Nucleus			2		2	5		CCNA2	CCNA2	CCNB1
+EIF3A	Q14152	Homo sapiens (Human)	Cytoplasm		translational initiation	4		4	5				CCNB1
+PABPC1	P11940-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2		CCNB1
+PTBP1	Q9BUQ0	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+RPS27A;UBA52	A8K674	Homo sapiens (Human)	Unspecified			1		1	5	CCNE1	CCNA2	CCNA2; CCNB1	CCNB1
+RPL13	P26373	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+RPL21	P46778	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2		CCNB1
+RAB1A	P62820-1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+NCL	P19338	Homo sapiens (Human)	Cytoplasm; Nucleus			2		2	5		CCNA2	CCNA2	CCNB1
+HNRNPUL1	Q9BUJ2-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2		CCNB1
+EIF3E	P60228	Homo sapiens (Human)	Cytoplasm; Nucleus		translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process	4		4	5				CCNB1
+RPS5	P46782	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	4		4	5				CCNB1
+HNRNPK	P61978-2	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+DNAJB1	P25685	Homo sapiens (Human)	Cytoplasm; Nucleus			4		4	5				CCNB1
+HNRNPF	P52597	Homo sapiens (Human)	Nucleus			4		4	5				CCNB1
+HIST1H2AB	Q9BTM1-2	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+DDX5	P17844	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (SMAD3, BTRC, CUL1, SKP1A, RBX1)"	mRNA catabolic process; RNA catabolic process	4		4	5				CCNB1
+RAB7A	P51149	Homo sapiens (Human)	Cytoplasm; Lysosome			4		4	5				CCNB1
+PLEC1	Q15149-4	Homo sapiens (Human)	Unspecified			3		3	5			CCNA2	CCNB1
+BUB3	O43684	Homo sapiens (Human)	Nucleus	Ku antigen-NARG1 complex		4		4	5				CCNB1
+RPS19	P39019	Homo sapiens (Human)	Nucleus		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	4		4	5				CCNB1
+ERH	P84090	Homo sapiens (Human)	Unspecified			1		1	5	CCNE1	CCNA2; CCNE1	CCNA2	CCNB1
+UBAP2	Q5T6F2	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+SRP14	P37108	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; protein targeting to membrane	2		2	5		CCNA2		CCNB1
+HNRNPH1	P31943	Homo sapiens (Human)	Nucleus			1		1	5	CCNE1	CCNE1		CCNB1
+HIST3H3	P84243	Homo sapiens (Human)	Nucleus			4		4	5				CCNB1
+RPS20	B4DW28	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+RAB5C	P51148	Homo sapiens (Human)	Cell Membrane			4		4	5				CCNB1
+XRCC5	P13010	Homo sapiens (Human)	Nucleus	"Cell cycle kinase complex CDK2; DNA-PK-Ku complex; Ubiquitin E3 ligase (FBXO31, SKP1A, CUL1, RBX1); CAK complex (Cdk-activating kinase complex); Ubiquitin E3 ligase (FBXW11, SKP1A, CUL1, RBX1); Ubiquitin E3 ligase (DDB1, DDB2, CUL4A, CUL4B, RBX1); TRF2-Ku complex; Vigilin-DNA-PK-Ku antigen complex; ESR1-CDK7-CCNH-MNAT1-MTA1-HDAC2 complex; mSin3A complex; DHX9-ADAR-vigilin-DNA-PK-Ku antigen complex; GammaH2AFX-NDHII-Ku70-DNA complex; Ubiquitin E3 ligase (CUL1, RBX1, SKP1); WRN-Ku70-Ku80-PARP1 complex; Dysbindin 1-A-DNA-PK-complex"		2		2	5		CCNA2	CCNA2	CCNB1
+RPL12	P30050-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+RPS17	P08708	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	4		4	5				CCNB1
+RAB11A	P62491	Homo sapiens (Human)	Cell Membrane; Cytoplasm			4		4	5				CCNB1
+FLNC	Q14315-1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+SRP9	P49458	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; protein targeting to membrane	4		4	5				CCNB1
+RAB1B	Q9H0U4	Homo sapiens (Human)	Cytoplasm			4		4	5				CCNB1
+RPL30	A8MYX5	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+RPL10A	P62906	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+SKP1	P63208-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNB1; CCNA2	CCNB1
+FLNB	B2ZZ83	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+RPL18	Q07020	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+MAGEB4	O15481	Homo sapiens (Human)	Cytoplasm			2		2	5		CCNA2	CCNA2	CCNB1
+RAB14	P61106	Homo sapiens (Human)	Cytoplasm; Golgi			4		4	5				CCNB1
+HNRNPU	Q5RI17	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2		CCNB1
+RPL18A	Q02543	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+UBAP2L	Q14157-2	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+HIST1H2BB	Q16778	Homo sapiens (Human)	Nucleus			2		2	5		CCNA2	CCNA2	CCNB1
+RPSA	P08865	Homo sapiens (Human)	Cell Membrane; Cytoplasm; Nucleus		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2		CCNB1
+RPS12	P25398	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	4		4	5				CCNB1
+VIM	P08670	Homo sapiens (Human)	Cytoplasm; Nucleus		mRNA catabolic process; RNA catabolic process	3		3	5			CCNA2	CCNB1
+DHX9	Q08211	Homo sapiens (Human)	Cytoplasm; Nucleus	PCNA-KU antigen complex; mSin3A complex	mRNA catabolic process; RNA catabolic process	2		2	5		CCNA2	CCNA2	CCNB1
+RAB10	P61026	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum; Golgi		establishment of protein localization to...; protein localization to endoplasmic reti...	4		4	5				CCNB1
+RPS28	P62857	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2		2	5		CCNA2	CCNA2	CCNB1
+RPL6	B2R4K7	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+PSMC6	P62333	Homo sapiens (Human)	Cytoplasm; Nucleus		mRNA catabolic process; RNA catabolic process	2		2	5		CCNA2	CCNA2	CCNB1
+RPL14	P50914	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	1		1	5	CCNE1	CCNA2	CCNA2	CCNB1
+CTTN	Q14247	Homo sapiens (Human)	Cell Membrane; Cytoplasm			3		3	5			CCNB1	CCNB1
+RPL23A	A8MUS3	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+SFPQ	P23246-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2		CCNB1
+FXR2	P51116	Homo sapiens (Human)	Cytoplasm		mRNA catabolic process; RNA catabolic process	2		2	5		CCNA2	CCNA2	CCNB1
+NPM1	P06748-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+HNRNPC	P07910-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+NONO	Q15233	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (SMAD3, BTRC, CUL1, SKP1A, RBX1)"		2		2	5		CCNA2		CCNB1
+CDC73	Q6P1J9	Homo sapiens (Human)	Nucleus			4		4	5				CCNB1
+MAD1L1	Q9Y6D9	Homo sapiens (Human)	Cytoplasm; Nucleus			3		3	5			CCNB1	CCNB1
+G3BP2	Q9UN86-1	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+ANXA2	Q6N0B3	Homo sapiens (Human)	Unspecified			3		3	5			CCNA2	CCNB1
+SPTAN1	A6NG51	Homo sapiens (Human)	Unspecified			3		3	5			CCNA2	CCNB1
+SPTBN1	Q01082-1	Homo sapiens (Human)	Unspecified			3		3	5			CCNA2	CCNB1
+CDK5	Q00535	Homo sapiens (Human)	Cell Membrane; Cytoplasm; Nucleus	DEAF1- complex	protein targeting to membrane	3		3	5			CCNB1	CCNB1
+CCNB1	P14635	Homo sapiens (Human)	Cytoplasm; Nucleus			1		1	5			CCNB1	CCNB1
+G3BP1	Q13283	Homo sapiens (Human)	Cytoplasm; Nucleus			2		2	5		CCNA2		CCNB1
+MVP	Q14764	Homo sapiens (Human)	Cytoplasm; Nucleus			3		3	5			CCNB1; CCNA2	CCNB1
+CKS2	P33552	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNB1; CCNA2	CCNB1
+PLK1	P53350	Homo sapiens (Human)	Cytoplasm; Nucleus			4		4	5				CCNB1
+ICK	Q9UPZ9-1	Homo sapiens (Human)	Unspecified			1		1	5	CCNE1	CCNA2; CCNE1	CCNA2; CCNB1	CCNB1
+HNRNPA1	P09651-1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+THRAP3	Q9Y2W1	Homo sapiens (Human)	Nucleus		mRNA catabolic process; RNA catabolic process	4		4	5				CCNB1
+MAD2L1	Q13257	Homo sapiens (Human)	Cytoplasm; Nucleus	Ku antigen-NARG1 complex		2		2	5		CCNA2	CCNA2; CCNB1	CCNB1
+EIF4B	P23588	Homo sapiens (Human)	Unspecified		translational initiation	1		1	5	CCNE1	CCNE1	CCNB1	CCNB1
+RPL7	A8MY04	Homo sapiens (Human)	Unspecified			2		2	5		CCNA2	CCNA2	CCNB1
+CDC2	P06493-1	Homo sapiens (Human)	Unspecified	Ku antigen-NARG1 complex		1		1	5	CCNE1	CCNA2; CCNE1	CCNA2; CCNB1	CCNB1
+ANAPC7	Q9UJX3	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+SKP2	Q13309-1	Homo sapiens (Human)	Unspecified			1		1	5	CCNE1	CCNE1; CCNA2	CCNB1; CCNA2	CCNB1
+ACTBL2	Q562R1	Homo sapiens (Human)	Cytoplasm			3		3	5			CCNA2	CCNB1
+ACTBL3	Q6S8J3-1	Homo sapiens (Human)	Unspecified			3		3	5			CCNA2	CCNB1
+ESPL1	Q14674-1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+CKS1B	P61024	Homo sapiens (Human)	Unspecified	"Neddylin ligase (FBXO11, SKP1, CUL1, RBX1); pRb2/p130-multimolecular complex (RB2, E2F5, HDAC1, SUV39H1, P300)"		2		2	5		CCNA2	CCNA2; CCNB1	CCNB1
+ACTG1	P63261	Homo sapiens (Human)	Cytoplasm			3		3	5			CCNA2	CCNB1
+STK38	Q15208	Homo sapiens (Human)	Cytoplasm; Nucleus			1		1	5	CCNE1	CCNE1	CCNB1	CCNB1
+ACTN4	O43707	Homo sapiens (Human)	Cytoplasm; Nucleus			3		3	5			CCNA2	CCNB1
+CDK2	P24941	Homo sapiens (Human)	Cytoplasm; Nucleus	"TFIIH transcription factor complex; Ubiquitin E3 ligase (FBXW7, CUL1, SKP1A, RBX1); Neddylin ligase (FBXO11, SKP1, CUL1, RBX1); Ubiquitin E3 ligase (CDC34, CUL1, RBX1)"		1		1	5	CCNE1	CCNA2; CCNE1	CCNB1; CCNA2	CCNB1
+ACTN1	A1L0V1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+PDLIM7	Q9NR12-1	Homo sapiens (Human)	Unspecified			4		4	5				CCNB1
+RPS11	P62280	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	3	2	3		CCNA2		
+CUL1	Q13616	Homo sapiens (Human)	Unspecified	"Cell cycle kinase complex CDK5; CAK-ERCC2 complex; snRNP-free U1A (SF-A) complex; Neddylin ligase (FBXO11, SKP1, CUL1, RBX1); pRb2/p130-multimolecular complex (RB2, E2F5, HDAC1, SUV39H1, P300); p27-cyclinE-CDK2 complex; Ubiquitin E3 ligase (CDT1, DDB1, CUL4A, RBX1); Ubiquitin E3 ligase (CDC34, NEDD8, BTRC, CUL1, SKP1A, RBX1); Ubiquitin E3 ligase (FBXO18, SKP1A, CUL1, RBX1); Ubiquitin E3 ligase (NIPA, SKP1A, CUL1, RBX1); Ubiquitin E3 ligase (BTRC, CUL1, RBX1, SKP1); Ku antigen-YY1-alphaMyHC promoter complex; Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, CKS1B, RBX1); NCOA6-DNA-PK-Ku-PARP1 complex; DNA-PK-Ku-eIF2-NF90-NF45 complex; RPA complex; 53BP1-containing complex; Ubiquitin E3 ligase (CUL1, FBXO17, RBX1, SKP1); Ubiquitin E3 ligase (CUL1, FBXO27, RBX1, SKP1)"		2	3	2	3		CCNA2		
+PSMB6	P28072	Homo sapiens (Human)	Cytoplasm; Nucleus		mRNA catabolic process; RNA catabolic process	2	3	2	3		CCNA2		
+RPS8	P62241	Homo sapiens (Human)	Cytoplasm		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	3	2	3		CCNA2		
+RPL3	P39023	Homo sapiens (Human)	Cytoplasm; Nucleus		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	3	2	3		CCNA2		
+SLIRP	Q9GZT3	Homo sapiens (Human)	Mitochondrion; Nucleus		RNA catabolic process	2	4	2	4		CCNA2	CCNA2	
+CDKN1B	P46527	Homo sapiens (Human)	Cytoplasm; Nucleus	"TFIIH transcription factor complex; Neddylin ligase (FBXO11, SKP1, CUL1, RBX1)"		1	4	1	4	CCNE1	CCNA2; CCNE1	CCNA2	
+CDT1	Q9H211	Homo sapiens (Human)	Nucleus	Mitotic checkpoint complex (MCC)		3	4	3	4			CCNA2	
+RPA1	P27694	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (DET1, DDB1, CUL4A, RBX1, COP1); Vigilin-DNA-PK-Ku antigen complex"		3	4	3	4			CCNA2	
+RPS21	P63220	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+RPL9	P32969	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+ILF2	Q12905	Homo sapiens (Human)	Cytoplasm; Nucleus	GammaH2AFX-NDHII-Ku70-DNA complex		3	4	3	4			CCNA2	
+RPL32	A6NC28	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+RPL26	A6NE05	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+RPS7	A6NE65	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+WEE1	P30291	Homo sapiens (Human)	Nucleus			2	4	2	4		CCNA2	CCNA2	
+RPL31	P62899	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+EIF2S1	P05198	Homo sapiens (Human)	Cytoplasm	GammaH2AFX-NDHII-Ku70-DNA complex	translational initiation	2	4	2	4		CCNA2	CCNA2	
+RNF219	Q5W0B1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+VCP	P55072	Homo sapiens (Human)	Cytoplasm; Endoplasmic Reticulum; Nucleus			2	4	2	4		CCNA2	CCNA2	
+RBL1	P28749-1	Homo sapiens (Human)	Unspecified			1	4	1	4	CCNE1	CCNA2	CCNA2	
+CCNH	P51946	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, RBX1); TFIIH transcription factor complex; p27-cyclinE-Cdk2 - Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, CKS1B, RBX1) complex; CDC2-CCNA2-CDK2 complex; MiDAC complex"		1	4	1	4	CCNE1	CCNE1; CCNA2	CCNA2	
+RPA3	P35244	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (DET1, DDB1, CUL4A, RBX1, COP1)"		2	4	2	4		CCNA2	CCNA2	
+CDKN1C	P49918-1	Homo sapiens (Human)	Unspecified			1	4	1	4	CCNE1	CCNE1; CCNA2	CCNA2	
+CDC6	Q99741	Homo sapiens (Human)	Cytoplasm; Nucleus			2	4	2	4		CCNA2	CCNA2	
+RPL5	P46777	Homo sapiens (Human)	Cytoplasm; Nucleus		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+SGOL1	Q5FBB7-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNA2	
+RPL22	P35268	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	1	4	1	4	CCNE1	CCNA2	CCNA2	
+RPL11	P62913-1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+C14orf43	Q6PJG2	Homo sapiens (Human)	Nucleus	CAND1-CUL1-RBX1 complex		2	4	2	4		CCNA2	CCNA2	
+CDK7	P50613	Homo sapiens (Human)	Cytoplasm; Nucleus	"Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, RBX1); TFIIH transcription factor complex; p27-cyclinE-Cdk2 - Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, CKS1B, RBX1) complex; CDC2-CCNA2-CDK2 complex; MiDAC complex"		1	4	1	4	CCNE1	CCNE1; CCNA2	CCNA2	
+RNH1	P13489	Homo sapiens (Human)	Cytoplasm		mRNA catabolic process; RNA catabolic process	2	4	2	4		CCNA2	CCNA2	
+GTF2H2	Q13888	Homo sapiens (Human)	Nucleus	CDC2-CCNA2-CDK2 complex; MiDAC complex		3	4	3	4			CCNA2	
+UBR4	Q5T4S7-2	Homo sapiens (Human)	Unspecified			1	4	1	4	CCNE1	CCNA2; CCNE1	CCNA2	
+RPL27A	P46776	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+CCNA2	P20248	Homo sapiens (Human)	Cytoplasm; Nucleus	"Ubiquitin E3 ligase (FBXW7, CUL1, SKP1A, RBX1)"		1		1	5		CCNA2	CCNA2	
+SAMHD1	Q9Y3Z3	Homo sapiens (Human)	Nucleus			2	4	2	4		CCNA2	CCNA2	
+RPL4	P36578	Homo sapiens (Human)	Unspecified		SRP-dependent cotranslational protein ta...; cotranslational protein targeting to mem...; establishment of protein localization to...; protein targeting to ER; protein localization to endoplasmic reti...; translational initiation; nuclear-transcribed mRNA catabolic proce...; mRNA catabolic process; RNA catabolic process; protein targeting to membrane	2	4	2	4		CCNA2	CCNA2	
+MNAT1	P51948	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, RBX1); TFIIH transcription factor complex; p27-cyclinE-Cdk2 - Ubiquitin E3 ligase (SKP1A, SKP2, CUL1, CKS1B, RBX1) complex; CDC2-CCNA2-CDK2 complex; MiDAC complex"		1	4	1	4	CCNE1	CCNE1; CCNA2	CCNA2	
+DNTTIP1	Q9H147	Homo sapiens (Human)	Nucleus	CAND1-CUL1-RBX1 complex; XRCC6-XRCC5-WRN complex		2	4	2	4		CCNA2	CCNA2	
+CDKN1A	P38936	Homo sapiens (Human)	Cytoplasm; Nucleus	"Ubiquitin E3 ligase (CDC34, CUL1, RBX1); DEAF1- complex"		1	4	1	4	CCNE1	CCNE1; CCNA2	CCNA2	
+CDC20	Q12834	Homo sapiens (Human)	Cytoplasm	Ku antigen-NARG1 complex		2	4	2	4		CCNA2	CCNA2	
+PHF8	Q9UPP1-1	Homo sapiens (Human)	Unspecified			2	4	2	4		CCNA2	CCNA2	
+TBC1D4	O60343	Homo sapiens (Human)	Cytoplasm			2	4	2	4		CCNA2	CCNA2	
+C15orf42	Q7Z2Z1	Homo sapiens (Human)	Nucleus		translational initiation	3	4	3	4			CCNA2	
+KIF24	Q5T7B8-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNA2	
+YWHAZ	P63104	Homo sapiens (Human)	Cytoplasm		mRNA catabolic process; RNA catabolic process	2	4	2	4		CCNA2	CCNA2	
+TRERF1	Q96PN7-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNA2	
+FZR1	Q9UM11-1	Homo sapiens (Human)	Unspecified			3	4	3	4			CCNA2	
+GIPC1	O14908	Homo sapiens (Human)	Cytoplasm			1	3	1	3	CCNE1	CCNE1		
+LIN7C	Q9NUP9	Homo sapiens (Human)	Cell Membrane			1	2	1	2	CCNE1			
+RBL2	Q08999	Homo sapiens (Human)	Nucleus	"Ubiquitin E3 ligase (CUL1, FBXO6, RBX1, SKP1)"		1	3	1	3	CCNE1	CCNE1		
+CCNE1	P24864-1	Homo sapiens (Human)	Unspecified			1		1	5	CCNE1	CCNE1		

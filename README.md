@@ -1,4 +1,4 @@
-![alt text](https://github.com/cristealab/Inter-ViSTA/blob/private/Shiny/www/logo_only.png "Inter-ViSTA (portable)")
+![alt text](https://github.com/cristealab/Inter-ViSTA/blob/private/Shiny/www/logo_intervista_new.png "Inter-ViSTA (portable)")
 
 Inter-ViSTA (**Inter**action **Vi**sualization in **S**pace and **T**ime **A**nalysis) is a computational platform designed by the Cristea Lab at Princeton University to integrate spatial and temporal proteome and protein interaction information from user derived experiments with the wealth of knowledge in existing databases. 
 

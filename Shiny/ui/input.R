@@ -42,7 +42,7 @@ tabPanel(title = "Upload Data", value = "input", fluid = TRUE,
                                   ".csv")),
              
              # Timepoint Input: textbox for timepoints / conditions ----
-             textInput("timepoints", "Enter Timepoints / Conditions separated by ',':",
+             textInput("timepoints", 'Enter Timepoints / Conditions separated by commas (","):',
                        value = "Ex: 24, 48, 72, 96, 120"),
              
              # Specificity filter ----

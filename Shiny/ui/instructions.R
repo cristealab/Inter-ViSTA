@@ -19,7 +19,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       
                       br(),
                       
-                      div(img(src = 'logo.png', align = 'center', width = '500px'),
+                      div(img(src = 'logo_only.png', align = 'center', width = '500px'),
                           style="text-align: center;"),
                       
                       h1('Welcome to Inter-ViSTA', align = 'center'),
@@ -106,7 +106,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                                
                                h4("The edges file"),
                                
-                               p('The edges file defines interactions between nodes in the dataset and includes information regarding the strength and confidence of their interaction. For each edge, this file should include the gene names and UniProt accessions for a pair of nodes,  a confidence value for the interaction (e.g. as provided by the SAINT algorithm), and, optionally, the abundance of the interaction across conditions. If an interaction is not present or detected at a given condition, its abundance and confidence values should be zero.')
+                               p('The edges file defines interactions between nodes in the dataset and includes information regarding the strength and confidence of their interaction. For each edge, this file should include the UniProt accessions for that pair of nodes,  a confidence value for the interaction (e.g. as provided by the SAINT algorithm), and, optionally, the abundance of the interaction across conditions. If an interaction is not present or detected at a given condition, its abundance and confidence values should be zero. Note that interaction abundances will eventually be scaled from 0 to 1 across conditions for clustering.')
                         )
                       ),
 
@@ -161,7 +161,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                                       
                                       img(src = 'background_upload.png', style = 'padding: 5px 15px; float: right;', width = '50%'),
                                       
-                                      p('The final piece of required user-provided information is a background gene list to perform gene ontology (GO) enrichment. This is a list of UniProt accessions and taxonomic IDs for all proteins you wish to include as background. We have already pre-loaded several potentially-useful background datasets including those for human fibroblast tissue, Hela cells, and rat primary neurons.'),
+                                      p('The final piece of required user-provided information is a background gene list to perform gene ontology (GO) enrichment. This is a list of UniProt accessions and taxonomic IDs for all proteins you wish to include as background. We have already pre-loaded several potentially-useful background datasets including those for human fibroblast tissue, Hela cells, and rat primary neurons. Note that to achieve the most accurate GO analysis results, the background list that you choose should pertain to your tissue of interest (i.e. if your experiment was performed in HEK293 cells, your background proteome should be filtered for proteins expressed in those cells, specifically).'),
                                       
                                       br(),
                       
@@ -217,7 +217,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                                img(src = 'network.png', width = '60%', style = 'padding: 5px 15px; float: right;'),
                                p(em('A major hurdle in analyzing an interactions study is visualizating the results in a meaningful way.'), align = 'justify'),
                                p(strong('Inter-ViSTA makes this EASY!'), align = 'justify'),
-                               p('The first analysis tab is titled', strong('"Interactome Network"'), '. Use the sidebar on the left to select various properties of the network-STRING edge confidence threshold, shared protein attributes, localization (provided or UniProt), functional annotation, etc. Then click "Render Network Plot" to build the interactome, which will appear in the main panel. Each node represents a protein, while each edge is an interaction. Nodes are colored by protein localization, with outline colors indicating the duration for which the protein is associated with a bait. Edges are colored by type - user-provided or STRING-inferred, and edge thickness indicates interaction confidence. Click the play and pause buttons to view dynamic changes to PPIs; click nodes or edges to view their properties (localization, duration of activity, confidence, etc.); double-click a node to highlight all its neighbors. To modify the network, choose different parameters from the sidebar and click "Render Network Plot" again.', align = 'justify')
+                               p('The first analysis tab is titled', strong('"Interactome Network"'), '. Use the sidebar on the left to select various properties of the network-STRING edge confidence threshold, shared protein attributes, localization (provided or UniProt), functional annotation, etc. Then click "Render Network Plot" to build the interactome, which will appear in the main panel. Each node represents a protein, while each edge is an interaction. Nodes are colored by protein localization, and sized by interaction abundance, with outline colors indicating the duration for which the protein is associated with a bait. Edges are colored by type - user-provided or STRING-inferred, and edge thickness indicates interaction confidence. Click the play and pause buttons to view dynamic changes to PPIs; click nodes or edges to view their properties (localization, duration of activity, confidence, etc.); double-click a node to highlight all its neighbors. To modify the network, choose different parameters from the sidebar and click "Render Network Plot" again.', align = 'justify')
                         ) 
                         
                       ),

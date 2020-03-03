@@ -1,0 +1,64 @@
+accession,gene_name,species,optional_localizations
+P41143,OPRD1,9606,Cell Membrane
+P52594,AGFG1,9606,Cytoplasm; Nucleus
+Q6RW13,AGTRAP,9606,Unspecified
+Q9UKG1,APPL1,9606,Cytoplasm; Nucleus
+P32121,ARRB2,9606,Cell Membrane; Cytoplasm; Nucleus
+Q93050,ATP6V0A1,9606,Cytoplasm
+P38606,ATP6V1A,9606,Cytoplasm
+P21281,ATP6V1B2,9606,Unspecified
+P36543,ATP6V1E1,9606,Unspecified
+O75348,ATP6V1G1,9606,Unspecified
+Q13554,CAMK2B,9606,Unspecified
+P22223,CDH3,9606,Cell Membrane
+P49454,CENPF,9606,Cytoplasm; Nucleus
+Q96S66,CLCC1,9606,Endoplasmic Reticulum; Golgi; Nucleus
+Q9NQC7,CYLD,9606,Cell Membrane; Cytoplasm
+O00429,DNM1L,9606,Cytoplasm; Golgi; Mitochondrion; Peroxisome
+Q02413,DSG1,9606,Cell Membrane
+P78344,EIF4G2,9606,Unspecified
+Q8N766,EMC1,9606,Unspecified
+O95208,EPN2,9606,Cytoplasm
+Q13098,GPS1,9606,Cytoplasm; Nucleus
+Q9NZM3,ITSN2,9606,Cytoplasm
+Q07666,KHDRBS1,9606,Cytoplasm; Nucleus
+Q12768,KIAA0196,9606,Cytoplasm; Endoplasmic Reticulum
+P11279,LAMP1,9606,Cell Membrane; Lysosome
+Q6IAA8,LAMTOR1,9606,Cell Membrane; Lysosome
+P20645,M6PR,9606,Lysosome
+Q9NZM1,MYOF,9606,Cell Membrane; Cytoplasm; Nucleus
+Q99747,NAPG,9606,Unspecified
+Q96PU5,NEDD4L,9606,Unspecified
+Q8TAT6,NPLOC4,9606,Cytoplasm; Endoplasmic Reticulum; Nucleus
+Q13492,PICALM,9606,Cell Membrane; Cytoplasm; Golgi; Nucleus
+O14802,POLR3A,9606,Nucleus
+Q92786,PROX1,9606,Nucleus
+Q9NP72,RAB18,9606,Cell Membrane
+Q70E73,RAPH1,9606,Cell Membrane; Cytoplasm
+Q04864,REL,9606,Nucleus
+Q9HB90,RRAGC,9606,Cytoplasm; Lysosome; Nucleus
+O14828,SCAMP3,9606,Unspecified
+O94979,SEC31A,9606,Cytoplasm; Endoplasmic Reticulum
+P12235,SLC25A4,9606,Unspecified
+Q99523,SORT1,9606,Cell Membrane; Endoplasmic Reticulum; Golgi; Lysosome; Nucleus
+Q15005,SPCS2,9606,Endoplasmic Reticulum
+O60232,SSSCA1,9606,Unspecified
+O14662,STX16,9606,Cytoplasm; Golgi
+O15400,STX7,9606,Unspecified
+P61956,SUMO2,9606,Nucleus
+Q7KZ85,SUPT6H,9606,Nucleus
+P02786,TFRC,9606,Cell Membrane
+Q8WUH2,TGFBRAP1,9606,Cytoplasm
+Q9BVK6,TMED9,9606,Endoplasmic Reticulum; Golgi
+Q86T03,TMEM55B,9606,Cell Membrane; Cytoplasm; Lysosome
+Q9Y5L0,TNPO3,9606,Cytoplasm; Nucleus
+O60784,TOM1,9606,Cytoplasm
+P11387,TOP1,9606,Nucleus
+O43399,TPD52L2,9606,Unspecified
+P29144,TPP2,9606,Unspecified
+Q9UHD9,UBQLN2,9606,Cytoplasm; Nucleus
+Q15836,VAMP3,9606,Unspecified
+Q9BV40,VAMP8,9606,Cell Membrane; Lysosome
+O00308,WWP2,9606,Nucleus
+Q5T750,XP32,9606,Unspecified
+Q9H1K0,ZFYVE20,9606,Cell Membrane

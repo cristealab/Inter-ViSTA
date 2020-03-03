@@ -53,8 +53,14 @@ output$interactomeMain <- renderUI({
       ndtv:::ndtvAnimationWidgetOutput("netPlot", 
                                        width="100%", height="800px"),
       
-      # legend for localization node color
-      plotOutput("localizationLegend")
+      # legend for localization node color and network styling
+      fluidRow(
+        column(width = 5, style="text-align: center;",
+               plotOutput("localizationLegend", width = '100%')),
+        column(width = 5, style="text-align: center;",
+               br(),
+               img(src='network_key.png', width='100%', inline=TRUE))
+      )
       
     )
     

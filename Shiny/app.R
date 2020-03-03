@@ -505,6 +505,8 @@ clusterProteinsPREV <- function(edges_in, timepoints) {
 
 clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints, named_timepoints) {
   
+  custom_colors <- c('#a14949', '#69802e', '#5c86b4', '#896dc1', '#329a90', '#954f72', '#6b696a')
+  
   # plot profiles of proteins split by cluster
   melt_abund <- {}
   bait_gene_name <- nodes_in$gene_name[which(nodes_in$id == bait_id)]
@@ -526,6 +528,7 @@ clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints, name
           geom_line(aes(color=as.factor(cluster))) +
           geom_point(aes(color=as.factor(cluster))) +
           scale_x_continuous(breaks = timepoints, labels=named_timepoints) +
+          scale_color_manual(values = custom_colors) +
           labs(title=paste("Bait", bait_gene_name), x="Time", y="Scaled Relative Abundance", 
                color="Cluster") +
           facet_wrap(~as.factor(cluster))+ 
@@ -769,8 +772,8 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
   # if there is more data to be collected, collect the data
   if (length(uniprot_list) > 0) {
     
-    source_python("AppFiles/UniprotQuery.py")
-    source_python("AppFiles/ruq.py")
+    source_python("AppFiles/database_queries.py")
+    source_python("AppFiles/run_queries.py")
     
     updateUniprot <- function(uniprot_chunk) {
       
@@ -1322,8 +1325,8 @@ getSTRINGData <- function(nodes_in, edges_in, taxids, timepoints) {
   
   edges_out <- edges_in
   
-  source_python("AppFiles/getStringInteractors.py")
-  source_python("AppFiles/gsi.py")
+  source_python("AppFiles/database_queries.py")
+  source_python("AppFiles/run_queries.py")
   
   string_links <- {}
   
@@ -1455,10 +1458,12 @@ buildNetwork <- function(nodes_in, edges_in, num_edges, abund_prov, norm_prot, t
                   loops=F, multiple=F, directed=F, ignore.eval = F)
   
   # assign colors to localization, duration factors
-  newPalette <- colorRampPalette(brewer.pal(8, "Set2"))
+  custom_colors <- c('#c69191', '#a5b281', '#9db6d2', '#b8a7d9', '#84c2bc', '#bf95aa', '#a6a5a5')
+  newPalette <- colorRampPalette(custom_colors)
   loc_color <- newPalette(n = nlevels(factor(temp_locs))+1)
   
-  dur_color <- brewer.pal(n = nlevels(factor(nodes_out$durfactor)), name = "Reds")
+  newPalette_1 = colorRampPalette(c('#A14949', '#ecdada'))
+  dur_color <- newPalette_1(n = nlevels(factor(temp_locs))+1)
   
   net3 %v% "loc_color" <- loc_color[net3 %v% "locanum"]
   net3 %v% "dur_color" <- dur_color[net3 %v% "durfactor"]
@@ -1866,6 +1871,8 @@ calcNeighbors <- function(confidence, locns, species, go_terms,
 abundPlot <- function(genesyms, nhbr=F, neighborList,
                       nodes_in, plotabundances, timepoints, named_timepoints) {
   
+  custom_colors <- c('#a14949', '#69802e', '#5c86b4', '#896dc1', '#329a90', '#954f72', '#6b696a')
+  
   # decimal places to show in label
   scalefunction <- function(x) sprintf("%.2f", x)
   
@@ -1911,7 +1918,8 @@ abundPlot <- function(genesyms, nhbr=F, neighborList,
           scale_y_continuous(trans='log', labels=scalefunction) +
           scale_x_continuous(breaks = timepoints, labels=named_timepoints) + 
           labs(x="Time", y="Abundance", color="Search Genes", 
-               linetype="Bait") + 
+               linetype="Bait") +
+          scale_color_manual(values = custom_colors) +
           theme(text = element_text(size=20))
   )
 }
@@ -1940,9 +1948,9 @@ options(shiny.sanitize.errors = TRUE)
 
 ui = fluidPage(
   
-  list(tags$head(HTML('<link rel="icon", href="intervista_icon.png", type="image/png" />'))),
+  list(tags$head(HTML('<link rel="icon", href="intervista_icon_1.png", type="image/png" />'))),
   
-  titlePanel(title=div(img(src="logo_horizontal_2.png", width = 800)), windowTitle = 'Inter-ViSTA'),
+  titlePanel(title=div(img(src="logo_intervista.png", width = 800)), windowTitle = 'Inter-ViSTA'),
   
   # Enable shinyjs
   shinyjs::useShinyjs(),

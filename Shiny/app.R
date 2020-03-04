@@ -1913,8 +1913,6 @@ abundPlot <- function(genesyms, nhbr=F, neighborList,
   }
   
   if (nrow(current_genes) != 0){
-    
-    print(current_genes)
   
     if (length(unique(current_genes$prey_gene_name))<= length(custom_colors)){
       

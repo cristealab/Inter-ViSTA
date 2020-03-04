@@ -1872,7 +1872,7 @@ abundPlot <- function(genesyms, nhbr=F, neighborList,
                       nodes_in, plotabundances, timepoints, named_timepoints) {
   
   custom_colors <- c('#a14949', '#69802e', '#5c86b4', '#896dc1', '#329a90', '#954f72', '#6b696a')
-  
+
   # decimal places to show in label
   scalefunction <- function(x) sprintf("%.2f", x)
   
@@ -1912,28 +1912,63 @@ abundPlot <- function(genesyms, nhbr=F, neighborList,
     }
   }
   
-  print(ggplot(data = current_genes) +
-          geom_line(mapping = aes(x=time, y=abundance, color=prey_gene_name, 
-                                  linetype=bait_gene_name), size=1.5) +
-          scale_y_continuous(trans='log', labels=scalefunction) +
-          scale_x_continuous(breaks = timepoints, labels=named_timepoints) + 
-          labs(x="Time", y="Abundance", color="Search Genes", 
-               linetype="Bait") +
-          scale_color_manual(values = custom_colors) +
-          theme(text = element_text(size=20))
-  )
+  if (nrow(current_genes) != 0){
+    
+    print(current_genes)
+  
+    if (length(unique(current_genes$prey_gene_name))<= length(custom_colors)){
+      
+      print(ggplot(data = current_genes) +
+            geom_line(mapping = aes(x=time, y=abundance, color=prey_gene_name, linetype=bait_gene_name), size=1.5) +
+            scale_y_continuous(trans='log', labels=scalefunction) +
+            scale_x_continuous(breaks = timepoints, labels=named_timepoints) + 
+            labs(x="Time", y="Abundance", color="Search Genes", 
+                 linetype="Bait") +
+            scale_color_manual(values = custom_colors) +
+            theme(text = element_text(size=20))
+    )
+      
+    } else {
+      
+      print(ggplot(data = current_genes) +
+            geom_line(mapping = aes(x=time, y=abundance, color=prey_gene_name, linetype=bait_gene_name), size=1.5) +
+            scale_y_continuous(trans='log', labels=scalefunction) +
+            scale_x_continuous(breaks = timepoints, labels=named_timepoints) + 
+            labs(x="Time", y="Abundance", color="Search Genes", 
+                 linetype="Bait") +
+            theme(text = element_text(size=20))
+      )
+      
+    }
+  }
+  
 }
 
 printClusterNumber <- function(genesyms, nodes_in, edges_in, bait_ids) {
-  genes <- unlist(strsplit(genesyms, ", "))
+  
+  # determine whether to search for exact gene name matches or not
+  exact_match <- FALSE
+  
+  if (grepl('"', genesyms)){
+    exact_match <- TRUE
+  }
+  
+  genes <- gsub('"', '', genesyms) # remove quotes if present
+  genes <- unlist(strsplit(genes, ";")) # split on semicolon operator
+  genes <- mapply(trimws, genes) # trim leading or trailing whitespace from each gene
+  names(genes) <- NULL
+  
   for (gene in genes) {
     for (bait in bait_ids) {
       bait_gene_name <- nodes_in$gene_name[which(nodes_in$id == bait)]
+      prey_gene_name <- edges_in[which(edges_in$from == bait & 
+                                         grepl(gene, edges_in$prey_gene_name, ignore.case = T)), 
+                                 'prey_gene_name']
       clusterNumber <- edges_in[which(edges_in$from == bait & 
                                         grepl(gene, edges_in$prey_gene_name, ignore.case = T)),
                                 "cluster"]
       if (length(clusterNumber) != 0) {
-        out <- cat(paste(gene, " is in cluster ", clusterNumber, " for bait ", 
+        out <- cat(paste(prey_gene_name, " is in cluster ", clusterNumber, " for bait ", 
                          bait_gene_name, "\n", collapse=""))
       }
     }
@@ -1950,7 +1985,7 @@ ui = fluidPage(
   
   list(tags$head(HTML('<link rel="icon", href="intervista_icon_1.png", type="image/png" />'))),
   
-  titlePanel(title=div(img(src="logo_intervista.png", width = 800)), windowTitle = 'Inter-ViSTA'),
+  titlePanel(title=div(img(src="logo_intervista_new.png", width = 800)), windowTitle = 'Inter-ViSTA'),
   
   # Enable shinyjs
   shinyjs::useShinyjs(),

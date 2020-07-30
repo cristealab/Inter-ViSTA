@@ -20,7 +20,7 @@ output$complexes <- renderUI({
       br(),
       br(),
       
-      dataTableOutput("complexesTable")
+      DT::dataTableOutput("complexesTable")
       
       )
     
@@ -45,4 +45,4 @@ output$dComplexTable <- downloadHandler(
 )
 
 # print table output
-output$complexesTable <- renderDataTable(computed_values()$complexes)
+output$complexesTable <- DT::renderDataTable(computed_values()$complexes)

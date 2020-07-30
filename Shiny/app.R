@@ -2,6 +2,7 @@ library(shiny)
 library(shinyBS)
 library(shinyjs)
 library(zip)
+library(DT)
 
 ##### GET AND CLEAN DATA ####
 

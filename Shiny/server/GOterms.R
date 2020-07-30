@@ -20,7 +20,7 @@ output$GOTerms <- renderUI({
       br(),
       br(),
       
-      DT::dataTableOutput("GOTable")
+      dataTableOutput("GOTable")
       
     )
     
@@ -45,5 +45,5 @@ output$dGOTable <- downloadHandler(
 )
 
 # print table output
-output$GOTable <- DT::renderDataTable(computed_values()$GOTable)
+output$GOTable <- renderDataTable(computed_values()$GOTable)
 

@@ -1,7 +1,25 @@
 library(shiny)
+library(reticulate)
 library(shinyBS)
 library(shinyjs)
 library(zip)
+library(DT)
+library(ggplot2)
+library(gridExtra)
+library(topGO)
+library(networkDynamic)
+library(RColorBrewer)
+library(tsna)
+
+condaenv <- "intervista"
+use_condaenv(condaenv, conda = "auto", required = FALSE)
+
+source_python("/srv/shiny-server/AppFiles/getStringInteractors.py")
+source_python("/srv/shiny-server/AppFiles/gsi.py")
+source_python("AppFiles/UniprotQuery.py")
+source_python("AppFiles/ruq.py")
+
+library(ndtv)
 
 ##### GET AND CLEAN DATA ####
 
@@ -406,7 +424,6 @@ calculateComplexesPREV <- function(nodes_in) {
 
 clusterProteins <- function(nodes_in, edges_in, bait_ids, timepoints) {
   
-  library(ggplot2)
   theme_set(theme_bw())
   
   edges_out <- edges_in
@@ -479,7 +496,6 @@ clusterProteins <- function(nodes_in, edges_in, bait_ids, timepoints) {
 
 clusterProteinsPREV <- function(edges_in, timepoints) {
   
-  library(ggplot2)
   theme_set(theme_bw())
   
   edges_in <- edges_in[edges_in$type == "Provided", ]
@@ -542,10 +558,8 @@ clusterPlot <- function(bait_id, nodes_in, relative_abundances, timepoints, name
 
 normalizeByProteomeAbund <- function(proteome_abundance, nodes_in, edges_in, timepoints) {
   
-  library(ggplot2)
   theme_set(theme_bw())
-  library(gridExtra)
-  
+
   edges_out <- edges_in
   
   colnames(proteome_abundance) <- c("accession", "gene_name", 
@@ -602,9 +616,7 @@ normalizeByProteomeAbund <- function(proteome_abundance, nodes_in, edges_in, tim
 
 normalizeByProteomeAbundPREV <- function(edges_in, timepoints) {
   
-  library(ggplot2)
   theme_set(theme_bw())
-  library(gridExtra)
   
   edges_in <- edges_in[edges_in$type == "Provided", ]
   
@@ -749,12 +761,7 @@ sizeByAbundPREV <- function(nodes_in, edges_in, bait_ids, timepoints) {
 # and assign localizations to nodes
 
 getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
-  
-  library(reticulate)
-  
-  condaenv <- "intervista"
-  use_condaenv(condaenv, conda = "auto", required = FALSE)
-  
+   
   nodes_out <- nodes_in
   
   if (ncol(background_list) > 1) {
@@ -771,9 +778,6 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
   
   # if there is more data to be collected, collect the data
   if (length(uniprot_list) > 0) {
-    
-    source_python("AppFiles/database_queries.py")
-    source_python("AppFiles/run_queries.py")
     
     updateUniprot <- function(uniprot_chunk) {
       
@@ -966,8 +970,6 @@ getUniprotData <- function(background_list, nodes_in, taxids, loc_prov) {
 
 performGOEnrichment <- function(GOList, nodes_in) {
   
-  library(topGO)
-  
   nodes_out <- nodes_in
   
   gene_universe <- names(GOList)
@@ -1066,8 +1068,6 @@ performGOEnrichment <- function(GOList, nodes_in) {
 }
 
 performGOEnrichmentPREV <- function(background_list, nodes_in) {
-  
-  library(topGO)
   
   # create functional GO annotations list to later pipe into topGO
   accessionToGO <- strsplit(background_list$GOIDs, "; ")
@@ -1325,8 +1325,8 @@ getSTRINGData <- function(nodes_in, edges_in, taxids, timepoints) {
   
   edges_out <- edges_in
   
-  source_python("AppFiles/database_queries.py")
-  source_python("AppFiles/run_queries.py")
+  source_python("AppFiles/getStringInteractors.py")
+  source_python("AppFiles/gsi.py")
   
   string_links <- {}
   
@@ -1410,11 +1410,6 @@ getSTRINGData <- function(nodes_in, edges_in, taxids, timepoints) {
 # only do this if there are fewer than 500 nodes in the data
 buildNetwork <- function(nodes_in, edges_in, num_edges, abund_prov, norm_prot, timepoints,
                          bait_ids) {
-  
-  library(networkDynamic)
-  library(RColorBrewer)
-  library(ndtv)
-  library(tsna)
   
   edges_out <- edges_in
   nodes_out <- nodes_in

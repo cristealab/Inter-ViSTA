@@ -1,0 +1,739 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>R: Enrichment Analysis for Gene Ontology</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+<h1> Enrichment Analysis for Gene Ontology
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;topGO&rsquo; version 2.34.0</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+<li><a href="../doc/index.html">User guides, package vignettes and other documentation.</a></li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<p style="text-align: center;">
+<a href="# "> </a>
+<a href="#A">A</a>
+<a href="#B">B</a>
+<a href="#C">C</a>
+<a href="#D">D</a>
+<a href="#E">E</a>
+<a href="#F">F</a>
+<a href="#G">G</a>
+<a href="#I">I</a>
+<a href="#J">J</a>
+<a href="#L">L</a>
+<a href="#M">M</a>
+<a href="#N">N</a>
+<a href="#O">O</a>
+<a href="#P">P</a>
+<a href="#R">R</a>
+<a href="#S">S</a>
+<a href="#T">T</a>
+<a href="#U">U</a>
+<a href="#W">W</a>
+</p>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGO-package.html">topGO-package</a></td>
+<td>Enrichment analysis for Gene Ontology</td></tr>
+</table>
+
+<h2><a name="A">-- A --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="geneList.html">affyLib</a></td>
+<td>A toy example of a list of gene identifiers and the respective p-values</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">algorithm</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">algorithm-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">algorithm&lt;-</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">algorithm&lt;--method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">allGenes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">allGenes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">allMembers</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">allMembers-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">allMembers-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">allMembers-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">allMembers-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">allMembers-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">allMembers&lt;-</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">allMembers&lt;--method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">allMembers&lt;--method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">allMembers&lt;--method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">allParents</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">allParents-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">allScore</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">allScore-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">allScore-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">alternative-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN.db</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN.file</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN.gene2GO</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN.GO2genes</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">annFUN.org</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">attrInTerm</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">attrInTerm-method</a></td>
+<td>Class "topGOdata"</td></tr>
+</table>
+
+<h2><a name="B">-- B --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="dagFunctions.html">buildLevels</a></td>
+<td>Utility functions to work with Directed Acyclic Graphs (DAG)</td></tr>
+</table>
+
+<h2><a name="C">-- C --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="classicCount-class.html">classicCount-class</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">classicExpr-class</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">classicScore-class</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">combineResults</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">contTable</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">contTable-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">contTable-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">countGenesInTerm</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">countGenesInTerm-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">cutOff</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">cutOff-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">cutOff-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">cutOff-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">cutOff&lt;-</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">cutOff&lt;--method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">cutOff&lt;--method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">cutOff&lt;--method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+</table>
+
+<h2><a name="D">-- D --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="elimCount-class.html">depth</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">depth-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">depth-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">depth-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">depth&lt;-</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">depth&lt;--method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">depth&lt;--method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">depth&lt;--method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">description</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">description-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">description-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">description&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">description&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">description&lt;--method</a></td>
+<td>Class "topGOresult"</td></tr>
+</table>
+
+<h2><a name="E">-- E --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="elimCount-class.html">elim</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">elim-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">elim-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">elim-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">elim&lt;-</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">elim&lt;--method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">elim&lt;--method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">elim&lt;--method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">elimCount-class</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">elimExpr-class</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">elimScore-class</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">emptyExpr-method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">expressionMatrix</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">expressionMatrix-method</a></td>
+<td>Class "topGOdata"</td></tr>
+</table>
+
+<h2><a name="F">-- F --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">feasible</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">feasible-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">feasible&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">feasible&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+</table>
+
+<h2><a name="G">-- G --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">geneData</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">geneData-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">geneData&lt;-</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">geneData&lt;--method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="geneList.html">geneList</a></td>
+<td>A toy example of a list of gene identifiers and the respective p-values</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">genes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">genes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneScore</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneScore-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneSelectionFun</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneSelectionFun-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneSelectionFun&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">geneSelectionFun&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">genesInTerm</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">genesInTerm-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">GenTable</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">GenTable-method</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="dagFunctions.html">getGraphRoot</a></td>
+<td>Utility functions to work with Directed Acyclic Graphs (DAG)</td></tr>
+<tr><td style="width: 25%;"><a href="dagFunctions.html">getNoOfLevels</a></td>
+<td>Utility functions to work with Directed Acyclic Graphs (DAG)</td></tr>
+<tr><td style="width: 25%;"><a href="getPvalues.html">getPvalues</a></td>
+<td>Convenient function to compute p-values from a gene expression matrix.</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">getSigGroups</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">getSigGroups-method</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">getSigGroups-methods</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">getSigRatio</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">getSigRatio-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="groupGOTerms.html">GOBPTerm</a></td>
+<td>Grouping of GO terms into the three ontologies</td></tr>
+<tr><td style="width: 25%;"><a href="groupGOTerms.html">GOCCTerm</a></td>
+<td>Grouping of GO terms into the three ontologies</td></tr>
+<tr><td style="width: 25%;"><a href="GOdata.html">GOdata</a></td>
+<td>Sample topGOdata and topGOresult objects</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOFisherTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">GOFisherTest-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">GOFisherTest-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOglobalTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">GOglobalTest-method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOKSTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">GOKSTest-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOKSTiesTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">GOKSTiesTest-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="groupGOTerms.html">GOMFTerm</a></td>
+<td>Grouping of GO terms into the three ontologies</td></tr>
+<tr><td style="width: 25%;"><a href="printGraph-methods.html">GOplot</a></td>
+<td>Visualisation functions</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOSumTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">GOSumTest-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">GOtTest</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">GOtTest-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">graph</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">graph-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">graph&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">graph&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="groupGOTerms.html">groupGOTerms</a></td>
+<td>Grouping of GO terms into the three ontologies</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">groupStats-class</a></td>
+<td>Class "groupStats"</td></tr>
+</table>
+
+<h2><a name="I">-- I --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="inducedGraph.html">inducedGraph</a></td>
+<td>The subgraph induced by a set of nodes.</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">initialize-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">initialize-method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">initialize-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">initialize-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">initialize-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">initialize-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">initialize-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">initialize-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">initialize-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">initialize-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">initialize-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">inverseList</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+</table>
+
+<h2><a name="J">-- J --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="parentChild-class.html">joinFun</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">joinFun-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+</table>
+
+<h2><a name="L">-- L --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="elimCount-class.html">leaCount-class</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">leaExpr-class</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">leaScore-class</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+</table>
+
+<h2><a name="M">-- M --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="groupStats-class.html">members</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">members-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">members-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">members-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">members-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">members&lt;-</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">members&lt;--method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">membersExpr</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">membersExpr-method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">membersScore</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">membersScore-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">membersScore-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+</table>
+
+<h2><a name="N">-- N --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="groupStats-class.html">Name</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">Name-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">Name-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">Name&lt;-</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">Name&lt;--method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="inducedGraph.html">nodesInInducedGraph</a></td>
+<td>The subgraph induced by a set of nodes.</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">numAllMembers</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">numAllMembers-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">numAllMembers-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">numAllMembers-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">numAllMembers-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">numAllMembers-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">numAllMembers-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">numGenes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">numGenes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">numMembers</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">numMembers-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">numMembers-method</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">numMembers-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">numMembers-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">numMembers-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">numSigAll</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">numSigAll-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">numSigAll-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">numSigAll-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">numSigAll-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">numSigGenes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">numSigGenes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">numSigMembers</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">numSigMembers-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">numSigMembers-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">numSigMembers-method</a></td>
+<td>Class "weightCount"</td></tr>
+</table>
+
+<h2><a name="O">-- O --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">ontology</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">ontology-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">ontology&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">ontology&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+</table>
+
+<h2><a name="P">-- P --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="parentChild-class.html">parentChild-class</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">pC-class</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">penalise</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">penalise-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">permSumStats</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="GOTests.html">permSumStats.all</a></td>
+<td>Gene set tests statistics</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">phenotype</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">phenotype-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">print-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">print-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">printGenes</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">printGenes-method</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">printGenes-methods</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="printGraph-methods.html">printGraph</a></td>
+<td>Visualisation functions</td></tr>
+<tr><td style="width: 25%;"><a href="printGraph-methods.html">printGraph-method</a></td>
+<td>Visualisation functions</td></tr>
+<tr><td style="width: 25%;"><a href="printGraph-methods.html">printGraph-methods</a></td>
+<td>Visualisation functions</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">pType</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">pType-method</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">pType&lt;-</a></td>
+<td>Class "classicExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="classicExpr-class.html">pType&lt;--method</a></td>
+<td>Class "classicExpr"</td></tr>
+</table>
+
+<h2><a name="R">-- R --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="classicScore-class.html">rankMembers</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">rankMembers-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">rankMembers-method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="annFUN.html">readMappings</a></td>
+<td>Functions which map gene identifiers to GO terms</td></tr>
+<tr><td style="width: 25%;"><a href="GOdata.html">resultFisher</a></td>
+<td>Sample topGOdata and topGOresult objects</td></tr>
+<tr><td style="width: 25%;"><a href="GOdata.html">resultKS</a></td>
+<td>Sample topGOdata and topGOresult objects</td></tr>
+<tr><td style="width: 25%;"><a href="dagFunctions.html">reverseArch</a></td>
+<td>Utility functions to work with Directed Acyclic Graphs (DAG)</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">roundFun</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">roundFun-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">runTest</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">runTest-method</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">runTest-method</a></td>
+<td>Class "groupStats"</td></tr>
+</table>
+
+<h2><a name="S">-- S --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">score</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">score-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">score&lt;-</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">score&lt;--method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">score&lt;--method</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">score&lt;--method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">scoreOrder</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="classicScore-class.html">scoreOrder-method</a></td>
+<td>Class "classicScore"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">scoresInTerm</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">scoresInTerm-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">show-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">show-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="diagnosticMethods.html">showGroupDensity</a></td>
+<td>Diagnostic functions for topGOdata and topGOresult objects.</td></tr>
+<tr><td style="width: 25%;"><a href="printGraph-methods.html">showSigOfNodes</a></td>
+<td>Visualisation functions</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigAllMembers</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigAllMembers-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">sigAllMembers-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">sigAllMembers-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">sigGenes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">sigGenes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigMembers</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigMembers-method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">sigMembers-method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigMembers&lt;-</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="classicCount-class.html">sigMembers&lt;--method</a></td>
+<td>Class "classicCount"</td></tr>
+<tr><td style="width: 25%;"><a href="elimCount-class.html">sigMembers&lt;--method</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">sigMembers&lt;--method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">significant</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">significant-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">sigRatio</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">sigRatio-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">sigRatio&lt;-</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">sigRatio&lt;--method</a></td>
+<td>Class "weightCount"</td></tr>
+</table>
+
+<h2><a name="T">-- T --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">termStat</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">termStat-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">testName</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">testName-method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">testName&lt;-</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">testName&lt;--method</a></td>
+<td>Class "topGOresult"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">testStatistic</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">testStatistic-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">testStatistic-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">testStatPar</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">testStatPar-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">testStatPar-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="geneList.html">topDiffGenes</a></td>
+<td>A toy example of a list of gene identifiers and the respective p-values</td></tr>
+<tr><td style="width: 25%;"><a href="topGO-package.html">topGO</a></td>
+<td>Enrichment analysis for Gene Ontology</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">topGOdata-class</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOresult-class.html">topGOresult-class</a></td>
+<td>Class "topGOresult"</td></tr>
+</table>
+
+<h2><a name="U">-- U --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">updateGenes</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">updateGenes-method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">updateGroup</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="groupStats-class.html">updateGroup-method</a></td>
+<td>Class "groupStats"</td></tr>
+<tr><td style="width: 25%;"><a href="parentChild-class.html">updateGroup-method</a></td>
+<td>Classes "parentChild" and "pC"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">updateGroup-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">updateTerm&lt;-</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">updateTerm&lt;--method</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">usedGO</a></td>
+<td>Class "topGOdata"</td></tr>
+<tr><td style="width: 25%;"><a href="topGOdata-class.html">usedGO-method</a></td>
+<td>Class "topGOdata"</td></tr>
+</table>
+
+<h2><a name="W">-- W --</a></h2>
+
+<table width="100%">
+<tr><td style="width: 25%;"><a href="elimCount-class.html">weight01Count-class</a></td>
+<td>Classes "elimCount" and "weight01Count"</td></tr>
+<tr><td style="width: 25%;"><a href="elimExpr-class.html">weight01Expr-class</a></td>
+<td>Class "elimExpr"</td></tr>
+<tr><td style="width: 25%;"><a href="elimScore-class.html">weight01Score-class</a></td>
+<td>Classes "elimScore" and "weight01Score"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">weightCount-class</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">Weights</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">Weights-method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">Weights&lt;-</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="weightCount-class.html">Weights&lt;--method</a></td>
+<td>Class "weightCount"</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">whichAlgorithms</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+<tr><td style="width: 25%;"><a href="getSigGroups.html">whichTests</a></td>
+<td>Interfaces for running the enrichment tests</td></tr>
+</table>
+</body></html>

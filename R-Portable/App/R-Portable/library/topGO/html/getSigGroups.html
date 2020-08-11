@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Interfaces for running the enrichment tests</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for getSigGroups {topGO}"><tr><td>getSigGroups {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Interfaces for running the enrichment tests</h2>
+
+<h3>Description</h3>
+
+<p>These function are used for dispatching the specific algorithm for
+a given <code>topGOdata</code> object and a test statistic.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+getSigGroups(object, test.stat, ...)
+runTest(object, algorithm, statistic, ...)
+whichAlgorithms()
+whichTests()
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>object</code></td>
+<td>
+<p>An object of class <code>topGOdata</code>
+This object contains all data necessary for runnig the test.</p>
+</td></tr>
+<tr valign="top"><td><code>test.stat</code></td>
+<td>
+<p>An object of class <code>groupStats</code>. This object
+defines the test statistic.</p>
+</td></tr>
+<tr valign="top"><td><code>algorithm</code></td>
+<td>
+<p>Character string specifing which algorithm to use.</p>
+</td></tr> 
+<tr valign="top"><td><code>statistic</code></td>
+<td>
+<p>Character string specifing which test to use.</p>
+</td></tr> 
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Other parameters. In the case of <code>runTest</code> they are
+used for defining the test statistic</p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The <code>runTest</code> function can be used only with a predefined set of
+test statistics and algorithms. The algorithms and the statistical
+tests which are accessible via the <code>runTest</code> function are shown
+by the <code>whichAlgorithms()</code> and <code>whichTests()</code> functions.
+</p>
+<p>The runTest function is a warping of the <code>getSigGroups</code> and the
+initialisation of a <code>groupStats</code> object functions.
+</p>
+<p>...
+</p>
+
+
+<h3>Value</h3>
+
+<p>An object of class <code>topGOresult</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="topGOdata-class.html">topGOdata-class</a></code>,
+<code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="topGOresult-class.html">topGOresult-class</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+
+## load a sample topGOdata object
+data(GOdata)
+GOdata
+
+##############################
+## getSigGroups interface
+##############################
+
+## define a test statistic
+test.stat &lt;- new("classicCount", testStatistic = GOFisherTest, name = "Fisher test")
+## perform the test
+resultFis &lt;- getSigGroups(GOdata, test.stat)
+resultFis
+
+
+
+##############################
+## runTest interface
+##############################
+
+## Enrichment analysis by using the "classic" method and Fisher's exact test
+resultFis &lt;- runTest(GOdata, algorithm = "classic", statistic = "fisher")
+resultFis
+
+## weight01 is the default algorithm 
+weight01.fisher &lt;- runTest(GOdata, statistic = "fisher")
+weight01.fisher
+
+
+## not all combinations are possible!
+# weight.ks &lt;- runTest(GOdata, algorithm = "weight", statistic = "t")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

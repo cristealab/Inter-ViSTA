@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Class &quot;classicExpr&quot;</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for classicExpr-class {topGO}"><tr><td>classicExpr-class {topGO}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Class &quot;classicExpr&quot;</h2>
+
+<h3>Description</h3>
+
+<p>This class that extends the virtual class &quot;groupStats&quot; by adding 
+two slots for accomodating gene expression data.</p>
+
+
+<h3>Objects from the Class</h3>
+
+<p>Objects can be created by calls of the form <code>new("classicExpr", testStatistic, name, groupMembers, exprDat, pType, ...)</code>.
+</p>
+
+
+<h3>Slots</h3>
+
+
+<dl>
+<dt><code>eData</code>:</dt><dd><p>Object of class <code>"environment"</code> ~~ </p>
+</dd>
+<dt><code>pType</code>:</dt><dd><p>Object of class <code>"factor"</code> ~~ </p>
+</dd>
+<dt><code>name</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>allMembers</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>members</code>:</dt><dd><p>Object of class <code>"character"</code> ~~ </p>
+</dd>
+<dt><code>testStatistic</code>:</dt><dd><p>Object of class <code>"function"</code> ~~ </p>
+</dd>
+<dt><code>testStatPar</code>:</dt><dd><p>Object of class <code>"list"</code> ~~ </p>
+</dd>
+</dl>
+
+
+
+<h3>Extends</h3>
+
+<p>Class <code>"<a href="groupStats-class.html">groupStats</a>"</code>, directly.
+</p>
+
+
+<h3>Methods</h3>
+
+
+<dl>
+<dt>allMembers&lt;-</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>emptyExpr</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>getSigGroups</dt><dd><p><code>signature(object = "topGOdata", test.stat = "classicExpr")</code>: ... </p>
+</dd>
+<dt>GOglobalTest</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>initialize</dt><dd><p><code>signature(.Object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>membersExpr</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>pType&lt;-</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+<dt>pType</dt><dd><p><code>signature(object = "classicExpr")</code>: ... </p>
+</dd>
+</dl>
+
+
+
+<h3>Author(s)</h3>
+
+<p>Adrian Alexa</p>
+
+
+<h3>See Also</h3>
+
+<p><code><a href="classicScore-class.html">classicScore-class</a></code>,
+<code><a href="groupStats-class.html">groupStats-class</a></code>,
+<code><a href="getSigGroups.html">getSigGroups-methods</a></code>
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+showClass("classicExpr")
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>topGO</em> version 2.34.0 <a href="00Index.html">Index</a>]</div>
+</body></html>

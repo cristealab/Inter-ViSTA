@@ -1,0 +1,28 @@
+GOFisherTest            Gene set tests statistics
+GOdata                  Sample topGOdata and topGOresult objects
+annFUN                  Functions which map gene identifiers to GO
+                        terms
+buildLevels             Utility functions to work with Directed Acyclic
+                        Graphs (DAG)
+classicCount-class      Class "classicCount"
+classicExpr-class       Class "classicExpr"
+classicScore-class      Class "classicScore"
+elimCount-class         Classes "elimCount" and "weight01Count"
+elimExpr-class          Class "elimExpr"
+elimScore-class         Classes "elimScore" and "weight01Score"
+geneList                A toy example of a list of gene identifiers and
+                        the respective p-values
+getPvalues              Convenient function to compute p-values from a
+                        gene expression matrix.
+getSigGroups            Interfaces for running the enrichment tests
+groupGOTerms            Grouping of GO terms into the three ontologies
+groupStats-class        Class "groupStats"
+inducedGraph            The subgraph induced by a set of nodes.
+parentChild-class       Classes "parentChild" and "pC"
+printGenes-methods      Diagnostic functions for topGOdata and
+                        topGOresult objects.
+printGraph-methods      Visualisation functions
+topGO-package           Enrichment analysis for Gene Ontology
+topGOdata-class         Class "topGOdata"
+topGOresult-class       Class "topGOresult"
+weightCount-class       Class "weightCount"

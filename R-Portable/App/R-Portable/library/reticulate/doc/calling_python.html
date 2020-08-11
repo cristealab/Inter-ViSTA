@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Overview</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<h2>Overview</h2>
+
+<p>The <strong>reticulate</strong> package provides an R interface to Python modules, classes, and functions. For example, this code imports the Python <code>os</code> module and calls some functions within it:</p>
+
+<pre><code class="r">library(reticulate)
+os &lt;- import(&quot;os&quot;)
+os$listdir(&quot;.&quot;)
+</code></pre>
+
+<pre><code> [1] &quot;.git&quot;             &quot;.gitignore&quot;       &quot;.Rbuildignore&quot;    &quot;.RData&quot;          
+ [5] &quot;.Rhistory&quot;        &quot;.Rproj.user&quot;      &quot;.travis.yml&quot;      &quot;appveyor.yml&quot;    
+ [9] &quot;DESCRIPTION&quot;      &quot;docs&quot;             &quot;external&quot;         &quot;index.html&quot;      
+[13] &quot;index.Rmd&quot;        &quot;inst&quot;             &quot;issues&quot;           &quot;LICENSE&quot;         
+[17] &quot;man&quot;              &quot;NAMESPACE&quot;        &quot;NEWS.md&quot;          &quot;pkgdown&quot;         
+[21] &quot;R&quot;                &quot;README.md&quot;        &quot;reticulate.Rproj&quot; &quot;src&quot;             
+[25] &quot;tests&quot;            &quot;vignettes&quot;      
+</code></pre>
+
+<p>Functions and other data within Python modules and classes can be accessed via the <code>$</code> operator (analogous to the way you would interact with an R list, environment, or reference class).</p>
+
+<p>The <strong>reticulate</strong> package is compatible with all versions of Python &gt;= 2.7. Integration with NumPy is optional and requires NumPy &gt;= 1.6.</p>
+
+<h2>Python Version</h2>
+
+<p>By default, reticulate uses the version of Python found on your <code>PATH</code> (i.e. <code>Sys.which(&quot;python&quot;)</code>). The <code>use_python()</code> function enables you to specify an alternate version, for example:</p>
+
+<pre><code class="r">library(reticulate)
+use_python(&quot;/usr/local/bin/python&quot;)
+</code></pre>
+
+<p>The <code>use_virtualenv()</code> and <code>use_condaenv()</code> functions enable you to specify versions of Python in virtual or conda environments, for example:</p>
+
+<pre><code class="r">library(reticulate)
+use_virtualenv(&quot;myenv&quot;)
+</code></pre>
+
+<p>See the article on <a href="versions.html">Python Version Configuration</a> for additional details.</p>
+
+<h2>Python Packages</h2>
+
+<p>You can install any required Python packages using standard shell tools like <code>pip</code> and <code>conda</code>. Alternately, reticulate includes a set of functions for managing and installing packages within virtualenvs and Conda environments. See the article on <a href="https://rstudio.github.io/reticulate/articles/python_packages.html">Installing Python Packages</a> for additional details.</p>
+
+<h2>Type Conversions</h2>
+
+<p>When calling into Python, R data types are automatically converted to their equivalent Python types. When values are returned from Python to R they are converted back to R types. Types are converted as follows:</p>
+
+<table><thead>
+<tr>
+<th>R</th>
+<th>Python</th>
+<th>Examples</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Single-element vector</td>
+<td>Scalar</td>
+<td><code>1</code>, <code>1L</code>, <code>TRUE</code>, <code>&quot;foo&quot;</code></td>
+</tr>
+<tr>
+<td>Multi-element vector</td>
+<td>List</td>
+<td><code>c(1.0, 2.0, 3.0)</code>, <code>c(1L, 2L, 3L)</code></td>
+</tr>
+<tr>
+<td>List of multiple types</td>
+<td>Tuple</td>
+<td><code>list(1L, TRUE, &quot;foo&quot;)</code></td>
+</tr>
+<tr>
+<td>Named list</td>
+<td>Dict</td>
+<td><code>list(a = 1L, b = 2.0)</code>, <code>dict(x = x_data)</code></td>
+</tr>
+<tr>
+<td>Matrix/Array</td>
+<td>NumPy ndarray</td>
+<td><code>matrix(c(1,2,3,4), nrow = 2, ncol = 2)</code></td>
+</tr>
+<tr>
+<td>Data Frame</td>
+<td>Pandas DataFrame</td>
+<td><code>data.frame(x = c(1,2,3), y = c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;))</code></td>
+</tr>
+<tr>
+<td>Function</td>
+<td>Python function</td>
+<td><code>function(x) x + 1</code></td>
+</tr>
+<tr>
+<td>Raw</td>
+<td>Python bytearray</td>
+<td><code>as.raw(c(1:10))</code></td>
+</tr>
+<tr>
+<td>NULL, TRUE, FALSE</td>
+<td>None, True, False</td>
+<td><code>NULL</code>, <code>TRUE</code>, <code>FALSE</code></td>
+</tr>
+</tbody></table>
+
+<p>If a Python object of a custom class is returned then an R reference to that object is returned. You can call methods and access properties of the object just as if it was an instance of an R reference class.</p>
+
+<h2>Importing Modules</h2>
+
+<p>The <code>import()</code> function can be used to import any Python module. For example:</p>
+
+<pre><code class="r">difflib &lt;- import(&quot;difflib&quot;)
+difflib$ndiff(foo, bar)
+
+filecmp &lt;- import(&quot;filecmp&quot;)
+filecmp$cmp(dir1, dir2)
+</code></pre>
+
+<p>The <code>import_main()</code> and <code>import_builtins()</code> functions give you access to the main module where code is executed by default and the collection of built in Python functions. For example:</p>
+
+<pre><code class="r">main &lt;- import_main()
+
+builtins &lt;- import_builtins()
+builtins$print(&#39;foo&#39;)
+</code></pre>
+
+<p>The main module is generally useful if you have executed Python code from a file or string and want to get access to its results (see the section below for more details).</p>
+
+<h2>Sourcing Scripts</h2>
+
+<p>The <code>source_python()</code> function will source a Python script and make the objects it creates available within an R environment (by default the calling environment). For example, consider the following Python script:</p>
+
+<pre><code class="python">def add(x, y):
+  return x + y
+</code></pre>
+
+<p>We source it using the <code>source_python()</code> function and then can call the <code>add()</code> function directly from R:</p>
+
+<pre><code class="r">source_python(&#39;add.py&#39;)
+add(5, 10)
+</code></pre>
+
+<pre><code>[1] 15
+</code></pre>
+
+<h2>Executing Code</h2>
+
+<p>You can execute Python code within the main module using the <code>py_run_file</code> and <code>py_run_string</code> functions. You can then access any objects created using the <code>py</code> object exported by reticulate:</p>
+
+<pre><code class="r">library(reticulate)
+
+py_run_file(&quot;script.py&quot;)
+
+py_run_string(&quot;x = 10&quot;)
+
+# access the python main module via the &#39;py&#39; object
+py$x
+</code></pre>
+
+<h2>Object Conversion</h2>
+
+<p>By default when Python objects are returned to R they are converted to their equivalent R types. However, if you&#39;d rather make conversion from Python to R explicit and deal in native Python objects by default you can pass <code>convert = FALSE</code> to the <code>import</code> function. In this case Python to R conversion will be disabled for the module returned from <code>import</code>. For example:</p>
+
+<pre><code class="r"># import numpy and specify no automatic Python to R conversion
+np &lt;- import(&quot;numpy&quot;, convert = FALSE)
+
+# do some array manipulations with NumPy
+a &lt;- np$array(c(1:4))
+sum &lt;- a$cumsum()
+
+# convert to R explicitly at the end
+py_to_r(sum)
+</code></pre>
+
+<p>As illustrated above, if you need access to an R object at end of your computations you can call the <code>py_to_r()</code> function explicitly.</p>
+
+<h2>Getting Help</h2>
+
+<p>You can print documentation on any Python object using the <code>py_help()</code> function. For example:</p>
+
+<pre><code class="r">os &lt;- import(&quot;os&quot;)
+py_help(os$chdir)
+</code></pre>
+
+<h2>Lists, Tuples, and Dictionaries</h2>
+
+<p>The automatic conversion of R types to Python types works well in most cases, but occasionally you will need to be more explicit on the R side to provide Python the type it expects.</p>
+
+<p>For example, if a Python API requires a list and you pass a single element R vector it will be converted to a Python scalar. To overcome this simply use the R <code>list</code> function explicitly:</p>
+
+<pre><code class="r">foo$bar(indexes = list(42L))
+</code></pre>
+
+<p>Similarly, a Python API might require a <code>tuple</code> rather than a list. In that case you can use the <code>tuple()</code> function:</p>
+
+<pre><code class="r">tuple(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+</code></pre>
+
+<p>R named lists are converted to Python dictionaries however you can also explicitly create a Python dictionary using the <code>dict()</code> function:</p>
+
+<pre><code class="r">dict(foo = &quot;bar&quot;, index = 42L)
+</code></pre>
+
+<p>This might be useful if you need to pass a dictionary that uses a more complex object (as opposed to a string) as its key.</p>
+
+<h2>Numeric Types and Indexes</h2>
+
+<p>R and Python have different default numeric types. If you write <code>42</code> in R it is considered a floating point number whereas <code>42</code> in Python is considered an integer.</p>
+
+<p>This means that when a Python API expects an integer, you need to be sure to use the <code>L</code> suffix within R. For example, if the <code>foo</code> function requires an integer as its <code>index</code> argument you would do this:</p>
+
+<pre><code class="r">foo$bar(index = 42L)
+</code></pre>
+
+<p>Python collections are addressed using 0-based indices rather than the 1-based indices you might be familiar with from R. So to address the first item of an array in R you would write:</p>
+
+<pre><code class="r">items[[1]]
+</code></pre>
+
+<p>Whereas if you are calling a method in Python via reticulate that takes an index you would write this to address the first item:</p>
+
+<pre><code class="r">items$get(0L)
+</code></pre>
+
+<p>Note the use of the 0-based index as well as the <code>L</code> to indicate t that the value is an integer.</p>
+
+<h2>Arrays</h2>
+
+<p>R matrices and arrays are converted automatically to and from <a href="http://www.numpy.org/">NumPy</a> arrays. </p>
+
+<p>When converting from R to NumPy, the NumPy array is mapped directly to the underlying memory of the R array (no copy is made). In this case, the NumPy array uses a column-based in memory layout that is compatible with R (i.e. Fortran style rather than C style). When converting from NumPy to R, R receives a column-ordered copy of the NumPy array. </p>
+
+<p>You can also manually convert R arrays to NumPy using the <code>np_array()</code> function. For example, you might do this if you needed to create a NumPy array with C rather than Fortran style in-memory layout (for higher performance in row-oriented computations) or if you wanted to control the data type of the NumPy array more explicitly. Here are some example uses of <code>np_array()</code>:</p>
+
+<pre><code class="r">a &lt;- np_array(c(1:8), dtype = &quot;float16&quot;)
+a &lt;- np_array(c(1:8), order = &quot;C&quot;)
+</code></pre>
+
+<p>Reasoning about arrays which use distinct in-memory orders can be tricky. The <a href="arrays.html">Arrays in R and Python</a> article provides additional details.</p>
+
+<p>Also, always remember that when calling NumPy methods array indices are 0 rather than 1 based and require the <code>L</code> suffix to indicate they are integers.</p>
+
+<h2>Data Frames</h2>
+
+<p>R data frames can be automatically converted to and from <a href="https://pandas.pydata.org/">Pandas</a> DataFrames. By default, columns are converted using the same rules governing R array &lt;-&gt; NumPy array conversion, but a couple extensions are provided:</p>
+
+<table><thead>
+<tr>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Factor</td>
+<td>Categorical Variable</td>
+</tr>
+<tr>
+<td>POSIXt</td>
+<td>NumPy array with dtype = <code>datetime64[ns]</code></td>
+</tr>
+</tbody></table>
+
+<p>If the R data frame has row names, the generated Pandas DataFrame will be re-indexed using those row names (and vice versa). Special handling is also available for a <code>DatetimeIndex</code> associated with a Pandas DataFrame; however, because R only supports character vectors for row names they are converted to character first.</p>
+
+<h2>Sparse Matrices</h2>
+
+<p>Sparse matrices created by <a href="https://CRAN.R-project.org/package=Matrix">Matrix R package</a> can be converted <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csc_matrix.html">Scipy CSC matrix</a>, and vice versa. This is often useful when you want to pass sparse matrices to Python functions that accepts Scipy CSC matrix to take advantage of this format, such as efficient column slicing and fast matrix vector products. </p>
+
+<p>For example, we first create a sparse matrix using <code>Matrix::sparseMatrix()</code>:</p>
+
+<pre><code>library(Matrix)
+N &lt;- 5
+dgc_matrix &lt;- sparseMatrix(
+  i = sample(N, N),
+  j = sample(N, N),
+  x = runif(N),
+  dims = c(N, N))
+</code></pre>
+
+<p>The sparse matrix looks like this:</p>
+
+<pre><code>&gt; dgc_matrix
+5 x 5 sparse Matrix of class &quot;dgCMatrix&quot;
+
+[1,] 0.2264952 .          .          .         .        
+[2,] .         .          .          .         0.3927282
+[3,] .         .          .          0.9215908 .        
+[4,] .         .          0.01777771 .         .        
+[5,] .         0.05885743 .          .         . 
+</code></pre>
+
+<p>Let&#39;s convert it to Scipy CSC matrix using <code>r_to_py()</code>:</p>
+
+<pre><code>&gt; csc_matrix &lt;- r_to_py(x)
+&gt; csc_matrix
+  (0, 0)    0.226495201467
+  (4, 1)    0.0588574311696
+  (3, 2)    0.0177777127828
+  (2, 3)    0.921590822982
+  (1, 4)    0.392728160601
+</code></pre>
+
+<p>Note that the right-hand side contains the non-zero entries of the matrix while the left-hand side represents their locations in the matrix. </p>
+
+<p>We can also use <code>py_to_r()</code> to convert the CSC matrix back to <code>Matrix::dgCMatrix</code> representation that can then be manipulated easily in R which is the same as the original sparse matrix that we created earlier using <code>Matrix::sparseMatrix()</code>:</p>
+
+<pre><code>&gt; py_to_r(csc_matrix)
+5 x 5 sparse Matrix of class &quot;dgCMatrix&quot;
+
+[1,] 0.2264952 .          .          .         .        
+[2,] .         .          .          .         0.3927282
+[3,] .         .          .          0.9215908 .        
+[4,] .         .          0.01777771 .         .        
+[5,] .         0.05885743 .          .         .        
+</code></pre>
+
+<h2>With Contexts</h2>
+
+<p>The R <code>with</code> generic function can be used to interact with Python context manager objects (in Python you use the <code>with</code> keyword to do the same). For example:</p>
+
+<pre><code class="r">py &lt;- import_builtins()
+with(py$open(&quot;output.txt&quot;, &quot;w&quot;) %as% file, {
+  file$write(&quot;Hello, there!&quot;)
+})
+</code></pre>
+
+<p>This example opens a file and ensures that it is automatically closed at the end of the with block. Note the use of the <code>%as%</code> operator to alias the object created by the context manager.</p>
+
+<h2>Iterators</h2>
+
+<p>If a Python API returns an <a href="http://anandology.com/python-practice-book/iterators.html">iterator or generator</a> you can interact with it using the <code>iterate()</code> function. The <code>iterate()</code> function can be used to apply an R function to each item yielded by the iterator:</p>
+
+<pre><code class="r">iterate(iter, print)
+</code></pre>
+
+<p>If you don&#39;t pass a function to <code>iterate</code> the results will be collected into an R vector:</p>
+
+<pre><code class="r">results &lt;- iterate(iter)
+</code></pre>
+
+<p>Note that the <code>Iterators</code> will be drained of their values by <code>iterate()</code>:</p>
+
+<pre><code class="r">a &lt;- iterate(iter) # results are not empty
+b &lt;- iterate(iter) # results are empty since items have already been drained
+</code></pre>
+
+<h3>Element Level Iteration</h3>
+
+<p>You can also iterate on an element-by-element basis using the <code>iter_next()</code> function. For example:</p>
+
+<pre><code class="r">while (TRUE) {
+  item &lt;- iter_next(iter)
+  if (is.null(item))
+    break
+}
+</code></pre>
+
+<p>By default <code>iter_next()</code> will return <code>NULL</code> when the iteration is complete but you can provide a custom <code>completed</code> value it will be returned instead. For example:</p>
+
+<pre><code class="r">while (TRUE) {
+  item &lt;- iter_next(iter, completed = NA)
+  if (is.na(item))
+    break
+}
+</code></pre>
+
+<p>Note that some iterators/generators in Python are infinite. In that case the caller will need custom logic to determine when to terminate the loop.</p>
+
+<h3>Generators</h3>
+
+<p>Python <a href="https://wiki.python.org/moin/Generators">generators</a> are functions that implement the Python iterator protocol. Similarly, the reticulate <code>generator()</code> function enables you to create a Python iterator from an R function.</p>
+
+<p>In Python, generators produce values using the <code>yield</code> keyword. In R, values are simply returned from the function. One benefit of the <code>yield</code> keyword is that it enables successive iterations to use the state of previous iterations. In R, this can be done by returning a function that mutates its enclosing environment via the &lt;&lt;- operator. For example:</p>
+
+<pre><code class="r"># define a generator function
+sequence_generator &lt;-function(start) {
+  value &lt;- start
+  function() {
+    value &lt;&lt;- value + 1
+    value
+  }
+}
+
+# convert the function to a python iterator
+iter &lt;- py_iterator(sequence_generator(10))
+</code></pre>
+
+<p>If you want to indicate the end of the iteration, return <code>NULL</code> from the function:</p>
+
+<pre><code class="r">sequence_generator &lt;-function(start) {
+  value &lt;- start
+  function() {
+    value &lt;&lt;- value + 1
+    if (value &lt; 100)
+      value
+    else
+      NULL
+  }
+}
+</code></pre>
+
+<p>Note that you can change the value that indicates the end of the iteration using the <code>completed</code> parameter (e.g. <code>py_iterator(func, completed = NA)</code>).</p>
+
+<h2>Functions</h2>
+
+<h3>Signatures</h3>
+
+<p>By default R functions are converted to Python with a generic signature (<code>function(...)</code>), where there&#39;s neither keyword argument nor default values for arguments.</p>
+
+<p>For example, below we apply <code>r_to_py()</code> to an R function and then we use <a href="https://docs.python.org/3/library/inspect.html">inspect Python module</a> to get the converted function&#39;s argument spec. You can see that the signature of the wrapped function looks different than the original R function&#39;s signature.</p>
+
+<pre><code class="r">&gt; inspect &lt;- import(&quot;inspect&quot;)
+&gt; converted_func &lt;- r_to_py(function(a, b = 1.5) {})
+&gt; inspect$getargspec(converted_func)
+ArgSpec(args=[], varargs=&#39;args&#39;, keywords=&#39;kwargs&#39;, defaults=None)
+</code></pre>
+
+<p>This default conversion typically works fine, however some Python libraries have strict checking on the function signatures of user provided callbacks. In these cases the generic <code>function(...)</code> signature will fail this checking.</p>
+
+<p>For these cases you can use <code>py_func()</code> to wrap the R function so that the wrapped function has exactly the same signature as that of the original R function, e.g. one argument <code>a</code> without default value and another argument <code>b</code> with default value 1.5. </p>
+
+<pre><code class="r">&gt; wrapped_func &lt;- py_func(function(a, b = 1.5) {})
+&gt; inspect$getargspec(wrapped_func)
+ArgSpec(args=[&#39;a&#39;, &#39;b&#39;], varargs=None, keywords=None, defaults=(1.5,))
+</code></pre>
+
+<p>Note that the signature of the R function must not contain esoteric Python-incompatible constructs. For example, we cannot have R function with signature like <code>function(a = 1, b)</code> since Python function requires that arguments without default values appear before arguments with default values.</p>
+
+<h3>Background Threads</h3>
+
+<p>In some cases Python libraries will invoke callbacks on a Python background thread. Since R code must run on the main thread, this won&#39;t work by default when you pass an R function as a callback. </p>
+
+<p>To work around this, you can use <code>py_main_thread_func()</code>, which will provide a special wrapper for your R function that ensures it will only be called on the main thread. </p>
+
+<h2>Advanced</h2>
+
+<p>There are several more advanced functions available that are useful principally when creating high level R interfaces for Python libraries.</p>
+
+<h3>Python Objects</h3>
+
+<p>Typically interacting with Python objects from R involves using the <code>$</code> operator to access whatever properties for functions of the object you need. When using the <code>$</code>, Python objects are automatically converted to their R equivalents when possible. The following functions enable you to interact with Python objects at a lower level (e.g. no conversion to R is done unless you explicitly call the <code>py_to_r</code> function):</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>py_has_attr()</code></td>
+<td>Check if an object has a specified attribute.</td>
+</tr>
+<tr>
+<td><code>py_get_attr()</code></td>
+<td>Get an attribute of a Python object.</td>
+</tr>
+<tr>
+<td><code>py_set_attr()</code></td>
+<td>Set an attribute of a Python object.</td>
+</tr>
+<tr>
+<td><code>py_list_attributes()</code></td>
+<td>List all attributes of a Python object.</td>
+</tr>
+<tr>
+<td><code>py_len()</code></td>
+<td>Length of Python object.</td>
+</tr>
+<tr>
+<td><code>py_call()</code></td>
+<td>Call a Python callable object with the specified arguments.</td>
+</tr>
+<tr>
+<td><code>py_to_r()</code></td>
+<td>Convert a Python object to its R equivalent</td>
+</tr>
+<tr>
+<td><code>r_to_py()</code></td>
+<td>Convert an R object to its Python equivalent</td>
+</tr>
+</tbody></table>
+
+<h3>Pickle</h3>
+
+<p>You can save and load Python objects (via pickle) using the <code>py_save_object</code> and <code>py_load_object</code> functions:</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>py_save_object()</code></td>
+<td>Save a Python object to a file with pickle.</td>
+</tr>
+<tr>
+<td><code>py_load_object()</code></td>
+<td>Load a previously saved Python object from a file.</td>
+</tr>
+</tbody></table>
+
+<h3>Configuration</h3>
+
+<p>The following functions enable you to query for information about the Python configuration available on the current system.</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>py_available()</code></td>
+<td>Check whether a Python interface is available on this system.</td>
+</tr>
+<tr>
+<td><code>py_numpy_available()</code></td>
+<td>Check whether the R interface to NumPy is available (requires NumPy &gt;= 1.6)</td>
+</tr>
+<tr>
+<td><code>py_module_available()</code></td>
+<td>Check whether a Python module is available on this system.</td>
+</tr>
+<tr>
+<td><code>py_config()</code></td>
+<td>Get information on the location and version of Python in use.</td>
+</tr>
+</tbody></table>
+
+<h3>Output Control</h3>
+
+<p>These functions enable you to capture or suppress output from Python:</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>py_capture_output()</code></td>
+<td>Capture Python output for the specified expression and return it as an R character vector.</td>
+</tr>
+<tr>
+<td><code>py_suppress_warnings()</code></td>
+<td>Execute the specified expression, suppressing the display Python warnings.</td>
+</tr>
+</tbody></table>
+
+<h3>Miscellaneous</h3>
+
+<p>The functions provide miscellaneous other lower-level capabilities:</p>
+
+<table><thead>
+<tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>py_set_seed()</code></td>
+<td>Set Python and NumPy random seeds.</td>
+</tr>
+<tr>
+<td><code>py_unicode()</code></td>
+<td>Convert a string to a Python unicode object.</td>
+</tr>
+<tr>
+<td><code>py_str()</code></td>
+<td>Get the string representation of Python object.</td>
+</tr>
+<tr>
+<td><code>py_id()</code></td>
+<td>Get a unique identifier for a Python object</td>
+</tr>
+<tr>
+<td><code>py_is_null_xptr()</code></td>
+<td>Check whether a Python object is a null externalptr.</td>
+</tr>
+<tr>
+<td><code>py_validate_xptr()</code></td>
+<td>Check whether a Python object is a null externalptr and throw an error if it is.</td>
+</tr>
+</tbody></table>
+
+<h2>Learning More</h2>
+
+<p>The following articles cover additional aspects of using <strong>reticulate</strong>:</p>
+
+<ul>
+<li><p><a href="r_markdown.html">R Markdown Python Engine</a> </p></li>
+<li><p><a href="versions.html">Python Version Configuration</a></p></li>
+<li><p><a href="python_packages.html">Installing Python Packages</a> </p></li>
+<li><p><a href="package.html">Using reticulate in an R Package</a></p></li>
+<li><p><a href="arrays.html">Arrays in R and Python</a></p></li>
+</ul>
+
+</body>
+
+</html>

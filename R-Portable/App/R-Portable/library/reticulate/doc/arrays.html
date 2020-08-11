@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Column-major order</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>Dense data are stored contiguously in memory, addressed by a single index (the
+memory address). Array memory ordering schemes translate that single index into
+multiple indices corresponding to the array coordinates. For example, matrices
+have two indices: rows and columns. Three-d arrays have three, and so on.</p>
+
+<h2>Column-major order</h2>
+
+<p><em>Column-major</em> order is used by Fortran, Matlab, R, and most underlying core
+linear algebra libraries (BLAS). Sequential address locations are translated
+into array coordinates <em>i, j, k, &hellip;</em> so that the first array coordinates vary
+most rapidly with address, the next array coordinates less rapidly, and so on.
+For instance, four address locations 1, 2, 3, 4 are translated into a two by
+two matrix coordinate system <em>(i, j)</em> as:</p>
+
+<pre><code>address   i  j
+  1       1  1
+  2       2  1
+  3       1  2
+  4       2  2
+</code></pre>
+
+<p>The phrase <em>column-major</em> comes from the matrix example, where sequentially
+addressed data are laid out sequentially along columns of the matrix.</p>
+
+<p>The concept of &ldquo;row&rdquo; and &ldquo;column&rdquo; don&#39;t directly apply to n-d arrays, but the
+same idea holds. For instance the R language lays out sequential addresses from
+1, 2, &hellip;, 8, into a 2x2x2 3-d array as:</p>
+
+<pre><code>address   i  j  k
+  1       1  1  1
+  2       2  1  1
+  3       1  2  1
+  4       2  2  1
+  5       1  1  2
+  6       2  1  2
+  7       1  2  2
+  8       2  2  2
+</code></pre>
+
+<p>Consider the 3-d case shown above. Given array dimensions <em>d<sub>1</sub>=2, d<sub>2</sub>=2, d<sub>3</sub>=2</em>,
+a formula that takes 1-based coordinates <em>i, j, k</em> and returns address location
+<em>a</em> is
+<br/>
+<em>a = i + (j - 1) &#42; d<sub>1</sub> + (k - 1) &#42; d<sub>2</sub> &#42; d<sub>1</sub></em>.</p>
+
+<h2>Row-major order</h2>
+
+<p>Row-major ordering is a different translation between sequential address
+indices and array coordinates, instead laying sequential data in memory across
+rows in matrices. Row-major ordering is sometimes called &ldquo;C&rdquo; style ordering
+and column-major ordering &ldquo;Fortran&rdquo; style. Python/NumPy refers to the orderings
+in array flags as C_CONTIGUOUS and F_CONTIGUOUS, respectively.
+For instance
+address locations 1, 2, 3, 4 are translated into a 2x2 matrix coordinate
+system <em>(i, j)</em> as:</p>
+
+<pre><code>address   i  j
+  1       1  1
+  2       1  2
+  3       2  1
+  4       2  2
+</code></pre>
+
+<p>Efficient wrappers to BLAS routines exist for row-major ordered arrays.
+For completeness, here is a 2x2x2 3-d example layout:</p>
+
+<pre><code>address   i  j  k
+  1       1  1  1
+  2       1  1  2
+  3       1  2  1
+  4       1  2  2
+  5       2  1  1
+  6       2  1  2
+  7       2  2  1
+  8       2  2  2
+</code></pre>
+
+<p>And similarly to above a formula for this example that converts these 1-based
+array coordinates to address indices is:
+<br/>
+<em>a = k + (j - 1) &#42; d<sub>3</sub> + (i - 1) &#42; d<sub>3</sub> &#42; d<sub>2</sub></em>.</p>
+
+<p>See the following notes for a general formula for row- and column-order
+coordinate to address mapping, but note the use of zero-based indexing.</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Row-_and_column-major_order#Address_calculation_in_general">https://en.wikipedia.org/wiki/Row-_and_column-major_order#Address_calculation_in_general</a></li>
+<li><a href="https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html">https://docs.scipy.org/doc/numpy/reference/arrays.ndarray.html</a></li>
+</ul>
+
+<h2>Python</h2>
+
+<p>The Python NumPy library is very general. It can use <em>either</em> row-major or
+column-major ordered arrays, but it defaults to row-major ordering.
+NumPy also supports sophisticated <em>views</em> of data with custom strides across
+non-contiguous regions of memory.</p>
+
+<h2>Displaying arrays</h2>
+
+<p>R displays array data with unambiguously-labeled coordinate indices. Python
+doesn&#39;t show this and displays n-d array data in different order than R (making
+matters somewhat confusing for R users).  Consider the following example that
+creates and displays identical 4x3x2 arrays in R and Python:</p>
+
+<pre><code class="r">array(1:24, c(4,3,2))
+
+## , , 1
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+##      [,1] [,2] [,3]
+## [1,]   13   17   21
+## [2,]   14   18   22
+## [3,]   15   19   23
+## [4,]   16   20   24
+</code></pre>
+
+<pre><code class="python">import numpy as np
+np.reshape(np.arange(1,25), (4,3,2), &quot;F&quot;)
+
+## array([[[ 1, 13],
+##         [ 5, 17],
+##         [ 9, 21]],
+##
+##        [[ 2, 14],
+##         [ 6, 18],
+##         [10, 22]],
+##
+##        [[ 3, 15],
+##         [ 7, 19],
+##         [11, 23]],
+##
+##        [[ 4, 16],
+##         [ 8, 20],
+##         [12, 24]]])
+</code></pre>
+
+<p>It&#39;s easier to know which coordinates go where in R because they are labeled.
+Python, using column-major ordering, displays the same thing but in a different
+order where the first indices are grouped together in order. To see that these
+arrays are, in fact, <strong>the same</strong>, let&#39;s pick out values along just the first
+&ldquo;row&rdquo;, that is values with a first index of 1 &reg; or 0 (Python):</p>
+
+<pre><code class="r">array(1:24, c(4, 3, 2))[1,, ,drop=FALSE]
+
+## , , 1
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## 
+## , , 2
+##      [,1] [,2] [,3]
+## [1,]   13   17   21
+</code></pre>
+
+<pre><code class="python">np.reshape(np.arange(1,25), (4,3,2), &quot;F&quot;)[0]
+
+## array([[ 1, 13],
+##        [ 5, 17],
+##        [ 9, 21]])
+</code></pre>
+
+<p>I specified R&#39;s <code>drop=FALSE</code> argument to preserve array dimensionality above.
+If we use <code>drop=TRUE</code> (the default) then R returns a 3x2 array in column-major
+order&ndash;exactly the same result as Python above.</p>
+
+<pre><code class="r">array(1:24, c(4, 3, 2))[1,, ,drop=TRUE]
+
+##      [,1] [,2]
+## [1,]    1   13
+## [2,]    5   17
+## [3,]    9   21
+</code></pre>
+
+<p>Note that the Python result is a special view of the original array data, not
+a copy. In this case it&#39;s not stored in contiguous memory addresses and is
+neither really row- nor column-major. This is shown in the array flags:</p>
+
+<pre><code class="python">np.reshape(np.arange(1,25), (4,3,2), &quot;F&quot;)[0].flags
+
+##  C_CONTIGUOUS : False
+##  F_CONTIGUOUS : False
+##  OWNDATA : False
+##  WRITEABLE : True
+##  ALIGNED : True
+##  UPDATEIFCOPY : False
+</code></pre>
+
+<h2>Reticulate with care</h2>
+
+<p>The reticulate package lets us easily mix R and Python code and data. Recall
+that R represents all dense arrays in column-major order but Python/NumPy can
+represent dense arrays much more generally. That difference warrants attention
+and can easily lead to confusion!</p>
+
+<p>Remember the following things when working with R and Python arrays, especially
+<em>n</em>-d arrays with <em>n &gt; 2</em>.</p>
+
+<ol>
+<li>Dense R arrays are presented to Python/NumPy as column-major NumPy arrays.</li>
+<li><em>All</em> NumPy arrays (column-major, row-major, otherwise) are presented to R as column-major arrays, because that is the only kind of dense array that R understands.</li>
+<li>R and Python print arrays differently.</li>
+</ol>
+
+<p>Also worth knowing:</p>
+
+<ul>
+<li>Python array indices are zero-based, R indices are 1-based.</li>
+<li>R arrays are only copied to Python when they need to be, otherwise data are shared.</li>
+<li>Python arrays are <em>always</em> copied when moved into R arrays. This can sometimes lead to three copies of any one array in memory at any one time (at the moment this was written). Future versions will reduce that copy overhead to two.</li>
+</ul>
+
+<p>Point number 3. introduces the most potential confusion. Let&#39;s look at some examples
+to explore these points.</p>
+
+<p>The following example creates a 2x2x2 array in Python using native NumPy
+row-major ordering and imports it into R. Despite the fact that they print out
+differently, they are in fact the same.</p>
+
+<pre><code class="r">library(reticulate)
+np &lt;- import(&quot;numpy&quot;, convert=FALSE)
+(x &lt;- np$arange(1, 9)$reshape(2L, 2L, 2L))
+
+## [[[ 1.  2.]
+##   [ 3.  4.]]
+## 
+##  [[ 5.  6.]
+##   [ 7.  8.]]]
+
+(y &lt;- py_to_r(x))
+
+## , , 1
+##      [,1] [,2]
+## [1,]    1    3
+## [2,]    5    7
+## 
+## , , 2
+##      [,1] [,2]
+## [1,]    2    4
+## [2,]    6    8
+</code></pre>
+
+<p>Wait a minute! They look different! But remember Python&#39;s print order is different.
+The first &ldquo;rows&rdquo; (first index values) are grouped together. Let&#39;s pull out elements
+with first index of 1 in the R result, with and without dropping the unused dimension
+to show precisely what we&#39;re indexing here:</p>
+
+<pre><code class="r">y[1,,, drop=FALSE]
+
+## , , 1
+##      [,1] [,2]
+## [1,]    1    3
+## 
+## , , 2
+##      [,1] [,2]
+## [1,]    2    4
+
+y[1,,, drop=TRUE]
+
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+</code></pre>
+
+<p>Note that this is the same as the first block printed in the Python output above!
+These arrays really are the same in Python and R, respectively. Their apparent
+differences are merely a result of printing.</p>
+
+<h3>Another example</h3>
+
+<p>Let&#39;s look at this again with another example, this time with an array with
+different lengths along each dimension to make things even more clear
+(hopefully). Consider the following 4x3x2 array constructed in Python in
+row-major order:</p>
+
+<pre><code class="r">np &lt;- import(&quot;numpy&quot;, convert=FALSE)
+(x &lt;- np$reshape(np$arange(1, 25), c(4L, 3L, 2L)))
+
+## [[[  1.   2.]
+##   [  3.   4.]
+##   [  5.   6.]]
+## 
+##  [[  7.   8.]
+##   [  9.  10.]
+##   [ 11.  12.]]
+## 
+##  [[ 13.  14.]
+##   [ 15.  16.]
+##   [ 17.  18.]]
+## 
+##  [[ 19.  20.]
+##   [ 21.  22.]
+##   [ 23.  24.]]]
+
+(y &lt;- py_to_r(x))
+
+## , , 1
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17
+## [4,]   19   21   23
+## 
+## , , 2
+##      [,1] [,2] [,3]
+## [1,]    2    4    6
+## [2,]    8   10   12
+## [3,]   14   16   18
+## [4,]   20   22   24
+</code></pre>
+
+<p>Again, they look quite different but the R and Python arrays are really the
+same. Let&#39;s pick out the sub-array with third index = 0 (Python), equivalently
+the third index = 1 in R.</p>
+
+<pre><code class="r">np$take(x, 0L, 2L)
+
+## [[  1.   3.   5.]
+##  [  7.   9.  11.]
+##  [ 13.  15.  17.]
+##  [ 19.  21.  23.]]
+
+y[, , 1]
+
+##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17
+## [4,]   19   21   23
+</code></pre>
+
+<p>The NumPy <code>take()</code> function is equivalent in this example to the Python
+notation  <code>x[:, :, 0]</code>; that is, entries with third dimension index = 0.  (See
+<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.take.html">https://docs.scipy.org/doc/numpy/reference/generated/numpy.take.html</a> for
+more information.)</p>
+
+<p>The corresponding R notation, <code>y[, , 1]</code>, returns the same thing in this
+example: a 4x3 matrix.</p>
+
+<p>Despite different internal memory ordering, and particularly despite awkward
+differences in printing arrays, the arrays are the same and are indexed the
+same way in each language respectively.</p>
+
+<h2>What about going from R column-major arrays to Python?</h2>
+
+<p>The previous examples focused on row-major arrays natively constructed in
+Python. Let&#39;s see what happens when we start with column-major arrays from R
+and work with them in Python.</p>
+
+<pre><code class="r">(y &lt;- array(1:24, c(4, 3, 2)))  # In R
+
+## , , 1
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+## 
+## , , 2
+##      [,1] [,2] [,3]
+## [1,]   13   17   21
+## [2,]   14   18   22
+## [3,]   15   19   23
+## [4,]   16   20   24
+
+(x &lt;- np$array(y))              # and now in Python
+
+## [[[ 1 13]
+##   [ 5 17]
+##   [ 9 21]]
+## 
+##  [[ 2 14]
+##   [ 6 18]
+##   [10 22]]
+## 
+##  [[ 3 15]
+##   [ 7 19]
+##   [11 23]]
+## 
+##  [[ 4 16]
+##   [ 8 20]
+##   [12 24]]]
+</code></pre>
+
+<p>Note that the Python version takes advantage of NumPy&#39;s extraordinary
+flexibility and preserves R&#39;s column-major ordering:</p>
+
+<pre><code class="r">x$flags
+
+##   C_CONTIGUOUS : False
+##   F_CONTIGUOUS : True
+##   OWNDATA : True
+##   WRITEABLE : True
+##   ALIGNED : True
+##   UPDATEIFCOPY : False
+</code></pre>
+
+<p>You can probably tell already from the previous sections that these arrays
+are the same, and obey the same indexing conventions. The next example
+selects a subarray such that the third index of each array is 0 (Python)
+or 1 &reg;:</p>
+
+<pre><code class="r">y[, , 1]
+
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+
+np$take(x, 0L, 2L)
+
+## [[ 1  5  9]
+##  [ 2  6 10]
+##  [ 3  7 11]
+##  [ 4  8 12]]
+</code></pre>
+
+<p>It&#39;s important to remember that the order is preserved from Python when
+copying an array result back into R:</p>
+
+<pre><code class="r">py_to_r(np$take(x, 0L, 2L))
+
+##      [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+</code></pre>
+
+<p><em><strong>The upshot is that arrays created by either R or Python are indexed exactly the
+same in either language.</strong></em></p>
+
+<h3>But the array I created in R ends up transposed compared to ones I create in Python?</h3>
+
+<p>Right. That&#39;s just a simple consequence of the default column-major and
+row-major formats used in R and NumPy respectively. You are always free to use
+R&#39;s column-major format directly in Python, for example using the &ldquo;F&rdquo; flag
+below (for Fortran):</p>
+
+<pre><code class="r">np$reshape(np$arange(1, 25), c(4L, 3L, 2L), &quot;F&quot;)
+
+## [[[  1.  13.]
+##   [  5.  17.]
+##   [  9.  21.]]
+## 
+##  [[  2.  14.]
+##   [  6.  18.]
+##   [ 10.  22.]]
+## 
+##  [[  3.  15.]
+##   [  7.  19.]
+##   [ 11.  23.]]
+## 
+##  [[  4.  16.]
+##   [  8.  20.]
+##   [ 12.  24.]]]
+</code></pre>
+
+<p>Note that the result is just like the one we got starting from R above.</p>
+
+<p>Re-arranging R arrays into row-major order requires more work.  R is less
+flexible than Python and we can&#39;t explicitly change R&#39;s memory order
+representation.  When the array is a matrix when we can simply use
+<code>byrow=TRUE</code>. In the n-d array case, a portion of the problem can be reduced to
+using <code>byrow=TRUE</code> followed by judicious index permutation with <code>aperm()</code>.
+Here is one somewhat inefficient example:</p>
+
+<pre><code class="r">y &lt;- aperm(array(matrix(1:24, c(3 * 4, 2), byrow=TRUE),
+           c(3, 4, 2)), c(2, 1, 3))
+</code></pre>
+
+<p>See the last section below for a different example.</p>
+
+<p>We can verify that the above ugly expression exactly reproduces a NumPy
+row-major array by subtracting our R array from a native Python one:</p>
+
+<pre><code class="r">np &lt;- import(&quot;numpy&quot;, convert=FALSE)
+o  &lt;- import(&quot;operator&quot;, convert=FALSE)
+
+o$sub(np$arange(1, 25)$reshape(4L, 3L, 2L), np$array(y))
+
+## [[[ 0.  0.]
+##   [ 0.  0.]
+##   [ 0.  0.]]
+## 
+##  [[ 0.  0.]
+##   [ 0.  0.]
+##   [ 0.  0.]]
+## 
+##  [[ 0.  0.]
+##   [ 0.  0.]
+##   [ 0.  0.]]
+## 
+##  [[ 0.  0.]
+##   [ 0.  0.]
+##   [ 0.  0.]]]
+</code></pre>
+
+<p>The above NumPy arrays are the same, their element-wise difference is zero.</p>
+
+<h3>Reshaping arrays</h3>
+
+<p>In R you would typically reshape an array using the <code>dim&lt;-()</code> function. For example:</p>
+
+<pre><code class="r">dim(x) &lt;- c(1000, 28, 28)
+</code></pre>
+
+<p>In R, this operation simply changes the &ldquo;dim&rdquo; attribute of the array, effectively 
+re-interpreting the array indices as specified using column-major semantics.</p>
+
+<p>However, the NumPy <code>reshape</code> method uses row-major semantics by default, so if you are mixing
+R and Python code that reshapes arrays you will find that the reshaping will be
+inconsistent if you use the R <code>dim&lt;-()</code> function. </p>
+
+<p>To overcome this inconsistency, there is an <code>array_reshape()</code> function which will
+reshape an R array using row-major semantics (i.e. will fill the new dimensions
+in row-major rather than col-major order). The example above would be re-written as:</p>
+
+<pre><code class="r">x &lt;- array_reshape(x, c(1000, 28, 28))
+</code></pre>
+
+<p>Here&#39;s a further example to illustrate the difference:</p>
+
+<pre><code class="r"># let&#39;s construct a 2x2 array from a vector of 4 elements
+x &lt;- 1:4
+
+# rearrange will fill the array row-wise
+array_reshape(x, c(2, 2))
+#      [,1] [,2]
+# [1,]    1    2
+# [2,]    3    4
+
+# setting the dimensions &#39;fills&#39; the array col-wise
+dim(x) &lt;- c(2, 2)
+x
+#      [,1] [,2]
+# [1,]    1    3
+# [2,]    2    4
+</code></pre>
+
+<h2>Other differences warranting caution</h2>
+
+<p>It&#39;s worth noting that analogs of R&#39;s <code>apply()</code> function in Python behave
+differently. The following excellent Mathesaurus reference
+<a href="http://mathesaurus.sourceforge.net/r-numpy.html">http://mathesaurus.sourceforge.net/r-numpy.html</a> applies well to matrices and
+vectors, but is misleading for <em>n</em>-d arrays with <em>n &gt; 2</em>.</p>
+
+<p>In particular, Mathesaurus says that if <em>a</em> is a <em>matrix</em>, then the sum of each
+column in Python may be computed by  <code>a.sum(0)</code>, and in R (among other possible
+ways) by <code>apply(a, 2, sum)</code>. Although correct for matrices, this is in general
+not quite right. A more precise R analog of NumPy&#39;s <code>a.sum(0)</code> is
+<code>apply(a, seq_along(dim(a))[-1], sum)</code>.
+In other words, <code>a.sum(0)</code> means sum over the first dimension, returning
+an array of the same dimensions as <em>a</em> but with the first dimension removed.</p>
+
+<p>It&#39;s easy to be confused by this, so let&#39;s see an example using a 4x3x2
+array, first in Python:</p>
+
+<pre><code class="r">library(reticulate)
+np &lt;- import(&quot;numpy&quot;, convert=FALSE)
+x  &lt;- np$arange(1, 25)$reshape(c(4L, 3L, 2L))
+x$sum(0)   # N. B. a 3x2 matrix!
+
+## [[ 40.  44.]
+##  [ 48.  52.]
+##  [ 56.  60.]]
+
+# N. B. A tuple() object is required here (NumPy vectors won&#39;t work)
+x$sum(tuple(1L, 2L))
+
+## [  21.   57.   93.  129.]
+</code></pre>
+
+<p>And now the corresponding sums in R:</p>
+
+<pre><code class="r">y &lt;- py_to_r(x)
+apply(y, dim(y)[-1], sum)
+
+##      [,1] [,2] [,3]
+## [1,]   40   48   56
+## [2,]   44   52   60
+
+apply(y, 1, sum)
+
+## [1]  21  57  93 129
+</code></pre>
+
+<h1>Addressing an issue that came up</h1>
+
+<p>These notes were prepared in response to a tensorflow issue now in the
+reticulate package <a href="https://github.com/rstudio/reticulate/issues/9">https://github.com/rstudio/reticulate/issues/9</a>.
+The issue directly gets to a common source of confusion with n-d
+arrays in R and Python and how they are printed and stored.
+A lightly-edited reproduction of the reference Python code in the issue
+appears below.</p>
+
+<pre><code class="r">library(tensorflow)
+np   &lt;- import(&quot;numpy&quot;, convert=FALSE)
+a    &lt;- np$arange(1, 9)$reshape(c(2L, 2L, 2L))
+b    &lt;- np$arange(1, 5)$reshape(c(2L, 2L, 1L))
+c    &lt;- tf$matmul(tf$constant(a), tf$constant(b))
+tf$Session()$run(c)
+
+## , , 1
+##      [,1] [,2]
+## [1,]    5   11
+## [2,]   39   53
+</code></pre>
+
+<p>The issue goes on to reproduce the example using R-generated arrays
+as follows:</p>
+
+<pre><code class="r">A &lt;- list(matrix(1:4, nrow=2, byrow=T), matrix(5:8, nrow=2, byrow=T))
+A &lt;- array(unlist(A), dim=c(2,2,2))
+</code></pre>
+
+<p>However, already at this point we see that the R-generated array <em>A</em> is
+not the same as the above array <em>a</em> by comparing <em>a</em> with
+<code>np$array(A)</code> below.</p>
+
+<p>However, we can see how it can be easy to make the mistake that they are the
+same simply because of the way the arrays are printed! The R array looks
+superficially the same as the printed Python array.</p>
+
+<pre><code class="r">print(a)
+
+## [[[ 1.  2.]
+##   [ 3.  4.]]
+## 
+##  [[ 5.  6.]
+##   [ 7.  8.]]]
+
+
+print(np$array(A))
+
+## [[[1 5]
+##   [2 6]]
+## 
+##  [[3 7]
+##   [4 8]]]
+
+
+print(A)
+
+## , , 1
+##      [,1] [,2]
+## [1,]    1    2
+## [2,]    3    4
+## 
+## , , 2
+##      [,1] [,2]
+## [1,]    5    6
+## [2,]    7    8
+</code></pre>
+
+<p>Instead, we need to construct the R array <em>A</em> differently to match the
+row-major order of Python, discussed in the previous sections. We can
+use many approaches including:</p>
+
+<pre><code class="r">(A &lt;- np$array(aperm(array(1:8, c(2,2,2)), c(3,2,1))))
+
+## [[[1 2]
+##   [3 4]]
+## 
+##  [[5 6]
+##   [7 8]]]
+</code></pre>
+
+<p>With similar care ordering the values in the <em>b</em> array
+we can finish replicating the example in R (with the same
+result as the reference Python example above).</p>
+
+<pre><code class="r">A &lt;- np$array(aperm(array(1:8, c(2,2,2)), c(3,2,1)))
+B &lt;- np$array(aperm(array(1:4, c(2,2,1)), c(2,1,3)))
+C &lt;- tf$matmul(tf$constant(A), tf$constant(B))
+tf$Session()$run(C)
+
+## , , 1
+##      [,1] [,2]
+## [1,]    5   11
+## [2,]   39   53
+</code></pre>
+
+</body>
+
+</html>

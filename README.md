@@ -31,7 +31,8 @@ If R and Anaconda are already installed, you will only need the files in Inter-V
 
 Prior to initializing the application, ensure that the R dependencies are fulfilled by running the following in the R console:
 ```
-install.packages(c("shiny",
+install.packages(c("DT",
+                   "shiny",
                    "htmlwidgets",
                    "shinyBS",
                    "shinyjs",

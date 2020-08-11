@@ -2,10 +2,18 @@
 
 Inter-ViSTA (**Inter**action **Vi**sualization in **S**pace and **T**ime **A**nalysis) is a computational platform designed by the Cristea Lab at Princeton University to integrate spatial and temporal proteome and protein interaction information from user derived experiments with the wealth of knowledge in existing databases. 
 
-Inter-ViSTA is available as both a web-based platform ([Inter-ViSTA online](http://intervista.princeton.edu)) or as a portable program when downloaded from the [Inter-ViSTA github page](https://github.com/cristealab/Inter-ViSTA).
+Inter-ViSTA is available as both a web-based platform ([Inter-ViSTA online](http://intervista.princeton.edu)), as a portable program when downloaded from the [Inter-ViSTA github page](https://github.com/cristealab/Inter-ViSTA), or as a [Docker image](https://hub.docker.com/repository/docker/cristealab/intervista).
 
 ## Why use Inter-ViSTA?
 Inter-ViSTA utilizes cutting-edge graph visualization algorithms and automatic programmatic access to protein databases to deliver an intuitive and user-friendly data visualization platform. The platform enables users to discover underlying patterns in multiple interaction networks across conditions using an interactive interface with dynamic network visuals and exploratory quantitative analysis. Users can integrate interaction networks of one or many baits, include subcellular localization information and functional annotations to modify networks, analyze dynamic quantitative properties of the network, and identify properties of proteins shared between multiple baits - all with their own data, with few manual steps.
+
+## Which branch of the Inter-ViSTA GitHub repository should I use?
+We currently maintain 4 slightly different branches of the Inter-ViSTA application on GitHub:
+
+1. Base (general use) - This branch contains only the core Inter-ViSTA application code. For it to function properly, you must have both R and Python (Anaconda) installed on your local machine. See *What if I already have R and Anaconda on my machine?* below for more information on specific dependencies.
+2. Portable (general use) - In addition to the core code, this branch contains a portable version of RStudio and the necessary R libraries to run Inter-ViSTA. However, it still requires a local Python installation and a properly-configured conda environment to run properly. See *System requirements and dependencies* and *What if I don't have Python on my computer?*
+3. Docker (for development/deployment only) - Core code + necessary files to generate the Docker image found at https://hub.docker.com/repository/docker/cristealab/intervista
+4. shinyapps.io (for development/deployment only) - Core code modified to run on the system configuration required by shinyapps.io
 
 ## Running an Inter-ViSTA analysis
 Inter-ViSTA is designed to be compatible with a wide variety of interaction-based proteomics approaches (AP-MS, APEX, BioID, etc.). See the "Instructions" tab of the application to learn how to format and upload your own data for visualization and analysis with Inter-ViSTA.

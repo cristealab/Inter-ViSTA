@@ -11,8 +11,15 @@ library(networkDynamic)
 library(RColorBrewer)
 library(tsna)
 
-condaenv <- "intervista"
-use_condaenv(condaenv, conda = "auto", required = FALSE)
+
+# make a virtualenv
+reticulate::virtualenv_create(envname = 'intervista', python = NULL)
+
+# install Python packages
+reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76'))
+
+# use intervista environment
+reticulate::use_virtualenv("~/intervista")
 
 source_python("/srv/shiny-server/AppFiles/getStringInteractors.py")
 source_python("/srv/shiny-server/AppFiles/gsi.py")

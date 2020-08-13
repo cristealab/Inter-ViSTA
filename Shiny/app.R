@@ -19,10 +19,10 @@ reticulate::virtualenv_create(envname = 'intervista', python = NULL)
 reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76'))
 
 # use intervista environment
-reticulate::use_virtualenv("~/intervista")
+reticulate::use_virtualenv("intervista", required=TRUE)
 
-source_python("/srv/shiny-server/AppFiles/getStringInteractors.py")
-source_python("/srv/shiny-server/AppFiles/gsi.py")
+source_python("AppFiles/getStringInteractors.py")
+source_python("AppFiles/gsi.py")
 source_python("AppFiles/UniprotQuery.py")
 source_python("AppFiles/ruq.py")
 

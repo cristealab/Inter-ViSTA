@@ -13,7 +13,7 @@ library(tsna)
 
 
 # make a virtualenv
-reticulate::virtualenv_create(envname = 'intervista', python = NULL)
+reticulate::virtualenv_create(envname = 'intervista', python = '/usr/bin/python3')
 
 # install Python packages
 reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76'))

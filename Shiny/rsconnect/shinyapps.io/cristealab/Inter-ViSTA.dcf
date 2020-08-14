@@ -5,8 +5,6 @@ account: cristealab
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2633443
-bundleId: 3511382
+bundleId: 3517882
 url: https://cristealab.shinyapps.io/inter-vista/
-when: 1597330689.29487
-asMultiple: FALSE
-asStatic: FALSE
+when: 1597445532.81834

@@ -32,7 +32,7 @@ tabPanel(title = "Instructions", value = "instructions", fluid = TRUE,
                       
                       br(),
  
-                      strong('If you want to be able to access the capabilities of Inter-ViSTA offline, you can download a portable-version of on github by clicking', a('this link', href = 'https://github.com/cristealab/Inter-ViSTA'), style = 'color: #525252', align = 'justify'),
+                      strong('If you want to be able to access the capabilities of Inter-ViSTA offline, you can download a portable-version of Inter-ViSTA on github by clicking', a('this link', href = 'https://github.com/cristealab/Inter-ViSTA'), style = 'color: #525252', align = 'justify'),
                  
                       
                       br(),

@@ -35,7 +35,7 @@ conda create -n intervista biopython requests pandas
 Then simply download and extract the Inter-ViSTA.zip folder from the main github page and double-click "run.vbs" to run the application.
 
 ### What if I already have R and Anaconda on my machine?
-If R and Anaconda are already installed, you will only need the files in Inter-ViSTA's ["Shiny" folder](https://github.com/cristealab/Inter-ViSTA/tree/private/Shiny) to run the application.
+If R and Anaconda are already installed, you will only need the files in Inter-ViSTA's ["Shiny" folder](./Shiny) to run the application.
 
 Prior to initializing the application, ensure that the R dependencies are fulfilled by running the following in the R console:
 ```

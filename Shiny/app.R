@@ -13,13 +13,13 @@ library(tsna)
 
 
 # make a virtualenv
-reticulate::virtualenv_create(envname = 'intervista', python = '/usr/bin/python3')
+try(reticulate::virtualenv_create(envname = 'intervista', python = '/usr/bin/python3'))
 
 # install Python packages
-reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76'))
+try(reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76')))
 
 # use intervista environment
-reticulate::use_virtualenv("intervista", required=TRUE)
+try(reticulate::use_virtualenv("intervista", required=TRUE))
 
 source_python("AppFiles/getStringInteractors.py")
 source_python("AppFiles/gsi.py")

@@ -2,6 +2,11 @@
 
 tabPanel(title = "Interactome Network", value = "interactome", fluid = TRUE, 
          
+         tags$head(tags$style(".shiny-output-error{visibility: hidden}")),
+         
+         tags$head(tags$style(".shiny-output-error:after{content: 'An error has occurred. For assistance, please email cristealab@gmail.com or create an issue with the Inter-ViSTA GitHub repository (https://github.com/cristealab/Inter-ViSTA). We apologize for any inconvenience.';
+                              visibility: visible}")),
+         
          sidebarLayout(
            
            sidebarPanel(

@@ -68,9 +68,11 @@ class GetSTRINGInteractions:
             r = requests.post(url, data = params)
             df = pd.read_csv(io.StringIO(r.text), sep = '\t', header = 0, index_col = None)
             
+        if 'stringId' in df.columns and 'queryItem' in df.columns:    
+            df = df[['stringId', 'queryItem']].set_index('stringId')
+        else:
+            df = pd.DataFrame(columns = ['stringId', 'queryItem']).set_index('stringId')
             
-        df = df[['stringId', 'queryItem']].set_index('stringId')
-        
         return df
 
     

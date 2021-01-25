@@ -11,15 +11,17 @@ library(networkDynamic)
 library(RColorBrewer)
 library(tsna)
 
+virtualenv_dir = Sys.getenv('VIRTUALENV_NAME')
+python_path = Sys.getenv('PYTHON_PATH')
 
 # make a virtualenv
-try(reticulate::virtualenv_create(envname = 'intervista', python = '/usr/bin/python3'))
+try(reticulate::virtualenv_create(envname = virtualenv_dir, python = python_path))
 
 # install Python packages
-try(reticulate::virtualenv_install(envname= 'intervista', packages=c('requests', 'pandas', 'biopython==1.76')))
+try(reticulate::virtualenv_install(virtualenv_dir, packages=c('requests', 'pandas', 'biopython==1.76')))
 
 # use intervista environment
-try(reticulate::use_virtualenv("intervista", required=TRUE))
+try(reticulate::use_virtualenv(virtualenv_dir, required=TRUE))
 
 source_python("AppFiles/getStringInteractors.py")
 source_python("AppFiles/gsi.py")
